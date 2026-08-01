@@ -42,3 +42,21 @@ The judges have said explicitly: an honest partial result beats a confident unve
 - The Go implementation will mirror JSBI's custom internal representation (`sign` boolean + 30-bit digit slice `[]uint32`).
 - All multi-precision arithmetic, shifts, bitwise operations, radix parsing, and base conversion algorithms will be ported faithfully from JSBI's algorithms directly in Go without relying on Go stdlib `math/big.Int` as an internal backend.
 - Memory allocation, digit trimming, carry/borrow propagation, and sign semantics will match JSBI line-for-line.
+
+Behavior Preservation Policy [LOCKED]
+
+The official JSBI implementation is the behavioral oracle.
+
+Publicly observable behavior shall match JSBI exactly unless a verified
+correctness bug is discovered.
+
+If a potential bug is found:
+
+1. Reproduce it against the official JSBI implementation.
+2. Confirm it is not a porting error.
+3. Document it in BUGS.md and DECISIONS.md.
+4. File an upstream issue when appropriate.
+5. Do not intentionally diverge from JSBI behavior without explicit
+   documentation and approval.
+
+Behavioral equivalence takes precedence over perceived improvements.

@@ -14,9 +14,11 @@ Go port of `GoogleChromeLabs/jsbi` (TypeScript, Apache-2.0).
 
 ## One-Command Build & Test
 ```bash
-./go_sdk/go/bin/go.exe test -v ./tests/port/...
-# or via Docker
-docker build -t jsbi-go . && docker run --rm jsbi-go
+# Run all unit tests
+export GOTMPDIR='c:/Users/madha/OneDrive/Desktop/port TS-GO/tmp' && ./go_sdk/go/bin/go.exe test -c -o tmp/test.exe ./tests/port && ./tmp/test.exe -test.v
+
+# Run allocation benchmarks
+./tmp/test.exe -test.bench=. -test.benchmem
 ```
 
 ## Status & Progress
@@ -24,7 +26,7 @@ docker build -t jsbi-go . && docker run --rm jsbi-go
 | Cluster | Status | Unit Tests | Differential Fuzzing | Fuzz Duration | Survival Rate |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **1. Construction & Parsing** | COMPLETE | 6/6 PASS | 251,000 cases (Element-by-Element Limb Match) | 65.11s | 100% |
-| **2. Comparison** | PENDING | - | - | - | - |
+| **2. Comparison** | COMPLETE | 4/4 PASS (10/10 Total) | 389,000 cases (Compare + 6 Relational Operators + NaN) | 65.13s | 100% |
 | **3. Add / Subtract** | PENDING | - | - | - | - |
 | **4. Multiply** | PENDING | - | - | - | - |
 | **5. Divide / Remainder** | PENDING | - | - | - | - |
@@ -33,4 +35,5 @@ docker build -t jsbi-go . && docker run --rm jsbi-go
 | **8. asIntN / asUintN** | PENDING | - | - | - | - |
 | **9. toString / Radix** | PENDING | - | - | - | - |
 
+- **Allocation Goal**: `Compare` and `Equal` achieved `0 B/op, 0 allocs/op` (4.90 ns/op and 11.29 ns/op respectively).
 - **Original JSBI Test Suite**: 5 files verified passing unmodified on clean checkout.

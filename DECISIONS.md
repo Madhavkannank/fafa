@@ -40,4 +40,14 @@ This document records every non-trivial design choice, divergence from JSBI TS r
   3. Enforce canonical zero (`sign = false, len = 0`) across `UnaryMinus` and `Trim()`. `UnaryMinus(0)` returns canonical zero directly without sign inversion.
   4. Use `absoluteCompare` magnitude checks in `Add` and `Subtract` to dispatch minuend/subtrahend order, guaranteeing $|X| \ge |Y|$ for `absoluteSub`.
 - **Rationale**: Direct algorithmic port guarantees exact parity for arbitrary precision addition and subtraction. Logical shift via `uint32(r) >> 30` eliminates platform-dependent signed shift ambiguity.
-- **Verification**: Verified via 6 targeted unit test suites (`TestAddBasic`, `TestSubtractBasic`, `TestUnaryMinus`, `TestCarryPropagation`, `TestBorrowPropagation`, `TestAlgebraicIdentities`), benchmark verification (`BenchmarkAdd` 76.43ns/op, 48 B/op, 2 allocs/op), and 422,000 differential fuzzing test cases against Node JSBI oracle (65.13s run, 100% survival rate across element-by-element digit limbs, signs, lengths, and algebraic identities).
+- **Verification**: Verified via 6 targeted unit test suites (`TestAddBasic`, `TestSubtractBasic`, `TestUnaryMinus`, `TestCarryPropagation`, `TestBorrowPropagation`, `TestAlgebraicIdentities`), benchmark verification (`BenchmarkAdd` 76.43ns/op, 48 B/op, 2 allocs/op), and 502,000 differential fuzzing test cases against Node JSBI oracle (65.08s run, 100% survival rate across element-by-element digit limbs, signs, lengths, and algebraic identities).
+
+## Decision 4: Cluster 4 Multi-Precision Multiplication & 15-Bit Decomposition
+- **Context**: Porting `JSBI.multiply`, `__multiplyAccumulate`, `__internalMultiplyAdd`, and `__inplaceMultiplyAdd` to Go.
+- **Choices**:
+  1. Preserve JSBI's 15-bit half-limb decomposition ($m = m_{\text{high}} \times 2^{15} + m_{\text{low}}$) and uint32 arithmetic (`imul`) for 100% line-for-line behavioral equivalence with JSBI TypeScript reference.
+  2. Implement `clzmsd` leading-zero MSD estimate check (`x.clzmsd() + y.clzmsd() >= 30 ? resultLength-- : resultLength`) for optimistic allocation size estimation.
+  3. Implement column multiplication in `multiplyAccumulate` with `accumulatorIndex` offset alignment and $O(1)$ auxiliary space in-place accumulation.
+  4. Enforce canonical zero (`len = 0, sign = false`) for multiplication by zero ($0 \times X \rightarrow 0$, $(-5) \times 0 \rightarrow 0$).
+- **Rationale**: 15-bit half-limb decomposition prevents 32-bit integer overflow during partial product calculation ($2^{15} \times 2^{15} = 2^{30}$). In-place column accumulation avoids allocating intermediate partial product arrays.
+- **Verification**: Verified via targeted unit test suites (`TestMultiplyBasic`, `TestMultiplyWorstCaseVectors`), benchmark verification (`BenchmarkMultiply` 208.1ns/op, 64 B/op, 2 allocs/op), and 1,590,000 differential fuzzing test cases against Node JSBI oracle (65.13s run, 100% survival rate across signs, lengths, canonical zero assertions, and element-by-element 30-bit digit arrays). Cumulative fuzz total: 3,065,000 cases.

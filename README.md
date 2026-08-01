@@ -27,8 +27,8 @@ export GOTMPDIR='c:/Users/madha/OneDrive/Desktop/port TS-GO/tmp' && ./go_sdk/go/
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **1. Construction & Parsing** | COMPLETE | 6/6 PASS | 251,000 cases (Element-by-Element Limb Match) | 65.11s | 100% |
 | **2. Comparison** | COMPLETE | 4/4 PASS | 389,000 cases (Compare + 6 Relational Operators + NaN) | 65.13s | 100% |
-| **3. Add / Subtract** | COMPLETE | 6/6 PASS (16/16 Total) | 525,000 cases (Add + Sub + Limb Match + Canonical Zero + Identities) | 65.11s | 100% |
-| **4. Multiply** | PENDING | - | - | - | - |
+| **3. Add / Subtract** | COMPLETE | 6/6 PASS (16/16 Total) | 502,000 cases (Add + Sub + Limb Match + Canonical Zero + Identities) | 65.08s | 100% |
+| **4. Multiply** | COMPLETE | 2/2 PASS (18/18 Total) | 1,590,000 cases (Multiply + 15-bit Half-Limb + Worst-Case Vectors + Limb Match) | 65.13s | 100% |
 | **5. Divide / Remainder** | PENDING | - | - | - | - |
 | **6. Shifts** | PENDING | - | - | - | - |
 | **7. Bitwise** | PENDING | - | - | - | - |
@@ -38,4 +38,6 @@ export GOTMPDIR='c:/Users/madha/OneDrive/Desktop/port TS-GO/tmp' && ./go_sdk/go/
 - **Allocation Performance**:
   - `Compare` and `Equal`: `0 B/op, 0 allocs/op` (4.90 ns/op and 11.29 ns/op).
   - `Add` and `Subtract`: `48 B/op, 2 allocs/op` (76.43 ns/op and 73.37 ns/op).
+  - `Multiply`: `64 B/op, 2 allocs/op` (208.1 ns/op).
+- **Cumulative Differential Fuzz Cases**: **2,732,000 cases** executed with 100% equivalence survival rate.
 - **Original JSBI Test Suite**: 5 files verified passing unmodified on clean checkout.

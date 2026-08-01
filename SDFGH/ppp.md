@@ -71,3 +71,27 @@ Fuzz:        NOT EXECUTED (Cluster 3 review phase)
 Decision:    Behavior Preservation Policy locked in pp.md.
 Docs updated: SDFGH/pp.md, SDFGH/DESIGN_REVIEWS/03-add-subtract.md, SDFGH/PROJECT_STATUS.md, SDFGH/ppp.md
 Next:        Await User GATE approval on Design Review 03 before starting Cluster 3 code implementation.
+
+──────────────────────────────
+2026-08-01 14:58
+──────────────────────────────
+Task:        Cluster 3 — Add/Subtract Baseline Commit & Cluster 4 Design Review
+Files:       src/add_sub.go, tests/port/add_sub_test.go, fuzz/harness/fuzz_cluster3.go, fuzz/harness/oracle_cluster3.mjs, SDFGH/DESIGN_REVIEWS/04-multiply.md
+Commands:    git add ., git commit -m 'feat(cluster-3): ...', git tag cluster-3-baseline
+Result:      PASS — Commit dd6472f created and tagged as `cluster-3-baseline`. 502,000 neutral string differential fuzz cases passed (65.08s, 100% survival rate). Standing regression suite: 459k (Cluster 1) + 491k (Cluster 2) passed. Design Review 04 completed.
+Fuzz:        NOT EXECUTED (Cluster 4 review phase)
+Decision:    Decision 3 (Multi-precision addition, borrow underflow subtraction, bit-level shift proof, and zero canonicalization)
+Docs updated: DECISIONS.md, CHANGELOG.md, README.md, SDFGH/PROJECT_STATUS.md, SDFGH/ppp.md, SDFGH/DESIGN_REVIEWS/04-multiply.md
+Next:        Await User GATE approval on Design Review 04 before starting Cluster 4 code implementation.
+
+──────────────────────────────
+2026-08-01 15:52
+──────────────────────────────
+Task:        Cluster 4 — Multiplication Implementation, Unit Tests, Allocation Benchmark & Differential Fuzzing
+Files:       src/multiply.go, tests/port/multiply_test.go, fuzz/harness/fuzz_cluster4.go, fuzz/harness/oracle_cluster4.mjs, fuzz/log.txt
+Commands:    ./go_sdk/go/bin/go.exe test -c -o tmp/test.exe ./tests/port && ./tmp/test.exe -test.run 'TestMultiply|TestFrom|TestCompare|TestEqual|TestAdd|TestSubtract|TestUnary|TestCarry|TestBorrow|TestAlgebraic' -test.v, ./tmp/test.exe -test.run '^$' -test.bench=BenchmarkMultiply -test.benchmem, ./tmp/fuzz4.exe
+Result:      PASS (18/18 unit test suites passed; 0 failures across Clusters 1–4, including TestMultiplyBasic and TestMultiplyWorstCaseVectors). Benchmark verified allocation performance: BenchmarkMultiply 208.1ns/op (64 B/op, 2 allocs/op).
+Fuzz:        COMPLETED — 1,590,000 test cases executed in 65.13s against Node JSBI oracle (100% survival rate, 0 mismatches across signs, lengths, canonical zero assertions, worst-case boundary vectors, AND element-by-element 30-bit digit arrays). Total cumulative fuzz: 2,732,000 cases.
+Decision:    Decision 4 (Multi-precision multiplication, 15-bit half-limb decomposition, column accumulator alignment, CLZ result length estimation, zero canonicalization).
+Docs updated: ppp.md, CHANGELOG.md, DECISIONS.md, SDFGH/PROJECT_STATUS.md, README.md, fuzz/log.txt
+Next:        Commit proposal for Cluster 4, then proceed to Cluster 5 (Divide / Remainder).

@@ -92,3 +92,13 @@ This document records every non-trivial design choice, divergence from JSBI TS r
   3. **Borrow sign extraction**: In `truncateAndSubFromPowerOfTwo`, JSBI extracts borrow as `(r >>> 30) & 1` using unsigned right shift (JS `>>>` operator). Go uses signed `>>`. The correct Go equivalent is `uint32((r >> 30) & 1)` where `r` is `int64`. This is mathematically equivalent because borrow is always 0 or 1 and `r` is always negative when borrow is 1.
   4. **Test vector correction**: Initial test vectors for `AsIntN(30, 2^30-1)` expected `1073741823` but JSBI returns `-1`. Reason: in 30-bit two's complement, bit 29 (value `0x20000000`) is the sign bit. `2^30 - 1 = 0x3FFFFFFF` has bit 29 set, so it represents `-1`. Corrected all test vectors against the Node.js JSBI oracle before finalizing.
 - **Status**: Accepted & Implemented in `src/truncation.go`.
+
+### 9. Cluster 9 (ToString & Exponentiate) Radix Conversion, Popcount Fast Path & Divide-and-Conquer Fallback
+- **Date**: 2026-08-01
+- **Context**: Porting `JSBI.toString` (jsbi.ts lines 67–77), `JSBI.exponentiate` (lines 167–219), `JSBI.__toStringBasePowerOfTwo` (lines 916–958), and `JSBI.__toStringGeneric` (lines 960–1010) to Go.
+- **Decisions**:
+  1. **Binary Square-and-Multiply Exponentiation**: `Exponentiate(x, y)` provides the exact power computation needed for radix conversion split points (`radix^secondHalfChars`). Supports power-of-two fast paths (`2^n`), edge cases (`x=±1`, `y=0`, `y=1`), and exponent range error validation (`y < 0` or `exp >= kMaxLengthBits`).
+  2. **Power-of-Two Fast Path (`(radix & (radix-1)) == 0`)**: Uses `bits.OnesCount32(uint32(radix-1))` for popcount bit extraction. Fills buffer right-to-left in a single pass without division or reversal.
+  3. **Divide-and-Conquer Radix Conversion**: Uses precomputed `kMaxBitsPerChar` lookup table copied verbatim from JSBI source. Uses fast 15-bit half-digit long division when conqueror fits in single 15-bit limb (`divisor <= 0x7FFF`), and full `absoluteDivLarge` for larger split points.
+  4. **Error Mapping Policy**: JSBI's `Error('string too long')` when `charsRequired > (1 << 28)` maps to Go's `ErrRange` following established project error mapping policy.
+- **Status**: Accepted & Implemented in `src/tostring.go`.

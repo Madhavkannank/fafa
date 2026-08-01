@@ -4,6 +4,14 @@ All notable changes to the JSBI Go port will be documented in this file.
 
 ## [Unreleased]
 ### Added
+- **Cluster 9 — String Formatting (`ToString`) & Exponentiation (`Exponentiate`)**:
+  - Implemented `ToString(x *BigInt, radix int) (string, error)` in `src/tostring.go` supporting radices 2–36.
+  - Implemented `Exponentiate(x, y *BigInt) (*BigInt, error)` in `src/tostring.go` using binary square-and-multiply algorithm with power-of-two fast paths.
+  - Implemented `toStringBasePowerOfTwo` for radices 2, 4, 8, 16, 32 using popcount bit-extraction right-to-left buffer population.
+  - Implemented `toStringGeneric` using recursive divide-and-conquer radix conversion with `kMaxBitsPerChar` table lookups, fast 15-bit half-digit long division, and full `absoluteDivLarge` fallback.
+  - Added unit test suite, exhaustive radix tests (all 35 radices 2–36), and benchmarks in `tests/port/tostring_test.go`.
+  - Added differential fuzzer in `fuzz/harness/fuzz_cluster9.go` and Node.js JSBI ESM oracle in `fuzz/harness/oracle_cluster9.mjs`.
+
 - **Cluster 8 — Fixed-Width Truncation (`AsIntN` / `AsUintN`)**:
   - Implemented `AsIntN(n int, x *BigInt) (*BigInt, error)` in `src/truncation.go` — signed N-bit wrap via two's complement sign-bit detection and `truncateAndSubFromPowerOfTwo`.
   - Implemented `AsUintN(n int, x *BigInt) (*BigInt, error)` in `src/truncation.go` — unsigned N-bit wrap via modular arithmetic.

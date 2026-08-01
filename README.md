@@ -33,9 +33,9 @@ export GOTMPDIR='c:/Users/madha/OneDrive/Desktop/port TS-GO/tmp' && ./go_sdk/go/
 | **6. Shifts** | COMPLETE | `LeftShift`, `SignedRightShift`, `UnsignedRightShift` | Unit Tests PASS, 1.40M Fuzz Cases |
 | **7. Bitwise Operations** | COMPLETE | `BitwiseAnd`, `BitwiseOr`, `BitwiseXor`, `BitwiseNot` | Unit Tests PASS, 1.86M Fuzz Cases |
 | **8. Fixed-Width Truncation** | COMPLETE | `AsIntN`, `AsUintN` | Unit Tests PASS, 1.75M Fuzz Cases |
-| **9. String Formatting** | PENDING | `ToString` | Pending Cluster 9 |
+| **9. String Formatting** | COMPLETE | `ToString`, `Exponentiate` | Unit Tests PASS, 1.87M Fuzz Cases |
 
-- **Cumulative Differential Fuzzing**: **7,822,250 cases** (logged harness runs, per-cluster latest successful run methodology) with 100% equivalence survival against Node.js JSBI reference oracle.
+- **Cumulative Differential Fuzzing**: **9,696,250 cases** (logged harness runs across all 9 clusters) with 100% equivalence survival against Node.js JSBI reference oracle.
 
 - **Allocation Performance**:
   - `Compare` and `Equal`: `0 B/op, 0 allocs/op` (4.90 ns/op and 11.29 ns/op).
@@ -53,5 +53,7 @@ export GOTMPDIR='c:/Users/madha/OneDrive/Desktop/port TS-GO/tmp' && ./go_sdk/go/
   - `BitwiseXor`: `112 B/op, 5 allocs/op` (125.7 ns/op).
   - `AsIntN`: `40 B/op, 2 allocs/op` (40.57 ns/op).
   - `AsUintN`: `40 B/op, 2 allocs/op` (37.12 ns/op).
+  - `ToString` (radix 16, 1 limb): `16 B/op, 2 allocs/op` (31.62 ns/op).
+  - `ToString` (radix 10, 1 limb): `16 B/op, 1 allocs/op` (26.72 ns/op).
 - **Original JSBI Test Suite**: 5 files verified passing unmodified on clean checkout.
-- **Full Regression Suite (Clusters 1–8)**: PASS (133.521s, from actual `go test ./tests/port/... -count=1` output).
+- **Full Regression Suite (Clusters 1–9)**: PASS (132.771s, from actual `go test ./tests/port/... -count=1` output).

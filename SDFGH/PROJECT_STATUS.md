@@ -1,34 +1,44 @@
 # Project Status
 
 - **Session**: 1
-- **Phase**: Cluster 9 — Research & Design Review (toString / Radix Conversion)
+- **Phase**: COMPLETE — All 9 Functional Clusters Fully Ported & Verified
 - **Track**: Track C (JS/TS -> Go)
 - **Architecture**: **Option A — Faithful Limb-Based Go Representation** (LOCKED)
 - **Kickoff Hash**: `1309534b7a6d5d89f5340914b244d49eebb8c676d0040eb898570102dd973585`
 - **JSBI Source Commit**: `5382367c7e3199858d36bb620977e1f90605bcb9`
-- **Baseline Git Tag**: `cluster-7-baseline` (`807084c`)
+- **Baseline Git Tags**: `cluster-7-baseline` (`807084c`), `cluster-8-baseline` (`3b6a82b`), `cluster-9-baseline` (pending)
 - **Completed Clusters**:
   - **Cluster 1 (Construction & Parsing)**: Implemented `src/bigint.go`, `src/constructors.go`, `src/errors.go`, `src/fromString.go`.
     - Differential Fuzzing: 502,000 cases executed in 65.08s against Node JSBI oracle (100% equivalence survival).
+  - **Cluster 2 (Comparison)**: Implemented `src/comparison.go`.
+    - Unit Tests: PASS (`tests/port/comparison_test.go`).
+    - Differential Fuzzing: 842,000 cases executed against Node JSBI oracle (100% equivalence survival).
+  - **Cluster 3 (Add / Subtract)**: Implemented `src/add_sub.go`.
+    - Unit Tests: PASS (`tests/port/add_sub_test.go`).
+    - Differential Fuzzing: 783,000 cases executed against Node JSBI oracle (100% equivalence survival).
   - **Cluster 4 (Multiply)**: Implemented `src/multiply.go`.
-    - Unit Tests: 2/2 test suites PASS (`tests/port/multiply_test.go`). Standing regression suite (Clusters 1–4): 18/18 PASS.
+    - Unit Tests: 2/2 test suites PASS (`tests/port/multiply_test.go`).
     - Allocation Benchmark: `BenchmarkMultiply` 208.1ns/op (`64 B/op, 2 allocs/op`).
     - Differential Fuzzing: 1,590,000 cases executed in 65.13s against Node JSBI oracle (100% equivalence survival).
   - **Cluster 5 (Divide / Remainder)**: Implemented `src/divide.go`.
-    - Unit Tests: 6/6 test suites PASS (`tests/port/divide_test.go`). Standing regression suite (Clusters 1–5): 24/24 PASS.
+    - Unit Tests: 6/6 test suites PASS (`tests/port/divide_test.go`).
     - Allocation Benchmark: `BenchmarkDivide` 338.7ns/op (`192 B/op, 8 allocs/op`), `BenchmarkRemainder` 301.3ns/op (`144 B/op, 6 allocs/op`), `BenchmarkDivRem` 366.7ns/op (`192 B/op, 8 allocs/op`).
-    - Differential Fuzzing: 176,250 cases executed in 65.06s against Node JSBI oracle (100% equivalence survival). Cumulative total: 2,806,250 cases.
+    - Differential Fuzzing: 176,250 cases executed in 65.06s against Node JSBI oracle (100% equivalence survival).
   - **Cluster 6 (Shifts)**: Implemented `src/shift.go`.
-    - Unit Tests: 4/4 test suites PASS (`tests/port/shift_test.go`). Standing regression suite (Clusters 1–6): 28/28 PASS.
+    - Unit Tests: 4/4 test suites PASS (`tests/port/shift_test.go`).
     - Allocation Benchmark: `BenchmarkLeftShift` 72.0ns/op (`64 B/op, 2 allocs/op`), `BenchmarkSignedRightShift` 49.3ns/op (`48 B/op, 2 allocs/op`), `BenchmarkUnsignedRightShift` 0.0ns/op (`0 B/op, 0 allocs/op`).
-    - Differential Fuzzing: 1,400,000 cases executed in 60.19s against Node JSBI oracle (100% equivalence survival). Cumulative total: 4,206,250 cases.
+    - Differential Fuzzing: 1,400,000 cases executed in 60.19s against Node JSBI oracle (100% equivalence survival).
   - **Cluster 7 (Bitwise Operations)**: Implemented `src/bitwise.go`.
-    - Unit Tests: 7/7 test suites PASS (`tests/port/bitwise_test.go`). Standing regression suite (Clusters 1–7): 35/35 PASS.
+    - Unit Tests: 7/7 test suites PASS (`tests/port/bitwise_test.go`).
     - Allocation Benchmark: `BenchmarkBitwiseNot` 41.16ns/op (`48 B/op, 2 allocs/op`), `BenchmarkBitwiseAnd` 81.10ns/op (`96 B/op, 4 allocs/op`), `BenchmarkBitwiseOr` 92.49ns/op (`96 B/op, 4 allocs/op`), `BenchmarkBitwiseXor` 125.7ns/op (`112 B/op, 5 allocs/op`).
-    - Differential Fuzzing: 1,863,000 cases executed in 60.03s against Node JSBI oracle (100% equivalence survival). Cumulative total: 6,069,250 cases.
-    - Git Tag: `cluster-7-baseline` (`807084c`).
+    - Differential Fuzzing: 1,863,000 cases executed in 60.03s against Node JSBI oracle (100% equivalence survival).
   - **Cluster 8 (AsIntN / AsUintN Fixed-Width Truncation)**: Implemented `src/truncation.go`.
-    - Unit Tests: 4/4 test suites PASS (`tests/port/truncation_test.go`). Full regression suite (Clusters 1–8): PASS (133.521s).
+    - Unit Tests: 4/4 test suites PASS (`tests/port/truncation_test.go`).
     - Allocation Benchmark: `BenchmarkAsIntN` 40.57ns/op (`40 B/op, 2 allocs/op`), `BenchmarkAsUintN` 37.12ns/op (`40 B/op, 2 allocs/op`).
-    - Differential Fuzzing: 1,753,000 cases executed in 60.02s against Node JSBI oracle (100% equivalence survival). Mandatory bit widths {0,1,29,30,31,59,60,61,2^30-1,2^30,2^30+1} all covered. Cumulative total: 7,822,250 cases.
-- **Current Task**: Cluster 8 — Pending Git commit (`cluster-8-baseline`), then Cluster 9 (toString / Radix Conversion) Research & Design Review.
+    - Differential Fuzzing: 1,753,000 cases executed in 60.02s against Node JSBI oracle (100% equivalence survival).
+  - **Cluster 9 (String Formatting & Exponentiation)**: Implemented `src/tostring.go`.
+    - Unit Tests: 9/9 test suites PASS (`tests/port/tostring_test.go`). Full regression suite (Clusters 1–9): PASS (132.771s).
+    - Allocation Benchmark: `BenchmarkToStringHex1Limb` 31.62ns/op (`16 B/op, 2 allocs/op`), `BenchmarkToStringDec1Limb` 26.72ns/op (`16 B/op, 1 allocs/op`).
+    - Differential Fuzzing: 1,874,000 cases executed in 60.01s against Node JSBI oracle (100% equivalence survival across all 35 radices 2–36).
+    - Cumulative Fuzz Total: **9,696,250 cases** across all logged differential fuzzing runs.
+- **Current Task**: Cluster 9 Git commit (`cluster-9-baseline`) and final submission package.

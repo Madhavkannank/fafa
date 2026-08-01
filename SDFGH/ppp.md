@@ -155,3 +155,15 @@ Fuzz:        PASS — 1,753,000 cases executed in 60.02s against Node.js JSBI or
 Decision:    #8 (see DECISIONS.md) — (n+29)/30 > kMaxLength guard for negative AsUintN; fast-path value independence via x.Copy(); borrow sign extraction via (r>>30)&1
 Docs updated: DECISIONS.md, CHANGELOG.md, README.md, SDFGH/PROJECT_STATUS.md, SDFGH/ppp.md, fuzz/log.txt
 Next:        Propose Git commit for Cluster 8 baseline (cluster-8-baseline), then Cluster 9 (toString / Radix Conversion) Research & Design Review.
+
+──────────────────────────────
+2026-08-01 22:16
+──────────────────────────────
+Task:        Cluster 9 — String Formatting (ToString) & Exponentiation Implementation, Unit Tests, Benchmarks, & Differential Fuzzing
+Files:       src/tostring.go, tests/port/tostring_test.go, fuzz/harness/fuzz_cluster9.go, fuzz/harness/oracle_cluster9.mjs
+Commands:    go test -v ./tests/port -run "TestExponent|TestToString" -bench "BenchmarkToString" -benchmem, go run fuzz/harness/fuzz_cluster9.go, go test ./tests/port/... -count=1
+Result:      PASS (9/9 suites PASS) — Exponentiate, ToString (power-of-two and general radix conversion paths), Exhaustive radix coverage (all 35 radices 2–36 verified). Benchmarks: ToString(16) 31.62 ns/op (16 B/op, 2 allocs), ToString(10) 26.72 ns/op (16 B/op, 1 alloc). Full regression suite (Clusters 1–9): PASS (132.771s).
+Fuzz:        PASS — 1,874,000 cases executed in 60.01s against Node.js JSBI oracle with 100% equivalence survival. Exhaustive radix coverage: every radix from 2 through 36 inclusive. Operand sizes: 1–30 random decimal digits, boundary values, positive/negative.
+Decision:    #9 (see DECISIONS.md) — Exponentiate binary square-and-multiply, power-of-two bit extraction popcount path, divide-and-conquer radix conversion with kMaxBitsPerChar lookup table verbatim copy.
+Docs updated: DECISIONS.md, CHANGELOG.md, README.md, SDFGH/PROJECT_STATUS.md, SDFGH/ppp.md, fuzz/log.txt
+Next:        Propose Git commit for Cluster 9 baseline (cluster-9-baseline) and final project completion.

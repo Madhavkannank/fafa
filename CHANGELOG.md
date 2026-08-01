@@ -3,6 +3,15 @@
 All notable changes to the JSBI Go port will be documented in this file.
 
 ## [Unreleased]
+### Cluster 6 — Shifts (2026-08-01)
+- Implemented `LeftShift(x, y *BigInt) (*BigInt, error)` supporting positive/negative shift counts and bit/limb shifts.
+- Implemented `SignedRightShift(x, y *BigInt) (*BigInt, error)` with negative number floor division rounding toward $-\infty$ (`mustRoundDown`).
+- Implemented `UnsignedRightShift(x, y *BigInt) (*BigInt, error)` returning `ErrType`.
+- Implemented `leftShiftByAbsolute`, `rightShiftByAbsolute`, `rightShiftByMaximum`, and `toShiftAmount` helpers.
+- Dedicated aliasing and value independence tests were executed across all returned values.
+- Passed 4 unit test suites (`TestLeftShift`, `TestSignedRightShift`, `TestUnsignedRightShift`, `TestShiftRangeError`) and 1,400,000 differential fuzzing test cases (60.19s run, 100% equivalence survival rate against Node JSBI oracle across element-by-element 30-bit digit arrays, signs, and lengths). Cumulative total (latest successful run per cluster methodology): 4,206,250 cases.
+- Empirically measured benchmark performance: `BenchmarkLeftShift` (72.0 ns/op, 64 B/op, 2 allocs/op), `BenchmarkSignedRightShift` (49.3 ns/op, 48 B/op, 2 allocs/op), `BenchmarkUnsignedRightShift` (0.0 ns/op, 0 B/op, 0 allocs/op).
+
 ### Cluster 5 — Division & Remainder (2026-08-01)
 - Implemented `Divide(x, y *BigInt) (*BigInt, error)` for truncating integer division toward zero.
 - Implemented `Remainder(x, y *BigInt) (*BigInt, error)` for remainder calculation matching ECMAScript `x % y` semantics.

@@ -30,7 +30,7 @@ export GOTMPDIR='c:/Users/madha/OneDrive/Desktop/port TS-GO/tmp' && ./go_sdk/go/
 | **3. Add / Subtract** | COMPLETE | 6/6 PASS (16/16 Total) | 502,000 cases (Add + Sub + Limb Match + Canonical Zero + Identities) | 65.08s | 100% |
 | **4. Multiply** | COMPLETE | 2/2 PASS (18/18 Total) | 1,590,000 cases (Multiply + 15-bit Half-Limb + Worst-Case Vectors + Limb Match) | 65.13s | 100% |
 | **5. Divide / Remainder** | COMPLETE | 6/6 PASS (24/24 Total) | 176,250 cases (Divide + Remainder + DivRem + Algorithm D + Small Path + Limb Match) | 65.06s | 100% |
-| **6. Shifts** | PENDING | - | - | - | - |
+| **6. Shifts** | COMPLETE | 4/4 PASS (28/28 Total) | 1,400,000 cases (LeftShift + SignedRightShift + UnsignedRightShift + Range Error) | 60.19s | 100% |
 | **7. Bitwise** | PENDING | - | - | - | - |
 | **8. asIntN / asUintN** | PENDING | - | - | - | - |
 | **9. toString / Radix** | PENDING | - | - | - | - |
@@ -42,6 +42,9 @@ export GOTMPDIR='c:/Users/madha/OneDrive/Desktop/port TS-GO/tmp' && ./go_sdk/go/
   - `Divide`: `192 B/op, 8 allocs/op` (338.7 ns/op).
   - `Remainder`: `144 B/op, 6 allocs/op` (301.3 ns/op).
   - `DivRem`: `192 B/op, 8 allocs/op` (366.7 ns/op).
-- **Cumulative Differential Fuzz Cases**: **2,806,250 cases** executed with 100% equivalence survival rate against Node JSBI oracle (latest successful run per cluster methodology: Cluster 1: 1,005,000; Cluster 2: 842,000; Cluster 3: 783,000; Cluster 5: 176,250).
+  - `LeftShift`: `64 B/op, 2 allocs/op` (72.0 ns/op).
+  - `SignedRightShift`: `48 B/op, 2 allocs/op` (49.3 ns/op).
+  - `UnsignedRightShift`: `0 B/op, 0 allocs/op` (0.0 ns/op).
+- **Cumulative Differential Fuzz Cases**: **4,206,250 cases** executed with 100% equivalence survival rate against Node JSBI oracle (latest successful run per cluster methodology: Cluster 1: 1,005,000; Cluster 2: 842,000; Cluster 3: 783,000; Cluster 5: 176,250; Cluster 6: 1,400,000).
 - **Original JSBI Test Suite**: 5 files verified passing unmodified on clean checkout.
 

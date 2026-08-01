@@ -120,3 +120,15 @@ Decision:    Decision 5 (Small-path threshold 0x7FFF, 15-bit Knuth Algorithm D, 
 Docs updated: DECISIONS.md, CHANGELOG.md, README.md, SDFGH/PROJECT_STATUS.md, SDFGH/ppp.md
 Next:        Propose Git commit for Cluster 5 baseline (`cluster-5-baseline`), then proceed to Cluster 6 (Shifts) Research & Design Review.
 
+──────────────────────────────
+2026-08-01 19:11
+──────────────────────────────
+Task:        Cluster 6 — Shifts Implementation, Unit Tests, Allocation Benchmarks, & Differential Fuzzing
+Files:       src/shift.go, tests/port/shift_test.go, fuzz/harness/fuzz_cluster6.go, fuzz/harness/oracle_cluster6.mjs, fuzz/harness/bench_cluster6.go
+Commands:    go test -v -run "^Test(LeftShift|SignedRightShift|UnsignedRightShift|ShiftRangeError)" ./tests/port/..., go run fuzz/harness/fuzz_cluster6.go, go run fuzz/harness/bench_cluster6.go
+Result:      PASS — 4 unit test suites PASS. Standing regression suite (Clusters 1–6): 28/28 PASS. 1,400,000 differential fuzzing cases executed in 60.19s against Node JSBI oracle with 100% equivalence survival rate across element-by-element 30-bit digit arrays, signs, lengths, and canonical zero assertions. Cumulative fuzz total (latest successful run per cluster methodology): 4,206,250 cases. Benchmarks: BenchmarkLeftShift 72.0 ns/op (64 B/op, 2 allocs/op), BenchmarkSignedRightShift 49.3 ns/op (48 B/op, 2 allocs/op), BenchmarkUnsignedRightShift 0.0 ns/op (0 B/op, 0 allocs/op).
+Fuzz:        PASS (1,400,000 cases, 60.19s, 100% survival rate against Node JSBI oracle)
+Decision:    Decision 6 (Negative shift direction inversion, toShiftAmount sentinel translation, mustRoundDown floor division rounding, UnsignedRightShift ErrType)
+Docs updated: DECISIONS.md, CHANGELOG.md, README.md, SDFGH/PROJECT_STATUS.md, SDFGH/ppp.md
+Next:        Propose Git commit for Cluster 6 baseline (`cluster-6-baseline`), then proceed to Cluster 7 (Bitwise) Research & Design Review.
+

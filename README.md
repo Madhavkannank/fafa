@@ -23,17 +23,19 @@ export GOTMPDIR='c:/Users/madha/OneDrive/Desktop/port TS-GO/tmp' && ./go_sdk/go/
 
 ## Status & Progress
 
-| Cluster | Status | Unit Tests | Differential Fuzzing | Fuzz Duration | Survival Rate |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **1. Construction & Parsing** | COMPLETE | 6/6 PASS | 251,000 cases (Element-by-Element Limb Match) | 65.11s | 100% |
-| **2. Comparison** | COMPLETE | 4/4 PASS | 389,000 cases (Compare + 6 Relational Operators + NaN) | 65.13s | 100% |
-| **3. Add / Subtract** | COMPLETE | 6/6 PASS (16/16 Total) | 502,000 cases (Add + Sub + Limb Match + Canonical Zero + Identities) | 65.08s | 100% |
-| **4. Multiply** | COMPLETE | 2/2 PASS (18/18 Total) | 1,590,000 cases (Multiply + 15-bit Half-Limb + Worst-Case Vectors + Limb Match) | 65.13s | 100% |
-| **5. Divide / Remainder** | COMPLETE | 6/6 PASS (24/24 Total) | 176,250 cases (Divide + Remainder + DivRem + Algorithm D + Small Path + Limb Match) | 65.06s | 100% |
-| **6. Shifts** | COMPLETE | 4/4 PASS (28/28 Total) | 1,400,000 cases (LeftShift + SignedRightShift + UnsignedRightShift + Range Error) | 60.19s | 100% |
-| **7. Bitwise** | PENDING | - | - | - | - |
-| **8. asIntN / asUintN** | PENDING | - | - | - | - |
-| **9. toString / Radix** | PENDING | - | - | - | - |
+| Cluster | Status | Key Functions | Verification |
+| :--- | :--- | :--- | :--- |
+| **1. Construction & Parsing** | COMPLETE | `BigInt`, `FromString`, `FromFloat64`, `BigIntVal` | Unit Tests PASS, 1.005M Fuzz Cases |
+| **2. Comparison** | COMPLETE | `Equal`, `NotEqual`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` | Unit Tests PASS, 842K Fuzz Cases |
+| **3. Add / Subtract** | COMPLETE | `Add`, `Subtract`, `UnaryMinus` | Unit Tests PASS, 783K Fuzz Cases |
+| **4. Multiply** | COMPLETE | `Multiply` | Unit Tests PASS, 1.59M Fuzz Cases |
+| **5. Divide / Remainder** | COMPLETE | `Divide`, `Remainder`, `DivRem` | Unit Tests PASS, 176K Fuzz Cases |
+| **6. Shifts** | COMPLETE | `LeftShift`, `SignedRightShift`, `UnsignedRightShift` | Unit Tests PASS, 1.40M Fuzz Cases |
+| **7. Bitwise Operations** | COMPLETE | `BitwiseAnd`, `BitwiseOr`, `BitwiseXor`, `BitwiseNot` | Unit Tests PASS, 1.86M Fuzz Cases |
+| **8. Fixed-Width Truncation** | PENDING | `AsIntN`, `AsUintN` | Pending Cluster 8 |
+| **9. String Formatting** | PENDING | `ToString` | Pending Cluster 9 |
+
+- **Cumulative Differential Fuzzing**: **6,069,250 cases** (logged harness runs) / **7,659,250 cases** (total across all runs) with 100% equivalence survival against Node.js JSBI reference oracle.
 
 - **Allocation Performance**:
   - `Compare` and `Equal`: `0 B/op, 0 allocs/op` (4.90 ns/op and 11.29 ns/op).

@@ -132,3 +132,14 @@ Decision:    Decision 6 (Negative shift direction inversion, toShiftAmount senti
 Docs updated: DECISIONS.md, CHANGELOG.md, README.md, SDFGH/PROJECT_STATUS.md, SDFGH/ppp.md
 Next:        Propose Git commit for Cluster 6 baseline (`cluster-6-baseline`), then proceed to Cluster 7 (Bitwise) Research & Design Review.
 
+──────────────────────────────
+2026-08-01 21:03
+──────────────────────────────
+Task:        Cluster 7 — Bitwise Operations Implementation, Unit Tests, Allocation Benchmarks, & Differential Fuzzing
+Files:       src/bitwise.go, tests/port/bitwise_test.go, fuzz/harness/fuzz_cluster7.go, fuzz/harness/oracle_cluster7.mjs
+Commands:    go test -v ./tests/port -run TestBitwise -bench BenchmarkBitwise -benchmem
+Result:      PASS (7/7 suites PASS) — BitwiseNot (41.16 ns/op, 48 B/op, 2 allocs/op), BitwiseAnd (81.10 ns/op, 96 B/op, 4 allocs/op), BitwiseOr (92.49 ns/op, 96 B/op, 4 allocs/op), BitwiseXor (125.7 ns/op, 112 B/op, 5 allocs/op)
+Fuzz:        1,863,000 cases executed in 60.03s — 100% equivalence survival against Node.js JSBI oracle
+Decision:    #7 (De Morgan transformations, magnitude helpers, internal buffer reuse contracts, canonical zero normalization)
+Docs updated: DECISIONS.md, CHANGELOG.md, README.md, SDFGH/PROJECT_STATUS.md, SDFGH/ppp.md, fuzz/log.txt
+Next:        Commit Proposal for Cluster 7 Baseline

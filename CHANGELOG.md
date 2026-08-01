@@ -3,6 +3,14 @@
 All notable changes to the JSBI Go port will be documented in this file.
 
 ## [Unreleased]
+### Added
+- **Cluster 7 — Bitwise Operations**:
+  - Implemented `BitwiseAnd`, `BitwiseOr`, `BitwiseXor`, `BitwiseNot` in `src/bitwise.go`.
+  - Implemented magnitude helpers `absoluteAnd`, `absoluteAndNot`, `absoluteOr`, `absoluteXor` with internal buffer reuse contracts.
+  - Implemented De Morgan transformations for negative BigInt sign combinations.
+  - Added unit test suite and benchmarks in `tests/port/bitwise_test.go`.
+  - Added differential fuzzer in `fuzz/harness/fuzz_cluster7.go` and Node.js JSBI ESM oracle in `fuzz/harness/oracle_cluster7.mjs`.
+
 ### Cluster 6 — Shifts (2026-08-01)
 - Implemented `LeftShift(x, y *BigInt) (*BigInt, error)` supporting positive/negative shift counts and bit/limb shifts.
 - Implemented `SignedRightShift(x, y *BigInt) (*BigInt, error)` with negative number floor division rounding toward $-\infty$ (`mustRoundDown`).

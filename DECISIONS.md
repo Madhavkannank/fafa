@@ -73,3 +73,12 @@ This document records every non-trivial design choice, divergence from JSBI TS r
   5. Enforce complete value independence across all returned `*BigInt` instances (including zero-operand inputs `x.Length() == 0` or `y.Length() == 0`). Dedicated aliasing and value independence tests were executed.
 - **Rationale**: Preserves exact ECMAScript `BigInt` shift semantics while providing native Go error handling (`ErrRange`, `ErrType`).
 - **Verification**: Verified via 4 unit test suites (`TestLeftShift`, `TestSignedRightShift`, `TestUnsignedRightShift`, `TestShiftRangeError`), benchmark verification (`BenchmarkLeftShift` 72.0 ns/op, 64 B/op, 2 allocs/op; `BenchmarkSignedRightShift` 49.3 ns/op, 48 B/op, 2 allocs/op; `BenchmarkUnsignedRightShift` 0.0 ns/op, 0 B/op, 0 allocs/op), and 1,400,000 differential fuzzing test cases against Node JSBI oracle (60.19s run, 100% survival rate across element-by-element digit limbs, signs, lengths, and canonical zero assertions). Cumulative fuzz total (latest successful run per cluster methodology): 4,206,250 cases.
+
+### 7. Cluster 7 (Bitwise Operations) De Morgan Transformation & Helper Contracts
+- **Date**: 2026-08-01
+- **Context**: Porting JSBI bitwise operations (`BitwiseAnd`, `BitwiseOr`, `BitwiseXor`, `BitwiseNot`) to Go.
+- **Decision**:
+  - Implement De Morgan transformations and sign identities $-x = \sim(x - 1)$ for negative BigInt operands without introducing infinite sign-extension arrays.
+  - Implement magnitude helper primitives `absoluteAnd`, `absoluteAndNot`, `absoluteOr`, `absoluteXor` with internal result buffer reuse contracts.
+  - Enforce mandatory `.Trim()` post-call normalization to maintain the canonical zero invariant `Length() == 0 ==> Sign() == false`.
+- **Status**: Accepted & Implemented in `src/bitwise.go`.

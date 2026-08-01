@@ -3,6 +3,18 @@
 All notable changes to the JSBI Go port will be documented in this file.
 
 ## [Unreleased]
+### Cluster 5 — Division & Remainder (2026-08-01)
+- Implemented `Divide(x, y *BigInt) (*BigInt, error)` for truncating integer division toward zero.
+- Implemented `Remainder(x, y *BigInt) (*BigInt, error)` for remainder calculation matching ECMAScript `x % y` semantics.
+- Implemented `DivRem(x, y *BigInt) (quotient, remainder *BigInt, err error)` extension API for single-pass Algorithm D execution.
+- Implemented `absoluteDivSmall` and `absoluteModSmall` 15-bit long division fast paths for small single-limb divisors (`divisor <= 0x7FFF`).
+- Implemented `absoluteDivLarge` Knuth Algorithm D over 15-bit half-digits with D1 normalization (`clz15`), D3 trial quotient refinement, D4 multiply/subtract and add-back, D5 quotient packing, and D6 unnormalization (`inplaceRightShift`).
+- Implemented `inplaceSub` with `subLen := (halfDigits + 1) >> 1` to preserve JSBI `qhatv` array length invariants across dynamic slice growth.
+- Dedicated aliasing and value independence tests were executed across all returned values.
+- Passed 6 unit test suites (`TestDivideByZero`, `TestDivideTruncationAndSigns`, `TestDivideDivisorGreaterThanDividend`, `TestDivideByOne`, `TestDivideAlgorithmD`, `TestDivideLargeMultiLimb`) and 176,250 differential fuzzing test cases (65.06s run, 100% equivalence survival rate against Node JSBI oracle across element-by-element 30-bit digit arrays, signs, and lengths). Cumulative total (latest successful run per cluster methodology): 2,806,250 cases.
+- Empirically measured benchmark performance: `BenchmarkDivide` (338.7 ns/op, 192 B/op, 8 allocs/op), `BenchmarkRemainder` (301.3 ns/op, 144 B/op, 6 allocs/op), `BenchmarkDivRem` (366.7 ns/op, 192 B/op, 8 allocs/op).
+
+
 ### Cluster 4 — Multiplication (2026-08-01)
 - Implemented `Multiply(x, y *BigInt) *BigInt` for multi-precision multiplication.
 - Implemented `multiplyAccumulate`, `internalMultiplyAdd`, and `inplaceMultiplyAdd` helper algorithms.

@@ -228,13 +228,14 @@ func TestDifferentialFuzzCluster2(t *testing.T) {
 	logMsg("Starting Differential Fuzzing for Cluster 2 (Comparison) [Target duration: 60s+]...")
 
 	oraclePath, err := filepath.Abs("fuzz/harness/oracle_cluster2.mjs")
-	if err != nil {
-		t.Fatalf("Failed to resolve oracle path: %v", err)
+	if err != nil || func() bool { _, e := os.Stat(oraclePath); return os.IsNotExist(e) }() {
+		oraclePath, _ = filepath.Abs("../../fuzz/harness/oracle_cluster2.mjs")
 	}
 
 	tmpInputPath, err := filepath.Abs("tmp/fuzz_cluster2_input.json")
-	if err != nil {
-		t.Fatalf("Failed to resolve tmp input path: %v", err)
+	if err != nil || func() bool { _, e := os.Stat(filepath.Dir(tmpInputPath)); return os.IsNotExist(e) }() {
+		os.MkdirAll("../../tmp", 0755)
+		tmpInputPath, _ = filepath.Abs("../../tmp/fuzz_cluster2_input.json")
 	}
 
 	startTime := time.Now()

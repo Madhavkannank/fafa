@@ -1,11 +1,12 @@
 # Project Status
 
 - **Session**: 1
-- **Phase**: Cluster 4 — Multiplication Complete [GATE]
+- **Phase**: Cluster 5 Complete — Cluster 6 Research & Design Review Next
 - **Track**: Track C (JS/TS -> Go)
 - **Architecture**: **Option A — Faithful Limb-Based Go Representation** (LOCKED)
 - **Kickoff Hash**: `1309534b7a6d5d89f5340914b244d49eebb8c676d0040eb898570102dd973585`
 - **JSBI Source Commit**: `5382367c7e3199858d36bb620977e1f90605bcb9`
+- **Baseline Git Tag**: `cluster-4-baseline` (`158af23`)
 - **Completed Clusters**:
   - **Cluster 1 (Construction & Parsing)**: Implemented `src/bigint.go`, `src/constructors.go`, `src/errors.go`, `src/fromString.go`.
     - Unit Tests: 6/6 test suites PASS (`tests/port/construction_test.go`).
@@ -21,5 +22,9 @@
   - **Cluster 4 (Multiply)**: Implemented `src/multiply.go`.
     - Unit Tests: 2/2 test suites PASS (`tests/port/multiply_test.go`). Standing regression suite (Clusters 1–4): 18/18 PASS.
     - Allocation Benchmark: `BenchmarkMultiply` 208.1ns/op (`64 B/op, 2 allocs/op`).
-    - Differential Fuzzing: 1,590,000 cases executed in 65.13s against Node JSBI oracle across signs, lengths, canonical zero assertions, worst-case vectors, and element-by-element 30-bit digit arrays (100% equivalence survival). Total cumulative fuzz: 2,732,000 cases.
-- **Current Task**: Presenting Commit Proposal for Cluster 4 [GATE].
+    - Differential Fuzzing: 1,590,000 cases executed in 65.13s against Node JSBI oracle (100% equivalence survival).
+  - **Cluster 5 (Divide / Remainder)**: Implemented `src/divide.go`.
+    - Unit Tests: 6/6 test suites PASS (`tests/port/divide_test.go`). Standing regression suite (Clusters 1–5): 24/24 PASS.
+    - Allocation Benchmark: `BenchmarkDivide` 338.7ns/op (`192 B/op, 8 allocs/op`), `BenchmarkRemainder` 301.3ns/op (`144 B/op, 6 allocs/op`), `BenchmarkDivRem` 366.7ns/op (`192 B/op, 8 allocs/op`).
+    - Differential Fuzzing: 176,250 cases executed in 65.06s against Node JSBI oracle (100% equivalence survival across element-by-element 30-bit digit arrays, signs, lengths, and canonical zero assertions). Cumulative total (latest successful run per cluster methodology): 2,806,250 cases.
+- **Current Task**: Cluster 6 (Shifts) — Research & Design Review (`06-shifts.md`).

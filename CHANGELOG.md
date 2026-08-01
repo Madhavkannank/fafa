@@ -4,6 +4,15 @@ All notable changes to the JSBI Go port will be documented in this file.
 
 ## [Unreleased]
 ### Added
+- **Cluster 8 — Fixed-Width Truncation (`AsIntN` / `AsUintN`)**:
+  - Implemented `AsIntN(n int, x *BigInt) (*BigInt, error)` in `src/truncation.go` — signed N-bit wrap via two's complement sign-bit detection and `truncateAndSubFromPowerOfTwo`.
+  - Implemented `AsUintN(n int, x *BigInt) (*BigInt, error)` in `src/truncation.go` — unsigned N-bit wrap via modular arithmetic.
+  - Implemented `truncateToNBits` — copies lower N bits of x into a new result, masking the most-significant digit.
+  - Implemented `truncateAndSubFromPowerOfTwo` — computes `2^N - |x|` with per-limb borrow propagation (`(r>>30)&1`).
+  - All fast paths (no truncation needed) return `x.Copy()` to guarantee value independence (`returnedPointer != inputPointer`).
+  - Added unit test suite and benchmarks in `tests/port/truncation_test.go`.
+  - Added differential fuzzer in `fuzz/harness/fuzz_cluster8.go` and Node.js JSBI ESM oracle in `fuzz/harness/oracle_cluster8.mjs`.
+
 - **Cluster 7 — Bitwise Operations**:
   - Implemented `BitwiseAnd`, `BitwiseOr`, `BitwiseXor`, `BitwiseNot` in `src/bitwise.go`.
   - Implemented magnitude helpers `absoluteAnd`, `absoluteAndNot`, `absoluteOr`, `absoluteXor` with internal buffer reuse contracts.

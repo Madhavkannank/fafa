@@ -82,3 +82,13 @@ This document records every non-trivial design choice, divergence from JSBI TS r
   - Implement magnitude helper primitives `absoluteAnd`, `absoluteAndNot`, `absoluteOr`, `absoluteXor` with internal result buffer reuse contracts.
   - Enforce mandatory `.Trim()` post-call normalization to maintain the canonical zero invariant `Length() == 0 ==> Sign() == false`.
 - **Status**: Accepted & Implemented in `src/bitwise.go`.
+
+### 8. Cluster 8 (AsIntN / AsUintN) Range Guard, Fast-Path Value Independence & Borrow Extraction
+- **Date**: 2026-08-01
+- **Context**: Porting `JSBI.asIntN` and `JSBI.asUintN` (jsbi.ts lines 408–466) and their helpers `__truncateToNBits` and `__truncateAndSubFromPowerOfTwo` (lines 1860–1907) to Go.
+- **Decisions**:
+  1. **Range guard for negative `AsUintN` inputs**: JSBI checks `n > __kMaxLengthBits` at line 449. In Go, `kMaxLengthBits = kMaxLength << 5 = (1 << 25) << 5 = 1 << 30`. However, the actual array allocation limit is `(n+29)/30 > kMaxLength`, not the bit count itself. Both the Node JSBI oracle and mathematical analysis confirm the guard should be `(n+29)/30 > kMaxLength` — equivalently `n > kMaxLengthBits`. Used `(n+29)/30 > kMaxLength` as it's the physically meaningful check (limb count, not bits).
+  2. **Fast-path value independence**: JSBI returns `x` directly (same JS object reference) on fast paths (e.g. line 417, 419, 422). In Go this is unsafe — callers must receive an independent copy to prevent aliasing. All fast paths use `x.Copy()` instead. This is a deliberate, necessary Go divergence logged here. Verified via pointer inequality assertion in `TestTruncationValueIndependenceFastPath`.
+  3. **Borrow sign extraction**: In `truncateAndSubFromPowerOfTwo`, JSBI extracts borrow as `(r >>> 30) & 1` using unsigned right shift (JS `>>>` operator). Go uses signed `>>`. The correct Go equivalent is `uint32((r >> 30) & 1)` where `r` is `int64`. This is mathematically equivalent because borrow is always 0 or 1 and `r` is always negative when borrow is 1.
+  4. **Test vector correction**: Initial test vectors for `AsIntN(30, 2^30-1)` expected `1073741823` but JSBI returns `-1`. Reason: in 30-bit two's complement, bit 29 (value `0x20000000`) is the sign bit. `2^30 - 1 = 0x3FFFFFFF` has bit 29 set, so it represents `-1`. Corrected all test vectors against the Node.js JSBI oracle before finalizing.
+- **Status**: Accepted & Implemented in `src/truncation.go`.

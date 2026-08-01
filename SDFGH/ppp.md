@@ -143,3 +143,15 @@ Fuzz:        1,863,000 cases executed in 60.03s — 100% equivalence survival ag
 Decision:    #7 (De Morgan transformations, magnitude helpers, internal buffer reuse contracts, canonical zero normalization)
 Docs updated: DECISIONS.md, CHANGELOG.md, README.md, SDFGH/PROJECT_STATUS.md, SDFGH/ppp.md, fuzz/log.txt
 Next:        Commit Proposal for Cluster 7 Baseline
+
+──────────────────────────────
+2026-08-01 21:34
+──────────────────────────────
+Task:        Cluster 8 — AsIntN / AsUintN Fixed-Width Truncation Implementation, Unit Tests, Benchmarks, & Differential Fuzzing
+Files:       src/truncation.go, tests/port/truncation_test.go, fuzz/harness/fuzz_cluster8.go, fuzz/harness/oracle_cluster8.mjs
+Commands:    go test -v ./tests/port -run TestAs -bench BenchmarkAs -benchmem, go run fuzz/harness/fuzz_cluster8.go, go test ./tests/port/... -count=1
+Result:      PASS (4/4 suites PASS) — AsIntN (40.57 ns/op, 40 B/op, 2 allocs/op), AsUintN (37.12 ns/op, 40 B/op, 2 allocs/op). Full regression suite (Clusters 1–8): PASS (133.521s). Diagnostic: initial test vectors had incorrect expected values (corrected against Node.js JSBI oracle — e.g. AsIntN(30, 2^30-1)=-1, not 1073741823, because bit 29 is the sign bit in 30-bit two's complement).
+Fuzz:        PASS — 1,753,000 cases executed in 60.02s against Node.js JSBI oracle with 100% equivalence survival. Mandatory bit widths {0,1,29,30,31,59,60,61,2^30-1,2^30,2^30+1} covered. Sign combos: positive, negative, zero. Operand sizes: 1–30 random decimal digits.
+Decision:    #8 (see DECISIONS.md) — (n+29)/30 > kMaxLength guard for negative AsUintN; fast-path value independence via x.Copy(); borrow sign extraction via (r>>30)&1
+Docs updated: DECISIONS.md, CHANGELOG.md, README.md, SDFGH/PROJECT_STATUS.md, SDFGH/ppp.md, fuzz/log.txt
+Next:        Propose Git commit for Cluster 8 baseline (cluster-8-baseline), then Cluster 9 (toString / Radix Conversion) Research & Design Review.

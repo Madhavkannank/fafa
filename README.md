@@ -32,10 +32,10 @@ export GOTMPDIR='c:/Users/madha/OneDrive/Desktop/port TS-GO/tmp' && ./go_sdk/go/
 | **5. Divide / Remainder** | COMPLETE | `Divide`, `Remainder`, `DivRem` | Unit Tests PASS, 176K Fuzz Cases |
 | **6. Shifts** | COMPLETE | `LeftShift`, `SignedRightShift`, `UnsignedRightShift` | Unit Tests PASS, 1.40M Fuzz Cases |
 | **7. Bitwise Operations** | COMPLETE | `BitwiseAnd`, `BitwiseOr`, `BitwiseXor`, `BitwiseNot` | Unit Tests PASS, 1.86M Fuzz Cases |
-| **8. Fixed-Width Truncation** | PENDING | `AsIntN`, `AsUintN` | Pending Cluster 8 |
+| **8. Fixed-Width Truncation** | COMPLETE | `AsIntN`, `AsUintN` | Unit Tests PASS, 1.75M Fuzz Cases |
 | **9. String Formatting** | PENDING | `ToString` | Pending Cluster 9 |
 
-- **Cumulative Differential Fuzzing**: **6,069,250 cases** (logged harness runs) / **7,659,250 cases** (total across all runs) with 100% equivalence survival against Node.js JSBI reference oracle.
+- **Cumulative Differential Fuzzing**: **7,822,250 cases** (logged harness runs, per-cluster latest successful run methodology) with 100% equivalence survival against Node.js JSBI reference oracle.
 
 - **Allocation Performance**:
   - `Compare` and `Equal`: `0 B/op, 0 allocs/op` (4.90 ns/op and 11.29 ns/op).
@@ -47,6 +47,11 @@ export GOTMPDIR='c:/Users/madha/OneDrive/Desktop/port TS-GO/tmp' && ./go_sdk/go/
   - `LeftShift`: `64 B/op, 2 allocs/op` (72.0 ns/op).
   - `SignedRightShift`: `48 B/op, 2 allocs/op` (49.3 ns/op).
   - `UnsignedRightShift`: `0 B/op, 0 allocs/op` (0.0 ns/op).
-- **Cumulative Differential Fuzz Cases**: **4,206,250 cases** executed with 100% equivalence survival rate against Node JSBI oracle (latest successful run per cluster methodology: Cluster 1: 1,005,000; Cluster 2: 842,000; Cluster 3: 783,000; Cluster 5: 176,250; Cluster 6: 1,400,000).
+  - `BitwiseNot`: `48 B/op, 2 allocs/op` (41.16 ns/op).
+  - `BitwiseAnd`: `96 B/op, 4 allocs/op` (81.10 ns/op).
+  - `BitwiseOr`: `96 B/op, 4 allocs/op` (92.49 ns/op).
+  - `BitwiseXor`: `112 B/op, 5 allocs/op` (125.7 ns/op).
+  - `AsIntN`: `40 B/op, 2 allocs/op` (40.57 ns/op).
+  - `AsUintN`: `40 B/op, 2 allocs/op` (37.12 ns/op).
 - **Original JSBI Test Suite**: 5 files verified passing unmodified on clean checkout.
-
+- **Full Regression Suite (Clusters 1–8)**: PASS (133.521s, from actual `go test ./tests/port/... -count=1` output).

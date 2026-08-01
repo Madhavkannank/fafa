@@ -59,3 +59,15 @@ Fuzz:        COMPLETED — 389,000 test cases executed in 65.13s against Node JS
 Decision:    Decision 2 (Direct line-for-line port of JSBI.__compareToDouble bit-aligned mantissa scan, (cmp, isNaN) return tuple for exact NaN relational handling, zero-allocation Go implementation goal achieved).
 Docs updated: ppp.md, CHANGELOG.md, DECISIONS.md, SDFGH/PROJECT_STATUS.md, README.md, fuzz/log.txt
 Next:        Commit proposal for Cluster 2, then proceed to Cluster 3 (Add / Subtract).
+
+──────────────────────────────
+2026-08-01 14:34
+──────────────────────────────
+Task:        Cluster 2 Baseline Commit & Cluster 3 Design Review
+Files:       SDFGH/pp.md, SDFGH/DESIGN_REVIEWS/03-add-subtract.md, SDFGH/PROJECT_STATUS.md, SDFGH/ppp.md
+Commands:    git add ., git commit -m 'feat(cluster-2): ...', git tag cluster-2-baseline
+Result:      PASS — Commit 6414b37 created and tagged as `cluster-2-baseline`. Behavior Preservation Policy locked in pp.md. Design Review 03 written.
+Fuzz:        NOT EXECUTED (Cluster 3 review phase)
+Decision:    Behavior Preservation Policy locked in pp.md.
+Docs updated: SDFGH/pp.md, SDFGH/DESIGN_REVIEWS/03-add-subtract.md, SDFGH/PROJECT_STATUS.md, SDFGH/ppp.md
+Next:        Await User GATE approval on Design Review 03 before starting Cluster 3 code implementation.

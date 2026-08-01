@@ -22,6 +22,14 @@ func Zero() *BigInt {
 	return &BigInt{sign: false, digits: nil}
 }
 
+// NewBigInt allocates a new BigInt with the specified length and sign.
+func NewBigInt(length int, sign bool) *BigInt {
+	if length <= 0 {
+		return Zero()
+	}
+	return &BigInt{sign: sign, digits: make([]uint32, length)}
+}
+
 // OneDigit returns a single-digit BigInt with the specified sign.
 func OneDigit(value uint32, sign bool) *BigInt {
 	value &= kDigitMask
@@ -37,6 +45,13 @@ func (x *BigInt) Sign() bool {
 		return false
 	}
 	return x.sign
+}
+
+// SetSign sets the sign flag of the BigInt.
+func (x *BigInt) SetSign(sign bool) {
+	if x != nil {
+		x.sign = sign
+	}
 }
 
 // Length returns the number of 30-bit digit limbs.

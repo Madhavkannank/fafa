@@ -31,3 +31,13 @@ This document records every non-trivial design choice, divergence from JSBI TS r
   4. Achieve zero heap allocations (`0 allocs/op`) for pure comparison functions.
 - **Rationale**: JSBI line 1052 returns `NaN` as a sentinel, relying on JS relational operators evaluating to `false` for `NaN`. Returning `(cmp, isNaN)` in Go ensures all six relational wrappers match ECMAScript semantics 100% (`NotEqual(x, NaN)` is `true`, all others `false`).
 - **Verification**: Verified via `TestNaNRelationalComparisons`, 4 targeted unit test suites, benchmark verification (`BenchmarkComparePure` 4.90ns/op, `0 allocs/op`), and 389,000 differential fuzzing test cases against Node JSBI oracle (65.13s run, 100% survival rate across `Compare` and all 6 individual relational operators against `NaN`).
+
+## Decision 3: Cluster 3 Multi-Precision Add/Subtract & Go Spec Borrow Shift Proof
+- **Context**: Porting `JSBI.add`, `JSBI.subtract`, `JSBI.unaryMinus`, `__absoluteAdd`, and `__absoluteSub` to Go.
+- **Choices**:
+  1. Implement `borrow := (uint32(r) >> 30) & 1` with `r` as `int32`. Casting `uint32(r)` enforces a **logical right shift** per Go Language Specification (Section *Operators - Shift operators*), proving $1$-to-$1$ equivalence to JS `(r >>> 30) & 1` for all $r \in [-2^{30}, 2^{30}-1]$.
+  2. Implement `carry := uint32(r) >> 30` with `r` as `int32` for `absoluteAdd`.
+  3. Enforce canonical zero (`sign = false, len = 0`) across `UnaryMinus` and `Trim()`. `UnaryMinus(0)` returns canonical zero directly without sign inversion.
+  4. Use `absoluteCompare` magnitude checks in `Add` and `Subtract` to dispatch minuend/subtrahend order, guaranteeing $|X| \ge |Y|$ for `absoluteSub`.
+- **Rationale**: Direct algorithmic port guarantees exact parity for arbitrary precision addition and subtraction. Logical shift via `uint32(r) >> 30` eliminates platform-dependent signed shift ambiguity.
+- **Verification**: Verified via 6 targeted unit test suites (`TestAddBasic`, `TestSubtractBasic`, `TestUnaryMinus`, `TestCarryPropagation`, `TestBorrowPropagation`, `TestAlgebraicIdentities`), benchmark verification (`BenchmarkAdd` 76.43ns/op, 48 B/op, 2 allocs/op), and 422,000 differential fuzzing test cases against Node JSBI oracle (65.13s run, 100% survival rate across element-by-element digit limbs, signs, lengths, and algebraic identities).

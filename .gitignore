@@ -1,0 +1,17 @@
+# Ignore the original JSBI submodule/repository directory
+jsbi/
+
+# Go build and test artifacts
+*.exe
+*.test
+*.prof
+bin/
+
+# Node/dependency artifacts
+node_modules/
+dist/
+tsc-out/
+
+# OS specific files
+.DS_Store
+Thumbs.db

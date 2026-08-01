@@ -1,0 +1,4 @@
+track_letter = "C"
+source_url = "https://github.com/GoogleChromeLabs/jsbi"
+kickoff_commit = "5382367c7e3199858d36bb620977e1f90605bcb9"
+kickoff_test_suite_hash = "1309534b7a6d5d89f5340914b244d49eebb8c676d0040eb898570102dd973585"

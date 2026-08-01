@@ -29,33 +29,16 @@ The judges have said explicitly: an honest partial result beats a confident unve
 - Original test suite (`tests/original/`): Unmodified ideal.
 - One-command build: `make` / `docker`.
 
-## Architectural Principle Choice [PENDING USER DECISION]
+## Standing Regression Policy [LOCKED POLICY]
+- **Unit Test Regression**: Before any future cluster is marked complete, its full unit test suite must pass, AND the full unit test suite of every previously completed cluster must still pass.
+- **Fuzzing Regression Triggers**: A full differential fuzz re-run of a prior cluster is required whenever a new cluster's implementation plausibly touches that prior cluster's invariants (e.g., shared limb arithmetic, shared overflow/carry logic, digit trimming). This requirement must be explicitly noted in the design review for the new cluster. Otherwise, unit-test regression is sufficient.
+- **Zero Regression Rule**: No behavioral regression is permitted in any case.
 
-Before Cluster 1 starts, the user must choose between Option A and Option B:
+## Architectural Principle Choice [LOCKED POLICY]
 
-### Option A: Faithful Limb-Based Go Representation
-*Description*: Direct port of JSBI's custom `BigInt` internal structure (sign flag + array of 32-bit/64-bit digit limbs) and algorithms (manual multi-precision addition, subtraction, Karatsuba/schoolbook multiplication, Knuth division, bitwise limb logic, radix conversion).
+**Selected Architecture: Option A — Faithful Limb-Based Go Representation**
 
-*Objective Tradeoffs*:
-- **Pros**:
-  - Direct structural and algorithmic fidelity to JSBI reference codebase.
-  - High potential for "Innovation" score (10%) and "Bug Catcher" bonus (+3) by surfacing subtle edge-case bugs/divergences in JSBI's low-level digit array math.
-  - No reliance on Go stdlib internal representation; explicit control over memory allocation and digit math.
-- **Cons**:
-  - Substantially higher code surface area and algorithm complexity across all 9 clusters.
-  - Increased risk of manual implementation bugs within the hackathon time constraint.
-
-### Option B: `math/big.Int`-Backed Wrapper
-*Description*: Internal data model delegates underlying multi-precision arithmetic to Go standard library `math/big.Int`, while providing a complete JSBI-compatible API wrapper handling JSBI semantics, parameter conversions, string formatting, `asIntN`/`asUintN` bitwise operations, and exception/error contracts.
-
-*Objective Tradeoffs*:
-- **Pros**:
-  - Leverages Go stdlib's battle-tested, assembly-optimized multi-precision math engine for high speed, reliability, and correctness.
-  - Reduced implementation overhead for core math, allowing more hackathon time for exhaustive differential fuzzing, benchmarking, and documentation.
-  - Clean, idiomatic Go wrapper API.
-- **Cons**:
-  - Does not mirror JSBI's internal digit array layout.
-  - Lower probability of finding low-level limb bugs in JSBI itself during fuzzing.
-  - Requires careful translation layer for JSBI-specific bitwise and two's complement mask operations (`asIntN`, `asUintN`) on `math/big.Int`.
-
-*Status*: **Awaiting User Selection**. Once chosen, this policy will be locked in `pp.md` and `DECISIONS.md`.
+*Locked Policy*:
+- The Go implementation will mirror JSBI's custom internal representation (`sign` boolean + 30-bit digit slice `[]uint32`).
+- All multi-precision arithmetic, shifts, bitwise operations, radix parsing, and base conversion algorithms will be ported faithfully from JSBI's algorithms directly in Go without relying on Go stdlib `math/big.Int` as an internal backend.
+- Memory allocation, digit trimming, carry/borrow propagation, and sign semantics will match JSBI line-for-line.

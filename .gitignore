@@ -1,6 +1,12 @@
 # Ignore the original JSBI submodule/repository directory
 jsbi/
 
+# Portable Go SDK toolchain directory
+go_sdk/
+
+# Temporary build directory
+tmp/
+
 # Go build and test artifacts
 *.exe
 *.test

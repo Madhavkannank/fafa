@@ -147,3 +147,84 @@ your-port/
     ├── CAMPAIGN.md         ← Master Verification Campaign Index
     └── raw/                ← Raw tool outputs (benchstat, coverage, pprof, CSVs, static logs)
 ```
+
+
+---
+
+## Interactive Demo & Customization Guide
+
+The repository includes a dedicated CLI application in `demo/main.go` for interactive exploration and automated verification of all functional clusters.
+
+### 1. Launching the Demo
+
+```bash
+# Interactive Explorer Mode (Calculator & Cluster Inspector)
+go run demo/main.go
+
+# Automated Showcase Mode (5-Minute Verification Walkthrough)
+go run demo/main.go --auto
+
+# Or using Makefile
+make demo
+```
+
+### 2. Customizing the Demo Suite (`demo/main.go`)
+
+The demo CLI is designed to be easily extensible. You can modify or add new test cases in [`demo/main.go`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/demo/main.go):
+
+- **Adding Custom Arithmetic Test Cases**:
+  Modify `runInteractiveCalculator()` to add custom inputs, new BigInt operations, or change the default test values:
+  ```go
+  // Example: Add custom BigInt exponentiation or bitwise operations
+  base, _ := jsbi.FromString("3", 10)
+  exp, _ := jsbi.FromString("100", 10)
+  res, _ := jsbi.Exponentiate(base, exp)
+  ```
+
+- **Adding New Cluster Inspections**:
+  Update the `clusters` slice in `runClusterInspector()` to add custom validation functions and assertions:
+  ```go
+  {
+      ID: "Custom Test",
+      Name: "Custom Bitwise Check",
+      TestFn: func() (string, bool) {
+          // Add custom assertion logic here
+          return "Output", true
+      },
+      Validation: "Validates custom logic.",
+      ProofTarget: "tests/port/custom_test.go",
+  }
+  ```
+
+---
+
+## Execution Pipeline & Architecture Overview
+
+```
+╔══════════════════════════════════════════════════════════════════════════════════╗
+║                     JSBI GO PORT — EXECUTION & VERIFICATION                      ║
+╚══════════════════════════════════════════════════════════════════════════════════╝
+    │
+    ├──► [1] RADIX STRING PARSER (Base 2 to 36)
+    │     ├── ASCII Whitespace Strip ──► Sign Sign-Bit Extraction (+ / -)
+    │     └── 30-Bit Digit Allocation (kDigitBits = 30, kDigitMask = 0x3FFFFFFF)
+    │
+    ├──► [2] ARBITRARY-PRECISION CORE ENGINE (Pure Go · Value-Independent Immutability)
+    │     ├── Carry Propagation ────► Add() / Subtract() [2 allocs/op]
+    │     ├── 15-Bit Decomposition ──► Multiply() [Product Accumulation]
+    │     ├── Knuth Algorithm D ────► Divide() / Remainder() [Single-pass DivRem]
+    │     └── Two's Complement ─────► AsIntN() / AsUintN() / Bitwise Shifts
+    │
+    └──► [3] DIFFERENTIAL FUZZING ORACLE (Node.js v18+ ESM Runtime)
+          ├── Live JSON-RPC Channel ──► 9,696,250 Randomized Operations
+          └── Verification Status ───► 0 Divergences / 0 Mismatches Logged
+```
+
+```
+   ┌────────────────────────────────────────────────────────────────────────────┐
+   │              VERIFIED PIPELINE ARCHITECTURE & MEMORY SAFETY                 │
+   ├────────────────────────────────────────────────────────────────────────────┤
+   │  [0 Unsafe Package Imports]    [0 CGO Toolchain Dependencies]              │
+   │  [88.7% Statement Coverage]    [5/5 Original Upstream TS Tests Passing]    │
+   └────────────────────────────────────────────────────────────────────────────┘
+```

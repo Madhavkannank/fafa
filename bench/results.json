@@ -191,27 +191,22 @@
     "audit_report": "verification/bug_hunter_audit.md",
     "bonus_claimed": "Bug Catcher Bonus (+3)"
   },
-  "bonus_challenges": {
+  "bonus_evidence": {
     "differential_fuzz_survivor": {
-      "points": 5,
-      "status": "VERIFIED",
-      "proof": "fuzz/log.txt (9,696,250 cases)"
+      "status": "9,696,250 cases",
+      "proof": "fuzz/log.txt"
     },
     "zero_unsafe": {
-      "points": 5,
-      "status": "VERIFIED",
-      "proof": "src/*.go (0 unsafe imports)"
+      "status": "0 unsafe imports",
+      "proof": "src/*.go"
     },
-    "bug_catcher": {
-      "points": 3,
-      "status": "VERIFIED",
+    "bug_audit": {
+      "status": "cross-repo audit",
       "proof": "https://github.com/Kavinraj696/verified-bugs"
     },
     "decision_log": {
-      "points": 3,
-      "status": "VERIFIED",
-      "proof": "DECISIONS.md (10 decisions)"
-    },
-    "total_bonus_points_claimed": 16
+      "status": "10 decisions",
+      "proof": "DECISIONS.md"
+    }
   }
 }

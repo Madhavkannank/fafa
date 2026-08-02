@@ -1,30 +1,24 @@
 # GoogleChromeLabs/jsbi — Pure Go Port
 
-> [!IMPORTANT]
-> **Bug Catcher Bonus (+3) & Cross-Repository Bug Audit**:
-> This project features an exhaustive cross-repository bug audit across all hackathon reference repositories.
-> - **Central Verified Bugs Repository**: **[`https://github.com/Kavinraj696/verified-bugs`](https://github.com/Kavinraj696/verified-bugs)**
-> - **Local Bug Audit Report**: [`SDFGH/BUGS.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/SDFGH/BUGS.md) | [`verification/bug_hunter_audit.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/bug_hunter_audit.md)
+> [!NOTE]
+> **Cross-Repository Bug Audit & Evidence Index**:
+> Verified bug findings and edge-case behavior analyses are documented in [`SDFGH/BUGS.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/SDFGH/BUGS.md) and indexed in [`Kavinraj696/verified-bugs`](https://github.com/Kavinraj696/verified-bugs).
 
 - **Upstream Reference**: [`GoogleChromeLabs/jsbi`](https://github.com/GoogleChromeLabs/jsbi) (`5382367c7e3199858d36bb620977e1f90605bcb9`)
 - **Package Path**: `github.com/Madhavkannank/fafa/src`
 - **Go Version**: Go 1.20+ static library (`package jsbi`)
 - **Status**: Pure Go Port Complete — All 9 Functional Clusters & Audit Campaigns Complete
 
-- **Package Path**: `github.com/Madhavkannank/fafa/src`
-- **Go Version**: Go 1.20+ static library (`package jsbi`)
-- **Status**: Pure Go Port Complete — All 9 Functional Clusters & Audit Campaigns Complete
-
 ---
 
-## Hackathon Bonus Challenges Matrix (+16 / +16 Points Claimed)
+## Bonus Criteria Verification Evidence
 
-| Bonus Challenge | Difficulty | Points | Claim Status | Evidence & Verification Proof Location |
-| :--- | :---: | :---: | :---: | :--- |
-| **Differential Fuzz Survivor** | Hard | **+5** | **VERIFIED** | **9,696,250 cases** (0 mismatches) logged live in [`fuzz/log.txt`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/fuzz/log.txt) & [`verification/fuzz_campaign.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/fuzz_campaign.md) |
-| **Zero Unsafe** | Hard | **+5** | **VERIFIED** | **0 `unsafe` imports** in `src/*.go` (100% type-safe Go) verified via `go vet` & [`verification/static_campaign.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/static_campaign.md) |
-| **Bug Catcher** | Medium | **+3** | **VERIFIED** | Cross-repo bug audit in [`SDFGH/BUGS.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/SDFGH/BUGS.md) & **[`Kavinraj696/verified-bugs`](https://github.com/Kavinraj696/verified-bugs)** |
-| **Decision Log** | Medium | **+3** | **VERIFIED** | 10 architectural decisions in strict 7-part schema in [`DECISIONS.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/DECISIONS.md) |
+| Bonus Category | Target Criteria | Measured Evidence Status | Verification Proof Artifact Location |
+| :--- | :--- | :--- | :--- |
+| **Differential Fuzz Survivor** | 60s+ execution without divergences | 9,696,250 cases (0 mismatches) | [`fuzz/log.txt`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/fuzz/log.txt) & [`verification/fuzz_campaign.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/fuzz_campaign.md) |
+| **Zero Unsafe** | Zero unsafe pointer usage | 0 `unsafe` imports in package `src` | [`src/`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/src/) & [`verification/static_campaign.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/static_campaign.md) |
+| **Bug Audit** | Document latent bugs across repos | Cross-repository audit documented | [`SDFGH/BUGS.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/SDFGH/BUGS.md) & [`Kavinraj696/verified-bugs`](https://github.com/Kavinraj696/verified-bugs) |
+| **Decision Log** | Architectural trade-offs schema | 10 architectural decision entries | [`DECISIONS.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/DECISIONS.md) |
 
 ---
 

@@ -55,7 +55,7 @@ func main() {
 		case "4":
 			runAutomatedShowcase()
 		case "5", "q", "exit":
-			fmt.Println(ColorGreen + "Thank you for evaluating the JSBI Go Port!" + ColorReset)
+			fmt.Println(ColorBold + ColorGreen + "Thank you for evaluating the JSBI Go Port!" + ColorReset)
 			return
 		default:
 			fmt.Println(ColorRed + "Invalid option. Please select 1-5." + ColorReset)
@@ -67,12 +67,10 @@ func main() {
 }
 
 func printBanner() {
-	fmt.Print("\033[H\033[2J") // Clear terminal screen
-	fmt.Println(ColorBold + ColorPurple + `
-════════════════════════════════════════════════════════════════════════════
-    GoogleChromeLabs/jsbi — Pure Go Port (Judge & Verification Demo)
-    Track C/H Hackathon Submission · Package github.com/Madhavkannank/fafa/src
-════════════════════════════════════════════════════════════════════════════` + ColorReset)
+	fmt.Println("\n" + strings.Repeat("═", 78))
+	fmt.Println(ColorBold + ColorPurple + `    GoogleChromeLabs/jsbi — Pure Go Port (Judge & Verification Demo)
+    Track C/H Hackathon Submission · Package github.com/Madhavkannank/fafa/src` + ColorReset)
+	fmt.Println(strings.Repeat("═", 78))
 }
 
 func runClusterInspector() {
@@ -219,7 +217,7 @@ func runClusterInspector() {
 		fmt.Printf("   %sResult%s     : %s\n", ColorYellow, ColorReset, output)
 		fmt.Printf("   %sValidation%s : %s\n", ColorCyan, ColorReset, c.Validation)
 		fmt.Printf("   %sProof File%s : %s\n\n", ColorPurple, ColorReset, c.ProofTarget)
-		time.Sleep(80 * time.Millisecond)
+		time.Sleep(50 * time.Millisecond)
 	}
 
 	if allPass {
@@ -362,10 +360,10 @@ func runAutomatedShowcase() {
 	fmt.Println(ColorBold + ColorPurple + "=== 4. FULL AUTOMATED SHOWCASE DEMO ===" + ColorReset)
 	fmt.Println("Running automated walkthrough of cluster verification, arithmetic calculations, and evidence traceability...\n")
 
-	time.Sleep(300 * time.Millisecond)
+	time.Sleep(200 * time.Millisecond)
 	runClusterInspector()
 	fmt.Println("\n" + strings.Repeat("─", 72) + "\n")
-	time.Sleep(300 * time.Millisecond)
+	time.Sleep(200 * time.Millisecond)
 	runEvidenceInspector()
 
 	fmt.Println("\n" + ColorBold + ColorGreen + "✔ AUTOMATED SHOWCASE DEMO COMPLETE — READY FOR JUDGING EVALUATION!" + ColorReset)

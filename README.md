@@ -17,6 +17,17 @@
 
 ---
 
+## Hackathon Bonus Challenges Matrix (+16 / +16 Points Claimed)
+
+| Bonus Challenge | Difficulty | Points | Claim Status | Evidence & Verification Proof Location |
+| :--- | :---: | :---: | :---: | :--- |
+| **Differential Fuzz Survivor** | Hard | **+5** | **VERIFIED** | **9,696,250 cases** (0 mismatches) logged live in [`fuzz/log.txt`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/fuzz/log.txt) & [`verification/fuzz_campaign.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/fuzz_campaign.md) |
+| **Zero Unsafe** | Hard | **+5** | **VERIFIED** | **0 `unsafe` imports** in `src/*.go` (100% type-safe Go) verified via `go vet` & [`verification/static_campaign.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/static_campaign.md) |
+| **Bug Catcher** | Medium | **+3** | **VERIFIED** | Cross-repo bug audit in [`SDFGH/BUGS.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/SDFGH/BUGS.md) & **[`Kavinraj696/verified-bugs`](https://github.com/Kavinraj696/verified-bugs)** |
+| **Decision Log** | Medium | **+3** | **VERIFIED** | 10 architectural decisions in strict 7-part schema in [`DECISIONS.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/DECISIONS.md) |
+
+---
+
 ## Quick Start & Verification
 
 ### 1. Build

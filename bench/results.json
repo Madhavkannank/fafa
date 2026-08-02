@@ -190,5 +190,28 @@
     "bugs_report": "SDFGH/BUGS.md",
     "audit_report": "verification/bug_hunter_audit.md",
     "bonus_claimed": "Bug Catcher Bonus (+3)"
+  },
+  "bonus_challenges": {
+    "differential_fuzz_survivor": {
+      "points": 5,
+      "status": "VERIFIED",
+      "proof": "fuzz/log.txt (9,696,250 cases)"
+    },
+    "zero_unsafe": {
+      "points": 5,
+      "status": "VERIFIED",
+      "proof": "src/*.go (0 unsafe imports)"
+    },
+    "bug_catcher": {
+      "points": 3,
+      "status": "VERIFIED",
+      "proof": "https://github.com/Kavinraj696/verified-bugs"
+    },
+    "decision_log": {
+      "points": 3,
+      "status": "VERIFIED",
+      "proof": "DECISIONS.md (10 decisions)"
+    },
+    "total_bonus_points_claimed": 16
   }
 }

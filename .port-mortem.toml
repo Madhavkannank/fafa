@@ -16,3 +16,11 @@ go_version = "Go 1.22.5"
 verification_date = "2026-08-02"
 bug_catcher_bonus = true
 bug_audit_repository = "https://github.com/Kavinraj696/verified-bugs"
+
+
+[bonus_challenges]
+differential_fuzz_survivor = true # +5 points (9,696,250 cases)
+zero_unsafe = true                 # +5 points (0 unsafe imports)
+bug_catcher = true                 # +3 points (Kavinraj696/verified-bugs)
+decision_log = true                # +3 points (DECISIONS.md 10 entries)
+total_bonus_claimed = 16

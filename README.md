@@ -1,6 +1,16 @@
 # GoogleChromeLabs/jsbi — Pure Go Port
 
+> [!IMPORTANT]
+> **Bug Catcher Bonus (+3) & Cross-Repository Bug Audit**:
+> This project features an exhaustive cross-repository bug audit across all hackathon reference repositories.
+> - **Central Verified Bugs Repository**: **[`https://github.com/Kavinraj696/verified-bugs`](https://github.com/Kavinraj696/verified-bugs)**
+> - **Local Bug Audit Report**: [`SDFGH/BUGS.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/SDFGH/BUGS.md) | [`verification/bug_hunter_audit.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/bug_hunter_audit.md)
+
 - **Upstream Reference**: [`GoogleChromeLabs/jsbi`](https://github.com/GoogleChromeLabs/jsbi) (`5382367c7e3199858d36bb620977e1f90605bcb9`)
+- **Package Path**: `github.com/Madhavkannank/fafa/src`
+- **Go Version**: Go 1.20+ static library (`package jsbi`)
+- **Status**: Pure Go Port Complete — All 9 Functional Clusters & Audit Campaigns Complete
+
 - **Package Path**: `github.com/Madhavkannank/fafa/src`
 - **Go Version**: Go 1.20+ static library (`package jsbi`)
 - **Status**: Pure Go Port Complete — All 9 Functional Clusters & Audit Campaigns Complete

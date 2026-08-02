@@ -228,3 +228,5 @@ The demo CLI is designed to be easily extensible. You can modify or add new test
    │  [88.7% Statement Coverage]    [5/5 Original Upstream TS Tests Passing]    │
    └────────────────────────────────────────────────────────────────────────────┘
 ```
+
+![Footer Waving Animation](https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,100:3b82f6&height=120&section=footer&animation=fadeIn)

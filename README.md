@@ -41,6 +41,9 @@ make verify
 
 ---
 
+
+- **Verified Bugs & Edge Cases Audit**: Documented in [`SDFGH/BUGS.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/SDFGH/BUGS.md) and cross-referenced in **[`Kavinraj696/verified-bugs`](https://github.com/Kavinraj696/verified-bugs)** (Bug Hunter Bonus +3).
+
 ## Central Evidence & Artifact Index
 
 For complete execution metadata and raw data traceability, see [`verification/METRICS.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/METRICS.md).

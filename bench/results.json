@@ -184,5 +184,11 @@
     "gosec_critical_flaws": 0,
     "raw_logs": "verification/raw/static/",
     "report": "verification/static_campaign.md"
+  },
+  "verified_bugs_repository": {
+    "url": "https://github.com/Kavinraj696/verified-bugs",
+    "bugs_report": "SDFGH/BUGS.md",
+    "audit_report": "verification/bug_hunter_audit.md",
+    "bonus_claimed": "Bug Catcher Bonus (+3)"
   }
 }

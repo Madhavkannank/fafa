@@ -1,4 +1,4 @@
-# GoogleChromeLabs/jsbi — Pure Go Port
+# FaFa — Pure Go Port of GoogleChromeLabs/jsbi
 
 > [!NOTE]
 > **Cross-Repository Bug Audit & Evidence Index**:

@@ -65,7 +65,7 @@ func main() {
 
 func printBanner() {
 	fmt.Println("\n" + strings.Repeat("═", 78))
-	fmt.Println(ColorBold + ColorPurple + `    GoogleChromeLabs/jsbi — Pure Go Port (Judge & Verification Demo)
+	fmt.Println(ColorBold + ColorPurple + `    FaFa — Pure Go Port of GoogleChromeLabs/jsbi (Judge & Verification Demo)
     Track C/H Hackathon Submission · Package github.com/Madhavkannank/fafa/src` + ColorReset)
 	fmt.Println(strings.Repeat("═", 78))
 }

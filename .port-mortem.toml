@@ -14,3 +14,5 @@ unsafe = false
 cgo = false
 go_version = "Go 1.22.5"
 verification_date = "2026-08-02"
+bug_catcher_bonus = true
+bug_audit_repository = "https://github.com/Kavinraj696/verified-bugs"

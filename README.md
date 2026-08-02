@@ -8,6 +8,7 @@
 - **Package Path**: `github.com/Madhavkannank/fafa/src`
 - **Go Version**: Go 1.20+ static library (`package jsbi`)
 - **Status**: Functional implementation complete with accompanying verification, benchmarking, fuzzing, and audit artifacts.
+- **License**: [Apache License 2.0](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/LICENSE)
 
 ---
 

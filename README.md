@@ -7,18 +7,24 @@
 - **Upstream Reference**: [`GoogleChromeLabs/jsbi`](https://github.com/GoogleChromeLabs/jsbi) (`5382367c7e3199858d36bb620977e1f90605bcb9`)
 - **Package Path**: `github.com/Madhavkannank/fafa/src`
 - **Go Version**: Go 1.20+ static library (`package jsbi`)
-- **Status**: Pure Go Port Complete — All 9 Functional Clusters & Audit Campaigns Complete
+- **Status**: Functional implementation complete with accompanying verification, benchmarking, fuzzing, and audit artifacts.
 
 ---
 
-## Bonus Criteria Verification Evidence
+## Additional Verification & Supporting Artifacts
 
-| Bonus Category | Target Criteria | Measured Evidence Status | Verification Proof Artifact Location |
-| :--- | :--- | :--- | :--- |
-| **Differential Fuzz Survivor** | 60s+ execution without divergences | 9,696,250 cases (0 mismatches) | [`fuzz/log.txt`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/fuzz/log.txt) & [`verification/fuzz_campaign.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/fuzz_campaign.md) |
-| **Zero Unsafe** | Zero unsafe pointer usage | 0 `unsafe` imports in package `src` | [`src/`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/src/) & [`verification/static_campaign.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/static_campaign.md) |
-| **Bug Audit** | Document latent bugs across repos | Cross-repository audit documented | [`SDFGH/BUGS.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/SDFGH/BUGS.md) & [`Kavinraj696/verified-bugs`](https://github.com/Kavinraj696/verified-bugs) |
-| **Decision Log** | Architectural trade-offs schema | 10 architectural decision entries | [`DECISIONS.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/DECISIONS.md) |
+The repository includes additional artifacts that correspond to optional evaluation criteria. These are provided for independent verification by reviewers.
+
+| Artifact | Evidence |
+| :--- | :--- |
+| **Differential fuzzing** | 9,696,250 differential test cases executed against the Node.js JSBI reference oracle with no observed behavioral mismatches ([`fuzz/log.txt`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/fuzz/log.txt)). |
+| **Memory safety** | No `unsafe` package usage; no CGO dependencies ([`src/`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/src/)). |
+| **Architectural decisions** | [`DECISIONS.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/DECISIONS.md) documents the rationale for implementation choices and intentional divergences. |
+| **Bug investigation** | Cross-repository bug analysis documented in [`SDFGH/BUGS.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/SDFGH/BUGS.md) and cross-referenced in [`verified-bugs`](https://github.com/Kavinraj696/verified-bugs). |
+| **Benchmark evidence** | Statistical benchmark campaigns with raw CSV/JSON datasets and benchstat outputs ([`bench/results.json`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/bench/results.json)). |
+| **Coverage evidence** | Statement coverage reports (88.7% of package statements) and raw coverage profiles included ([`verification/raw/coverage_summary.txt`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/coverage_summary.txt)). |
+| **Static analysis** | `go vet`, `staticcheck`, `golangci-lint`, `govulncheck`, and `gosec` reports included ([`verification/static_campaign.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/static_campaign.md)). |
+| **Reproducibility** | [`Dockerfile`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/Dockerfile), [`Makefile`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/Makefile), and verification pipeline included. |
 
 ---
 

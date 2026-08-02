@@ -82,35 +82,3 @@ func internalMultiplyAdd(source *BigInt, factor uint32, summand uint32, n int, r
 	}
 	result.SetDigit(n, carry)
 }
-
-// inplaceMultiplyAdd multiplies b by multiplier and adds summand in-place.
-// References: jsbi/lib/jsbi.ts lines 1481-1506.
-func (b *BigInt) inplaceMultiplyAdd(multiplier uint32, summand uint32, length int) {
-	if length == 0 {
-		b.SetDigit(0, summand)
-		return
-	}
-	if multiplier == 1 && summand == 0 {
-		return
-	}
-	carry := summand
-	mLow := multiplier & 0x7FFF
-	mHigh := multiplier >> 15
-	for i := 0; i < length; i++ {
-		d := b.Digit(i)
-		dLow := d & 0x7FFF
-		dHigh := d >> 15
-		rLow := dLow * mLow
-		rMid1 := dLow * mHigh
-		rMid2 := dHigh * mLow
-		rHigh := dHigh * mHigh
-		acc := rLow + carry
-		carry = acc >> kDigitBits
-		acc &= kDigitMask
-		acc += ((rMid1 & 0x7FFF) << 15) + ((rMid2 & 0x7FFF) << 15)
-		carry += acc >> kDigitBits
-		carry += rHigh + (rMid1 >> 15) + (rMid2 >> 15)
-		b.SetDigit(i, acc&kDigitMask)
-	}
-	b.SetDigit(length, carry)
-}

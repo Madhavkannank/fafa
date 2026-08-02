@@ -1,0 +1,156 @@
+File: port.test.exe
+Build ID: c:\Users\madha\OneDrive\Desktop\port TS-GO\tmp\go-build940018711\b001\port.test.exe2026-08-02 11:41:10.9453879 +0530 IST
+Type: cpu
+Time: Aug 2, 2026 at 11:41am (IST)
+Duration: 25.29s, Total samples = 29.54s (116.81%)
+Showing nodes accounting for 26.64s, 90.18% of 29.54s total
+Dropped 209 nodes (cum <= 0.15s)
+      flat  flat%   sum%        cum   cum%
+     4.49s 15.20% 15.20%     11.33s 38.35%  runtime.mallocgc
+     2.04s  6.91% 22.11%      2.04s  6.91%  runtime.nextFreeFast (inline)
+     1.95s  6.60% 28.71%      1.96s  6.64%  github.com/Madhavkannank/fafa/src.(*BigInt).Digit (inline)
+     1.27s  4.30% 33.01%      1.27s  4.30%  runtime.stdcall2
+     0.79s  2.67% 35.68%      1.59s  5.38%  github.com/Madhavkannank/fafa/src.toStringBasePowerOfTwo
+     0.71s  2.40% 38.08%      0.88s  2.98%  runtime.scanblock
+     0.67s  2.27% 40.35%      0.67s  2.27%  runtime.stdcall1
+     0.63s  2.13% 42.48%      1.16s  3.93%  github.com/Madhavkannank/fafa/src.absoluteCompare
+     0.59s  2.00% 44.48%      1.38s  4.67%  github.com/Madhavkannank/fafa/src.Equal
+     0.58s  1.96% 46.45%      0.58s  1.96%  github.com/Madhavkannank/fafa/src.(*BigInt).Length (inline)
+     0.58s  1.96% 48.41%      0.86s  2.91%  runtime.(*mspan).writeHeapBitsSmall
+     0.57s  1.93% 50.34%      0.78s  2.64%  github.com/Madhavkannank/fafa/src.multiplyAccumulate
+     0.56s  1.90% 52.23%      0.83s  2.81%  github.com/Madhavkannank/fafa/src.(*BigInt).SetDigit (inline)
+     0.56s  1.90% 54.13%      0.94s  3.18%  runtime.deductAssistCredit
+     0.50s  1.69% 55.82%      1.09s  3.69%  strconv.formatBits
+     0.48s  1.62% 57.45%      4.37s 14.79%  github.com/Madhavkannank/fafa/src.absoluteDivLarge
+     0.45s  1.52% 58.97%      0.92s  3.11%  github.com/Madhavkannank/fafa/src.internalMultiplyAdd
+     0.44s  1.49% 60.46%      1.43s  4.84%  runtime.scanobject
+     0.43s  1.46% 61.92%      0.43s  1.46%  runtime.memclrNoHeapPointers
+     0.42s  1.42% 63.34%      4.87s 16.49%  runtime.makeslice
+     0.41s  1.39% 64.73%      0.56s  1.90%  github.com/Madhavkannank/fafa/src.(*BigInt).inplaceSub
+     0.38s  1.29% 66.01%      0.38s  1.29%  runtime.stdcall3
+     0.38s  1.29% 67.30%      0.42s  1.42%  runtime.typePointers.next
+     0.36s  1.22% 68.52%      1.39s  4.71%  github.com/Madhavkannank/fafa/src.Compare
+     0.31s  1.05% 69.57%      1.69s  5.72%  github.com/Madhavkannank/fafa/tests/port_test.BenchmarkEqualPure
+     0.31s  1.05% 70.62%      0.31s  1.05%  runtime.getMCache (inline)
+     0.31s  1.05% 71.67%      1.17s  3.96%  runtime.heapSetType
+     0.30s  1.02% 72.68%      0.30s  1.02%  runtime.procyield
+     0.29s  0.98% 73.66%      0.29s  0.98%  runtime.(*mspan).base (inline)
+     0.27s  0.91% 74.58%      0.27s  0.91%  github.com/Madhavkannank/fafa/src.(*BigInt).Trim (inline)
+     0.27s  0.91% 75.49%      0.39s  1.32%  runtime.findObject
+     0.22s  0.74% 76.24%      0.22s  0.74%  runtime.acquirem (inline)
+     0.21s  0.71% 76.95%     10.74s 36.36%  github.com/Madhavkannank/fafa/src.NewBigInt (inline)
+     0.21s  0.71% 77.66%      0.21s  0.71%  runtime.typePointers.nextFast (inline)
+     0.19s  0.64% 78.30%      0.26s  0.88%  github.com/Madhavkannank/fafa/src.(*BigInt).halfDigit (inline)
+     0.17s  0.58% 78.88%      0.17s  0.58%  runtime.releasem (inline)
+     0.16s  0.54% 79.42%      0.16s  0.54%  github.com/Madhavkannank/fafa/src.(*BigInt).Sign (inline)
+     0.16s  0.54% 79.96%      1.07s  3.62%  github.com/Madhavkannank/fafa/src.absoluteAdd
+     0.16s  0.54% 80.50%      2.01s  6.80%  github.com/Madhavkannank/fafa/src.absoluteSubOne
+     0.15s  0.51% 81.01%      1.34s  4.54%  github.com/Madhavkannank/fafa/src.specialLeftShift
+     0.15s  0.51% 81.52%      0.72s  2.44%  runtime.lock2
+     0.15s  0.51% 82.02%      0.15s  0.51%  runtime.publicationBarrier
+     0.14s  0.47% 82.50%      0.21s  0.71%  runtime.(*mspan).heapBits
+     0.12s  0.41% 82.90%      2.14s  7.24%  github.com/Madhavkannank/fafa/src.absoluteAddOne
+     0.11s  0.37% 83.28%      5.93s 20.07%  runtime.newobject
+     0.10s  0.34% 83.62%      0.91s  3.08%  github.com/Madhavkannank/fafa/src.truncateToNBits
+     0.10s  0.34% 83.95%      0.22s  0.74%  runtime.greyobject
+     0.09s   0.3% 84.26%      3.73s 12.63%  github.com/Madhavkannank/fafa/src.ToString
+     0.09s   0.3% 84.56%      1.59s  5.38%  github.com/Madhavkannank/fafa/src.absoluteSub
+     0.09s   0.3% 84.87%      1.48s  5.01%  github.com/Madhavkannank/fafa/tests/port_test.BenchmarkComparePure
+     0.08s  0.27% 85.14%      0.27s  0.91%  runtime.growslice
+     0.07s  0.24% 85.38%      0.15s  0.51%  github.com/Madhavkannank/fafa/src.(*BigInt).inplaceRightShift
+     0.07s  0.24% 85.61%      1.30s  4.40%  github.com/Madhavkannank/fafa/src.BitwiseXor
+     0.07s  0.24% 85.85%      1.04s  3.52%  github.com/Madhavkannank/fafa/src.absoluteAndNot
+     0.07s  0.24% 86.09%      1.09s  3.69%  github.com/Madhavkannank/fafa/src.truncateAndSubFromPowerOfTwo
+     0.07s  0.24% 86.32%      0.96s  3.25%  runtime.slicebytetostring
+     0.06s   0.2% 86.53%      1.76s  5.96%  github.com/Madhavkannank/fafa/src.Subtract
+     0.06s   0.2% 86.73%      2.05s  6.94%  github.com/Madhavkannank/fafa/src.toStringGeneric
+     0.06s   0.2% 86.93%      0.30s  1.02%  runtime.(*sweepLocked).sweep
+     0.06s   0.2% 87.14%      0.32s  1.08%  runtime.gcmarknewobject
+     0.05s  0.17% 87.31%      1.14s  3.86%  github.com/Madhavkannank/fafa/src.AsIntN
+     0.05s  0.17% 87.47%      1.25s  4.23%  github.com/Madhavkannank/fafa/src.BitwiseOr
+     0.05s  0.17% 87.64%      0.62s  2.10%  runtime.(*mcache).refill
+     0.05s  0.17% 87.81%      0.15s  0.51%  runtime.stealWork
+     0.05s  0.17% 87.98%      0.46s  1.56%  runtime.sweepone
+     0.04s  0.14% 88.12%      0.18s  0.61%  runtime.(*mheap).initSpan
+     0.04s  0.14% 88.25%      3.67s 12.42%  runtime.gcDrain
+     0.04s  0.14% 88.39%      1.44s  4.87%  runtime.markroot
+     0.03s   0.1% 88.49%      0.94s  3.18%  github.com/Madhavkannank/fafa/src.AsUintN
+     0.03s   0.1% 88.59%      1.17s  3.96%  github.com/Madhavkannank/fafa/src.BitwiseNot
+     0.03s   0.1% 88.69%      1.37s  4.64%  github.com/Madhavkannank/fafa/src.Divide
+     0.03s   0.1% 88.79%      1.56s  5.28%  github.com/Madhavkannank/fafa/src.Multiply
+     0.03s   0.1% 88.90%      5.88s 19.91%  runtime.systemstack
+     0.03s   0.1% 89.00%      0.18s  0.61%  runtime.wbBufFlush1
+     0.02s 0.068% 89.07%      1.09s  3.69%  github.com/Madhavkannank/fafa/src.Add
+     0.02s 0.068% 89.13%      2.04s  6.91%  github.com/Madhavkannank/fafa/src.BitwiseAnd
+     0.02s 0.068% 89.20%      1.45s  4.91%  github.com/Madhavkannank/fafa/src.DivRem
+     0.02s 0.068% 89.27%      1.40s  4.74%  github.com/Madhavkannank/fafa/src.Remainder
+     0.02s 0.068% 89.34%      1.11s  3.76%  github.com/Madhavkannank/fafa/tests/port_test.BenchmarkAdd
+     0.02s 0.068% 89.40%      1.11s  3.76%  github.com/Madhavkannank/fafa/tests/port_test.BenchmarkToStringDec1Limb
+     0.02s 0.068% 89.47%      1.67s  5.65%  github.com/Madhavkannank/fafa/tests/port_test.BenchmarkToStringHex1Limb
+     0.02s 0.068% 89.54%      0.51s  1.73%  runtime.(*mheap).allocSpan
+     0.02s 0.068% 89.61%      0.16s  0.54%  runtime.(*mheap).freeSpanLocked
+     0.02s 0.068% 89.68%      0.22s  0.74%  runtime.forEachPInternal
+     0.02s 0.068% 89.74%      0.46s  1.56%  runtime.gcDrainN
+     0.02s 0.068% 89.81%      0.55s  1.86%  runtime.markroot.func1
+     0.01s 0.034% 89.84%      0.20s  0.68%  github.com/Madhavkannank/fafa/src.(*BigInt).clzmsd (inline)
+     0.01s 0.034% 89.88%      2.05s  6.94%  github.com/Madhavkannank/fafa/tests/port_test.BenchmarkBitwiseAnd
+     0.01s 0.034% 89.91%      1.26s  4.27%  github.com/Madhavkannank/fafa/tests/port_test.BenchmarkBitwiseOr
+     0.01s 0.034% 89.95%      1.77s  5.99%  github.com/Madhavkannank/fafa/tests/port_test.BenchmarkSubtract
+     0.01s 0.034% 89.98%      0.47s  1.59%  runtime.(*mcentral).cacheSpan
+     0.01s 0.034% 90.01%      0.58s  1.96%  runtime.bgsweep
+     0.01s 0.034% 90.05%      0.49s  1.66%  runtime.findRunnable
+     0.01s 0.034% 90.08%      3.68s 12.46%  runtime.gcBgMarkWorker.func2
+     0.01s 0.034% 90.12%      0.15s  0.51%  runtime.gcStart
+     0.01s 0.034% 90.15%      0.73s  2.47%  runtime.lock (inline)
+     0.01s 0.034% 90.18%      0.24s  0.81%  runtime.scanstack
+         0     0% 90.18%      0.39s  1.32%  github.com/Madhavkannank/fafa/src.Exponentiate
+         0     0% 90.18%      1.14s  3.86%  github.com/Madhavkannank/fafa/tests/port_test.BenchmarkAsIntN
+         0     0% 90.18%      0.94s  3.18%  github.com/Madhavkannank/fafa/tests/port_test.BenchmarkAsUintN
+         0     0% 90.18%      1.17s  3.96%  github.com/Madhavkannank/fafa/tests/port_test.BenchmarkBitwiseNot
+         0     0% 90.18%      1.30s  4.40%  github.com/Madhavkannank/fafa/tests/port_test.BenchmarkBitwiseXor
+         0     0% 90.18%      1.45s  4.91%  github.com/Madhavkannank/fafa/tests/port_test.BenchmarkDivRem
+         0     0% 90.18%      1.37s  4.64%  github.com/Madhavkannank/fafa/tests/port_test.BenchmarkDivide
+         0     0% 90.18%      1.24s  4.20%  github.com/Madhavkannank/fafa/tests/port_test.BenchmarkMultiply
+         0     0% 90.18%      1.40s  4.74%  github.com/Madhavkannank/fafa/tests/port_test.BenchmarkRemainder
+         0     0% 90.18%      0.99s  3.35%  github.com/Madhavkannank/fafa/tests/port_test.BenchmarkToStringDec3Limbs
+         0     0% 90.18%      1.09s  3.69%  runtime.(*gcControllerState).enlistWorker
+         0     0% 90.18%      1.13s  3.83%  runtime.(*gcWork).balance
+         0     0% 90.18%      0.66s  2.23%  runtime.(*mcache).nextFree
+         0     0% 90.18%      0.43s  1.46%  runtime.(*mcentral).grow
+         0     0% 90.18%      0.38s  1.29%  runtime.(*mheap).alloc
+         0     0% 90.18%      0.51s  1.73%  runtime.(*mheap).alloc.func1
+         0     0% 90.18%      0.17s  0.58%  runtime.(*mheap).freeSpan (inline)
+         0     0% 90.18%      0.38s  1.29%  runtime.(*pageAlloc).scavenge.func1
+         0     0% 90.18%      0.38s  1.29%  runtime.(*pageAlloc).scavengeOne
+         0     0% 90.18%      0.17s  0.58%  runtime.(*sweepLocked).sweep.(*mheap).freeSpan.func3
+         0     0% 90.18%      0.38s  1.29%  runtime.gcAssistAlloc
+         0     0% 90.18%      0.49s  1.66%  runtime.gcAssistAlloc.func1
+         0     0% 90.18%      0.49s  1.66%  runtime.gcAssistAlloc1
+         0     0% 90.18%      2.59s  8.77%  runtime.gcBgMarkWorker
+         0     0% 90.18%      3.49s 11.81%  runtime.gcDrainMarkWorkerDedicated (inline)
+         0     0% 90.18%      0.18s  0.61%  runtime.gcDrainMarkWorkerIdle (inline)
+         0     0% 90.18%      0.18s  0.61%  runtime.gcMarkDone.forEachP.func5
+         0     0% 90.18%      0.57s  1.93%  runtime.gopreempt_m (inline)
+         0     0% 90.18%      0.57s  1.93%  runtime.goschedImpl
+         0     0% 90.18%      0.72s  2.44%  runtime.lockWithRank (inline)
+         0     0% 90.18%      0.81s  2.74%  runtime.markrootBlock
+         0     0% 90.18%      0.47s  1.59%  runtime.mcall
+         0     0% 90.18%      0.57s  1.93%  runtime.morestack
+         0     0% 90.18%      0.57s  1.93%  runtime.newstack
+         0     0% 90.18%      0.34s  1.15%  runtime.notewakeup
+         0     0% 90.18%      0.47s  1.59%  runtime.park_m
+         0     0% 90.18%      1.57s  5.31%  runtime.preemptM
+         0     0% 90.18%      0.22s  0.74%  runtime.preemptall
+         0     0% 90.18%      1.31s  4.43%  runtime.preemptone
+         0     0% 90.18%      0.17s  0.58%  runtime.resetspinning
+         0     0% 90.18%      0.67s  2.27%  runtime.schedule
+         0     0% 90.18%      0.26s  0.88%  runtime.semasleep
+         0     0% 90.18%      0.34s  1.15%  runtime.semawakeup
+         0     0% 90.18%      0.33s  1.12%  runtime.startm
+         0     0% 90.18%      0.27s  0.91%  runtime.suspendG
+         0     0% 90.18%      0.38s  1.29%  runtime.sysUnused (inline)
+         0     0% 90.18%      0.38s  1.29%  runtime.sysUnusedOS
+         0     0% 90.18%      0.34s  1.15%  runtime.wakep
+         0     0% 90.18%      1.09s  3.69%  strconv.FormatUint
+         0     0% 90.18%     23.14s 78.33%  testing.(*B).launch
+         0     0% 90.18%     23.14s 78.33%  testing.(*B).runN

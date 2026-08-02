@@ -9,7 +9,6 @@ func absoluteAnd(x, y, result *BigInt) *BigInt {
 	if xLength < yLength {
 		numPairs = xLength
 		x, y = y, x
-		xLength, yLength = yLength, xLength
 	}
 	resultLength := numPairs
 	if result == nil {
@@ -64,7 +63,7 @@ func absoluteOr(x, y, result *BigInt) *BigInt {
 	if xLength < yLength {
 		numPairs = xLength
 		x, y = y, x
-		xLength, yLength = yLength, xLength
+		xLength = yLength
 	}
 	resultLength := xLength
 	if result == nil {
@@ -94,7 +93,6 @@ func absoluteXor(x, y, result *BigInt) *BigInt {
 	if xLength < yLength {
 		numPairs = xLength
 		x, y = y, x
-		xLength, yLength = yLength, xLength
 	}
 	resultLength := xLength
 	if result == nil {

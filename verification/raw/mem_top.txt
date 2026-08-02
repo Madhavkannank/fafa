@@ -1,0 +1,55 @@
+File: port.test.exe
+Build ID: c:\Users\madha\OneDrive\Desktop\port TS-GO\tmp\go-build940018711\b001\port.test.exe2026-08-02 11:41:10.9453879 +0530 IST
+Type: alloc_space
+Time: Aug 2, 2026 at 11:41am (IST)
+Showing nodes accounting for 16.20GB, 100% of 16.20GB total
+Dropped 39 nodes (cum <= 0.08GB)
+      flat  flat%   sum%        cum   cum%
+   13.96GB 86.16% 86.16%    13.96GB 86.16%  github.com/Madhavkannank/fafa/src.NewBigInt (inline)
+    0.88GB  5.44% 91.60%     0.88GB  5.44%  github.com/Madhavkannank/fafa/src.toStringBasePowerOfTwo
+    0.83GB  5.11% 96.71%     0.83GB  5.11%  strconv.formatBits
+    0.34GB  2.11% 98.82%     0.34GB  2.11%  github.com/Madhavkannank/fafa/src.(*BigInt).SetDigit (inline)
+    0.14GB  0.85% 99.67%     0.14GB  0.85%  github.com/Madhavkannank/fafa/src.(*BigInt).Copy (inline)
+    0.05GB  0.29%   100%     1.51GB  9.35%  github.com/Madhavkannank/fafa/src.toStringGeneric
+         0     0%   100%     0.75GB  4.65%  github.com/Madhavkannank/fafa/src.Add
+         0     0%   100%     1.24GB  7.65%  github.com/Madhavkannank/fafa/src.AsIntN
+         0     0%   100%     1.11GB  6.84%  github.com/Madhavkannank/fafa/src.AsUintN
+         0     0%   100%     2.32GB 14.34%  github.com/Madhavkannank/fafa/src.BitwiseAnd
+         0     0%   100%     1.34GB  8.28%  github.com/Madhavkannank/fafa/src.BitwiseNot
+         0     0%   100%     1.22GB  7.50%  github.com/Madhavkannank/fafa/src.BitwiseOr
+         0     0%   100%     1.09GB  6.74%  github.com/Madhavkannank/fafa/src.BitwiseXor
+         0     0%   100%     0.81GB  5.00%  github.com/Madhavkannank/fafa/src.DivRem
+         0     0%   100%     0.89GB  5.48%  github.com/Madhavkannank/fafa/src.Divide
+         0     0%   100%     0.37GB  2.29%  github.com/Madhavkannank/fafa/src.Exponentiate
+         0     0%   100%     1.04GB  6.43%  github.com/Madhavkannank/fafa/src.Multiply
+         0     0%   100%     0.69GB  4.28%  github.com/Madhavkannank/fafa/src.Remainder
+         0     0%   100%     1.53GB  9.43%  github.com/Madhavkannank/fafa/src.Subtract
+         0     0%   100%     2.40GB 14.79%  github.com/Madhavkannank/fafa/src.ToString
+         0     0%   100%     0.75GB  4.65%  github.com/Madhavkannank/fafa/src.absoluteAdd
+         0     0%   100%     2.38GB 14.66%  github.com/Madhavkannank/fafa/src.absoluteAddOne
+         0     0%   100%     1.18GB  7.28%  github.com/Madhavkannank/fafa/src.absoluteAndNot
+         0     0%   100%     2.63GB 16.25%  github.com/Madhavkannank/fafa/src.absoluteDivLarge
+         0     0%   100%     1.53GB  9.43%  github.com/Madhavkannank/fafa/src.absoluteSub
+         0     0%   100%     2.27GB 14.03%  github.com/Madhavkannank/fafa/src.absoluteSubOne
+         0     0%   100%     0.34GB  2.11%  github.com/Madhavkannank/fafa/src.internalMultiplyAdd
+         0     0%   100%     1.54GB  9.50%  github.com/Madhavkannank/fafa/src.specialLeftShift
+         0     0%   100%     1.24GB  7.65%  github.com/Madhavkannank/fafa/src.truncateAndSubFromPowerOfTwo
+         0     0%   100%     1.11GB  6.84%  github.com/Madhavkannank/fafa/src.truncateToNBits
+         0     0%   100%     0.75GB  4.65%  github.com/Madhavkannank/fafa/tests/port_test.BenchmarkAdd
+         0     0%   100%     1.24GB  7.65%  github.com/Madhavkannank/fafa/tests/port_test.BenchmarkAsIntN
+         0     0%   100%     1.11GB  6.84%  github.com/Madhavkannank/fafa/tests/port_test.BenchmarkAsUintN
+         0     0%   100%     2.32GB 14.34%  github.com/Madhavkannank/fafa/tests/port_test.BenchmarkBitwiseAnd
+         0     0%   100%     1.34GB  8.28%  github.com/Madhavkannank/fafa/tests/port_test.BenchmarkBitwiseNot
+         0     0%   100%     1.22GB  7.50%  github.com/Madhavkannank/fafa/tests/port_test.BenchmarkBitwiseOr
+         0     0%   100%     1.09GB  6.74%  github.com/Madhavkannank/fafa/tests/port_test.BenchmarkBitwiseXor
+         0     0%   100%     0.81GB  5.00%  github.com/Madhavkannank/fafa/tests/port_test.BenchmarkDivRem
+         0     0%   100%     0.89GB  5.48%  github.com/Madhavkannank/fafa/tests/port_test.BenchmarkDivide
+         0     0%   100%     0.81GB  4.99%  github.com/Madhavkannank/fafa/tests/port_test.BenchmarkMultiply
+         0     0%   100%     0.69GB  4.28%  github.com/Madhavkannank/fafa/tests/port_test.BenchmarkRemainder
+         0     0%   100%     1.53GB  9.43%  github.com/Madhavkannank/fafa/tests/port_test.BenchmarkSubtract
+         0     0%   100%     0.81GB  4.97%  github.com/Madhavkannank/fafa/tests/port_test.BenchmarkToStringDec1Limb
+         0     0%   100%     0.71GB  4.38%  github.com/Madhavkannank/fafa/tests/port_test.BenchmarkToStringDec3Limbs
+         0     0%   100%     0.88GB  5.44%  github.com/Madhavkannank/fafa/tests/port_test.BenchmarkToStringHex1Limb
+         0     0%   100%     0.83GB  5.11%  strconv.FormatUint
+         0     0%   100%    16.20GB   100%  testing.(*B).launch
+         0     0%   100%    16.20GB   100%  testing.(*B).runN

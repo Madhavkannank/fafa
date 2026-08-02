@@ -123,10 +123,3 @@ func clz30(x uint32) int {
 	return bits.LeadingZeros32(x) - 2
 }
 
-// isOneDigitInt returns true if abs(x) fits within a single 30-bit limb.
-func isOneDigitInt(x int64) bool {
-	if x < 0 {
-		x = -x
-	}
-	return (uint64(x) & uint64(kDigitMask)) == uint64(x)
-}

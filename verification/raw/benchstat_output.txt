@@ -1,0 +1,68 @@
+goos: windows
+goarch: amd64
+pkg: github.com/Madhavkannank/fafa/tests/port
+cpu: Intel(R) Core(TM) 5 210H
+                     │ verification/raw/bench_raw.txt │
+                     │             sec/op             │
+Add-12                                    55.16n ± 2%
+Subtract-12                               46.44n ± 1%
+BitwiseNot-12                             36.62n ± 0%
+BitwiseAnd-12                             74.92n ± 1%
+BitwiseOr-12                              84.45n ± 1%
+BitwiseXor-12                             114.5n ± 1%
+ComparePure-12                            2.723n ± 4%
+EqualPure-12                              5.486n ± 2%
+Divide-12                                 304.9n ± 1%
+Remainder-12                              282.2n ± 1%
+DivRem-12                                 328.2n ± 2%
+Multiply-12                               94.88n ± 2%
+ToStringHex1Limb-12                       26.57n ± 0%
+ToStringDec1Limb-12                       22.61n ± 1%
+ToStringDec3Limbs-12                      1.738µ ± 1%
+AsIntN-12                                 36.62n ± 1%
+AsUintN-12                                34.52n ± 1%
+geomean                                   62.71n
+
+                     │ verification/raw/bench_raw.txt │
+                     │              B/op              │
+Add-12                                   48.00 ± 0%
+Subtract-12                              48.00 ± 0%
+BitwiseNot-12                            48.00 ± 0%
+BitwiseAnd-12                            96.00 ± 0%
+BitwiseOr-12                             96.00 ± 0%
+BitwiseXor-12                            112.0 ± 0%
+ComparePure-12                           0.000 ± 0%
+EqualPure-12                             0.000 ± 0%
+Divide-12                                192.0 ± 0%
+Remainder-12                             144.0 ± 0%
+DivRem-12                                192.0 ± 0%
+Multiply-12                              64.00 ± 0%
+ToStringHex1Limb-12                      16.00 ± 0%
+ToStringDec1Limb-12                      16.00 ± 0%
+ToStringDec3Limbs-12                   1.164Ki ± 0%
+AsIntN-12                                40.00 ± 0%
+AsUintN-12                               40.00 ± 0%
+geomean                                             ¹
+¹ summaries must be >0 to compute geomean
+
+                     │ verification/raw/bench_raw.txt │
+                     │           allocs/op            │
+Add-12                                   2.000 ± 0%
+Subtract-12                              2.000 ± 0%
+BitwiseNot-12                            2.000 ± 0%
+BitwiseAnd-12                            4.000 ± 0%
+BitwiseOr-12                             4.000 ± 0%
+BitwiseXor-12                            5.000 ± 0%
+ComparePure-12                           0.000 ± 0%
+EqualPure-12                             0.000 ± 0%
+Divide-12                                8.000 ± 0%
+Remainder-12                             6.000 ± 0%
+DivRem-12                                8.000 ± 0%
+Multiply-12                              2.000 ± 0%
+ToStringHex1Limb-12                      2.000 ± 0%
+ToStringDec1Limb-12                      1.000 ± 0%
+ToStringDec3Limbs-12                     71.00 ± 0%
+AsIntN-12                                2.000 ± 0%
+AsUintN-12                               2.000 ± 0%
+geomean                                             ¹
+¹ summaries must be >0 to compute geomean

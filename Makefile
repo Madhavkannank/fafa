@@ -1,7 +1,7 @@
-.PHONY: build test fuzz bench clean
+.PHONY: build test bench fuzz verify clean all
 
-GO := ./go_sdk/go/bin/go.exe
-TMPDIR := $(shell pwd)/tmp
+GO ?= go
+TMPDIR ?= $(shell pwd)/tmp
 
 build:
 	@mkdir -p tmp
@@ -11,13 +11,21 @@ test:
 	@mkdir -p tmp
 	GOTMPDIR="$(TMPDIR)" $(GO) test -v ./tests/port/...
 
-fuzz:
-	@echo "Running differential fuzzing..."
-
 bench:
 	@mkdir -p tmp
-	GOTMPDIR="$(TMPDIR)" $(GO) test -bench=. ./tests/port/...
+	GOTMPDIR="$(TMPDIR)" $(GO) test -run '^$$' -bench=. -benchmem ./tests/port/...
+
+fuzz:
+	@mkdir -p tmp
+	@echo "Running Cluster 9 Differential Fuzzer (requires Node.js v16+)..."
+	GOTMPDIR="$(TMPDIR)" $(GO) run fuzz/harness/fuzz_cluster9.go
+
+verify:
+	@mkdir -p tmp
+	GOTMPDIR="$(TMPDIR)" $(GO) test -v ./tests/port/... -run "TestProperty|TestStress|TestImmutability|TestCanonicalZero"
 
 clean:
 	$(GO) clean
-	rm -rf tmp
+	rm -rf tmp bin/*.exe
+
+all: build test verify

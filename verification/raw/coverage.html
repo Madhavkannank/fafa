@@ -1,0 +1,2463 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>src: Go Coverage Report</title>
+		<style>
+			body {
+				background: black;
+				color: rgb(80, 80, 80);
+			}
+			body, pre, #legend span {
+				font-family: Menlo, monospace;
+				font-weight: bold;
+			}
+			#topbar {
+				background: black;
+				position: fixed;
+				top: 0; left: 0; right: 0;
+				height: 42px;
+				border-bottom: 1px solid rgb(80, 80, 80);
+			}
+			#content {
+				margin-top: 50px;
+			}
+			#nav, #legend {
+				float: left;
+				margin-left: 10px;
+			}
+			#legend {
+				margin-top: 12px;
+			}
+			#nav {
+				margin-top: 10px;
+			}
+			#legend span {
+				margin: 0 5px;
+			}
+			.cov0 { color: rgb(192, 0, 0) }
+.cov1 { color: rgb(128, 128, 128) }
+.cov2 { color: rgb(116, 140, 131) }
+.cov3 { color: rgb(104, 152, 134) }
+.cov4 { color: rgb(92, 164, 137) }
+.cov5 { color: rgb(80, 176, 140) }
+.cov6 { color: rgb(68, 188, 143) }
+.cov7 { color: rgb(56, 200, 146) }
+.cov8 { color: rgb(44, 212, 149) }
+.cov9 { color: rgb(32, 224, 152) }
+.cov10 { color: rgb(20, 236, 155) }
+
+		</style>
+	</head>
+	<body>
+		<div id="topbar">
+			<div id="nav">
+				<select id="files">
+				
+				<option value="file0">github.com/Madhavkannank/fafa/src/add_sub.go (85.3%)</option>
+				
+				<option value="file1">github.com/Madhavkannank/fafa/src/bigint.go (82.2%)</option>
+				
+				<option value="file2">github.com/Madhavkannank/fafa/src/bitwise.go (88.2%)</option>
+				
+				<option value="file3">github.com/Madhavkannank/fafa/src/comparison.go (81.7%)</option>
+				
+				<option value="file4">github.com/Madhavkannank/fafa/src/constructors.go (76.8%)</option>
+				
+				<option value="file5">github.com/Madhavkannank/fafa/src/divide.go (97.6%)</option>
+				
+				<option value="file6">github.com/Madhavkannank/fafa/src/fromString.go (88.4%)</option>
+				
+				<option value="file7">github.com/Madhavkannank/fafa/src/multiply.go (100.0%)</option>
+				
+				<option value="file8">github.com/Madhavkannank/fafa/src/shift.go (85.1%)</option>
+				
+				<option value="file9">github.com/Madhavkannank/fafa/src/tostring.go (88.9%)</option>
+				
+				<option value="file10">github.com/Madhavkannank/fafa/src/truncation.go (97.8%)</option>
+				
+				</select>
+			</div>
+			<div id="legend">
+				<span>not tracked</span>
+			
+				<span class="cov0">not covered</span>
+				<span class="cov8">covered</span>
+			
+			</div>
+		</div>
+		<div id="content">
+		
+		<pre class="file" id="file0" style="display: none">package jsbi
+
+// UnaryMinus returns the negation of x (-x).
+// Sourced from JSBI.unaryMinus (jsbi.ts lines 151-156).
+func UnaryMinus(x *BigInt) *BigInt <span class="cov8" title="1">{
+        if x == nil || x.Length() == 0 </span><span class="cov8" title="1">{
+                return Zero()
+        }</span>
+        <span class="cov8" title="1">result := x.Copy()
+        result.SetSign(!x.Sign())
+        return result</span>
+}
+
+// Add returns the sum of x and y (x + y).
+// Sourced from JSBI.add (jsbi.ts lines 269-282).
+func Add(x, y *BigInt) *BigInt <span class="cov8" title="1">{
+        if x == nil </span><span class="cov0" title="0">{
+                x = Zero()
+        }</span>
+        <span class="cov8" title="1">if y == nil </span><span class="cov0" title="0">{
+                y = Zero()
+        }</span>
+        <span class="cov8" title="1">sign := x.Sign()
+        if sign == y.Sign() </span><span class="cov8" title="1">{
+                // x + y == x + y
+                // -x + -y == -(x + y)
+                return absoluteAdd(x, y, sign)
+        }</span>
+        // x + -y == x - y == -(y - x)
+        // -x + y == y - x == -(x - y)
+        <span class="cov8" title="1">if absoluteCompare(x, y) &gt;= 0 </span><span class="cov8" title="1">{
+                return absoluteSub(x, y, sign)
+        }</span>
+        <span class="cov8" title="1">return absoluteSub(y, x, !sign)</span>
+}
+
+// Subtract returns the difference of x and y (x - y).
+// Sourced from JSBI.subtract (jsbi.ts lines 284-297).
+func Subtract(x, y *BigInt) *BigInt <span class="cov8" title="1">{
+        if x == nil </span><span class="cov0" title="0">{
+                x = Zero()
+        }</span>
+        <span class="cov8" title="1">if y == nil </span><span class="cov0" title="0">{
+                y = Zero()
+        }</span>
+        <span class="cov8" title="1">sign := x.Sign()
+        if sign != y.Sign() </span><span class="cov8" title="1">{
+                // x - (-y) == x + y
+                // (-x) - y == -(x + y)
+                return absoluteAdd(x, y, sign)
+        }</span>
+        // x - y == -(y - x)
+        // (-x) - (-y) == y - x == -(x - y)
+        <span class="cov8" title="1">if absoluteCompare(x, y) &gt;= 0 </span><span class="cov8" title="1">{
+                return absoluteSub(x, y, sign)
+        }</span>
+        <span class="cov8" title="1">return absoluteSub(y, x, !sign)</span>
+}
+
+// absoluteAdd adds magnitudes of x and y with resultSign.
+// Sourced from JSBI.__absoluteAdd (jsbi.ts lines 1215-1240).
+func absoluteAdd(x, y *BigInt, resultSign bool) *BigInt <span class="cov8" title="1">{
+        if x.Length() &lt; y.Length() </span><span class="cov8" title="1">{
+                return absoluteAdd(y, x, resultSign)
+        }</span>
+        <span class="cov8" title="1">if x.Length() == 0 </span><span class="cov0" title="0">{
+                return Zero()
+        }</span>
+        <span class="cov8" title="1">if y.Length() == 0 </span><span class="cov0" title="0">{
+                if x.Sign() == resultSign </span><span class="cov0" title="0">{
+                        return x.Copy()
+                }</span>
+                <span class="cov0" title="0">return UnaryMinus(x)</span>
+        }
+        <span class="cov8" title="1">resultLength := x.Length()
+        if x.clzmsd() == 0 || (y.Length() == x.Length() &amp;&amp; y.clzmsd() == 0) </span><span class="cov8" title="1">{
+                resultLength++
+        }</span>
+        <span class="cov8" title="1">result := NewBigInt(resultLength, resultSign)
+        var carry uint32 = 0
+        i := 0
+        for ; i &lt; y.Length(); i++ </span><span class="cov8" title="1">{
+                r := int32(x.Digit(i)) + int32(y.Digit(i)) + int32(carry)
+                carry = uint32(r) &gt;&gt; 30
+                result.SetDigit(i, uint32(r)&amp;kDigitMask)
+        }</span>
+        <span class="cov8" title="1">for ; i &lt; x.Length(); i++ </span><span class="cov8" title="1">{
+                r := int32(x.Digit(i)) + int32(carry)
+                carry = uint32(r) &gt;&gt; 30
+                result.SetDigit(i, uint32(r)&amp;kDigitMask)
+        }</span>
+        <span class="cov8" title="1">if i &lt; result.Length() </span><span class="cov8" title="1">{
+                result.SetDigit(i, carry)
+        }</span>
+        <span class="cov8" title="1">return result.Trim()</span>
+}
+
+// absoluteSub subtracts magnitude of y from x with resultSign. Assumes |x| &gt;= |y|.
+// Sourced from JSBI.__absoluteSub (jsbi.ts lines 1242-1259).
+func absoluteSub(x, y *BigInt, resultSign bool) *BigInt <span class="cov8" title="1">{
+        if x.Length() == 0 </span><span class="cov0" title="0">{
+                return Zero()
+        }</span>
+        <span class="cov8" title="1">if y.Length() == 0 </span><span class="cov0" title="0">{
+                if x.Sign() == resultSign </span><span class="cov0" title="0">{
+                        return x.Copy()
+                }</span>
+                <span class="cov0" title="0">return UnaryMinus(x)</span>
+        }
+        <span class="cov8" title="1">result := NewBigInt(x.Length(), resultSign)
+        var borrow uint32 = 0
+        i := 0
+        for ; i &lt; y.Length(); i++ </span><span class="cov8" title="1">{
+                r := int32(x.Digit(i)) - int32(y.Digit(i)) - int32(borrow)
+                borrow = (uint32(r) &gt;&gt; 30) &amp; 1
+                result.SetDigit(i, uint32(r)&amp;kDigitMask)
+        }</span>
+        <span class="cov8" title="1">for ; i &lt; x.Length(); i++ </span><span class="cov8" title="1">{
+                r := int32(x.Digit(i)) - int32(borrow)
+                borrow = (uint32(r) &gt;&gt; 30) &amp; 1
+                result.SetDigit(i, uint32(r)&amp;kDigitMask)
+        }</span>
+        <span class="cov8" title="1">return result.Trim()</span>
+}
+
+// absoluteAddOne adds 1 to magnitude of x.
+// Sourced from JSBI.__absoluteAddOne (jsbi.ts lines 1261-1278).
+func absoluteAddOne(x *BigInt, resultSign bool) *BigInt <span class="cov8" title="1">{
+        inputLength := x.Length()
+        result := NewBigInt(inputLength, resultSign)
+        var carry uint32 = 1
+        for i := 0; i &lt; inputLength; i++ </span><span class="cov8" title="1">{
+                r := int32(x.Digit(i)) + int32(carry)
+                carry = uint32(r) &gt;&gt; 30
+                result.SetDigit(i, uint32(r)&amp;kDigitMask)
+        }</span>
+        <span class="cov8" title="1">if carry != 0 </span><span class="cov8" title="1">{
+                // Allocate extra digit for carry expansion
+                expanded := NewBigInt(inputLength+1, resultSign)
+                for i := 0; i &lt; inputLength; i++ </span><span class="cov8" title="1">{
+                        expanded.SetDigit(i, result.Digit(i))
+                }</span>
+                <span class="cov8" title="1">expanded.SetDigit(inputLength, carry)
+                return expanded.Trim()</span>
+        }
+        <span class="cov8" title="1">return result.Trim()</span>
+}
+
+// absoluteSubOne subtracts 1 from magnitude of x.
+// Sourced from JSBI.__absoluteSubOne (jsbi.ts lines 1280-1295).
+func absoluteSubOne(x *BigInt) *BigInt <span class="cov8" title="1">{
+        length := x.Length()
+        if length == 0 </span><span class="cov0" title="0">{
+                return Zero()
+        }</span>
+        <span class="cov8" title="1">result := NewBigInt(length, false)
+        var borrow uint32 = 1
+        for i := 0; i &lt; length; i++ </span><span class="cov8" title="1">{
+                r := int32(x.Digit(i)) - int32(borrow)
+                borrow = (uint32(r) &gt;&gt; 30) &amp; 1
+                result.SetDigit(i, uint32(r)&amp;kDigitMask)
+        }</span>
+        <span class="cov8" title="1">return result.Trim()</span>
+}
+
+// Helper method on BigInt for CLZ of MSD.
+func (b *BigInt) clzmsd() int <span class="cov8" title="1">{
+        if b.Length() == 0 </span><span class="cov0" title="0">{
+                return 30
+        }</span>
+        <span class="cov8" title="1">return clz30(b.Digit(b.Length() - 1))</span>
+}
+</pre>
+		
+		<pre class="file" id="file1" style="display: none">package jsbi
+
+import (
+        "math/bits"
+)
+
+const (
+        kDigitBits     = 30
+        kDigitMask     = 0x3FFFFFFF
+        kMaxLength     = 1 &lt;&lt; 25
+        kMaxLengthBits = kMaxLength &lt;&lt; 5
+)
+
+// BigInt represents an arbitrary-precision integer mirroring JSBI's internal representation.
+type BigInt struct {
+        sign   bool     // true if negative, false if positive or zero
+        digits []uint32 // 30-bit digits (least-significant digit at index 0)
+}
+
+// Zero returns a canonical zero BigInt (sign = false, digits = nil).
+func Zero() *BigInt <span class="cov8" title="1">{
+        return &amp;BigInt{sign: false, digits: nil}
+}</span>
+
+// NewBigInt allocates a new BigInt with the specified length and sign.
+func NewBigInt(length int, sign bool) *BigInt <span class="cov8" title="1">{
+        if length &lt;= 0 </span><span class="cov8" title="1">{
+                return Zero()
+        }</span>
+        <span class="cov8" title="1">return &amp;BigInt{sign: sign, digits: make([]uint32, length)}</span>
+}
+
+// OneDigit returns a single-digit BigInt with the specified sign.
+func OneDigit(value uint32, sign bool) *BigInt <span class="cov8" title="1">{
+        value &amp;= kDigitMask
+        if value == 0 </span><span class="cov0" title="0">{
+                return Zero()
+        }</span>
+        <span class="cov8" title="1">return &amp;BigInt{sign: sign, digits: []uint32{value}}</span>
+}
+
+// Sign returns true if negative, false if positive or zero.
+func (x *BigInt) Sign() bool <span class="cov8" title="1">{
+        if x == nil </span><span class="cov0" title="0">{
+                return false
+        }</span>
+        <span class="cov8" title="1">return x.sign</span>
+}
+
+// SetSign sets the sign flag of the BigInt.
+func (x *BigInt) SetSign(sign bool) <span class="cov8" title="1">{
+        if x != nil </span><span class="cov8" title="1">{
+                x.sign = sign
+        }</span>
+}
+
+// Length returns the number of 30-bit digit limbs.
+func (x *BigInt) Length() int <span class="cov8" title="1">{
+        if x == nil </span><span class="cov0" title="0">{
+                return 0
+        }</span>
+        <span class="cov8" title="1">return len(x.digits)</span>
+}
+
+// Digit returns the 30-bit digit at 0-indexed position i.
+func (x *BigInt) Digit(i int) uint32 <span class="cov8" title="1">{
+        if i &lt; 0 || i &gt;= len(x.digits) </span><span class="cov0" title="0">{
+                return 0
+        }</span>
+        <span class="cov8" title="1">return x.digits[i] &amp; kDigitMask</span>
+}
+
+// UnsignedDigit returns the 30-bit digit at 0-indexed position i.
+func (x *BigInt) UnsignedDigit(i int) uint32 <span class="cov8" title="1">{
+        return x.Digit(i)
+}</span>
+
+// SetDigit sets the 30-bit digit at 0-indexed position i.
+func (x *BigInt) SetDigit(i int, digit uint32) <span class="cov8" title="1">{
+        if i &lt; 0 </span><span class="cov0" title="0">{
+                return
+        }</span>
+        <span class="cov8" title="1">for len(x.digits) &lt;= i </span><span class="cov8" title="1">{
+                x.digits = append(x.digits, 0)
+        }</span>
+        <span class="cov8" title="1">x.digits[i] = digit &amp; kDigitMask</span>
+}
+
+// Trim removes most-significant zero digits and canonicalizes zero.
+func (x *BigInt) Trim() *BigInt <span class="cov8" title="1">{
+        if x == nil </span><span class="cov0" title="0">{
+                return Zero()
+        }</span>
+        <span class="cov8" title="1">newLen := len(x.digits)
+        for newLen &gt; 0 &amp;&amp; (x.digits[newLen-1]&amp;kDigitMask) == 0 </span><span class="cov8" title="1">{
+                newLen--
+        }</span>
+        <span class="cov8" title="1">if newLen == 0 </span><span class="cov8" title="1">{
+                x.digits = nil
+                x.sign = false
+        }</span> else<span class="cov8" title="1"> if newLen &lt; len(x.digits) </span><span class="cov8" title="1">{
+                x.digits = x.digits[:newLen]
+        }</span>
+        <span class="cov8" title="1">return x</span>
+}
+
+// Copy creates a deep copy of the BigInt instance.
+func (x *BigInt) Copy() *BigInt <span class="cov8" title="1">{
+        if x == nil </span><span class="cov0" title="0">{
+                return Zero()
+        }</span>
+        <span class="cov8" title="1">d := make([]uint32, len(x.digits))
+        copy(d, x.digits)
+        return &amp;BigInt{sign: x.sign, digits: d}</span>
+}
+
+// clz30 returns leading zero count in 30-bit representation.
+func clz30(x uint32) int <span class="cov8" title="1">{
+        x &amp;= kDigitMask
+        if x == 0 </span><span class="cov0" title="0">{
+                return 30
+        }</span>
+        <span class="cov8" title="1">return bits.LeadingZeros32(x) - 2</span>
+}
+
+</pre>
+		
+		<pre class="file" id="file2" style="display: none">package jsbi
+
+// absoluteAnd computes magnitude bitwise AND (x &amp; y).
+// Sourced from JSBI.__absoluteAnd (jsbi.ts lines 1297-1324).
+func absoluteAnd(x, y, result *BigInt) *BigInt <span class="cov8" title="1">{
+        xLength := x.Length()
+        yLength := y.Length()
+        numPairs := yLength
+        if xLength &lt; yLength </span><span class="cov8" title="1">{
+                numPairs = xLength
+                x, y = y, x
+        }</span>
+        <span class="cov8" title="1">resultLength := numPairs
+        if result == nil </span><span class="cov8" title="1">{
+                result = NewBigInt(resultLength, false)
+        }</span> else<span class="cov8" title="1"> {
+                resultLength = result.Length()
+        }</span>
+        <span class="cov8" title="1">i := 0
+        for ; i &lt; numPairs; i++ </span><span class="cov8" title="1">{
+                result.SetDigit(i, x.Digit(i)&amp;y.Digit(i))
+        }</span>
+        <span class="cov8" title="1">for ; i &lt; resultLength; i++ </span><span class="cov8" title="1">{
+                result.SetDigit(i, 0)
+        }</span>
+        <span class="cov8" title="1">return result</span>
+}
+
+// absoluteAndNot computes magnitude bitwise AND NOT (x &amp; ~y).
+// Sourced from JSBI.__absoluteAndNot (jsbi.ts lines 1326-1350).
+func absoluteAndNot(x, y, result *BigInt) *BigInt <span class="cov8" title="1">{
+        xLength := x.Length()
+        yLength := y.Length()
+        numPairs := yLength
+        if xLength &lt; yLength </span><span class="cov8" title="1">{
+                numPairs = xLength
+        }</span>
+        <span class="cov8" title="1">resultLength := xLength
+        if result == nil </span><span class="cov8" title="1">{
+                result = NewBigInt(resultLength, false)
+        }</span> else<span class="cov8" title="1"> {
+                resultLength = result.Length()
+        }</span>
+        <span class="cov8" title="1">i := 0
+        for ; i &lt; numPairs; i++ </span><span class="cov8" title="1">{
+                result.SetDigit(i, x.Digit(i)&amp;^y.Digit(i))
+        }</span>
+        <span class="cov8" title="1">for ; i &lt; xLength; i++ </span><span class="cov8" title="1">{
+                result.SetDigit(i, x.Digit(i))
+        }</span>
+        <span class="cov8" title="1">for ; i &lt; resultLength; i++ </span><span class="cov0" title="0">{
+                result.SetDigit(i, 0)
+        }</span>
+        <span class="cov8" title="1">return result</span>
+}
+
+// absoluteOr computes magnitude bitwise OR (x | y).
+// Sourced from JSBI.__absoluteOr (jsbi.ts lines 1352-1382).
+func absoluteOr(x, y, result *BigInt) *BigInt <span class="cov8" title="1">{
+        xLength := x.Length()
+        yLength := y.Length()
+        numPairs := yLength
+        if xLength &lt; yLength </span><span class="cov8" title="1">{
+                numPairs = xLength
+                x, y = y, x
+                xLength = yLength
+        }</span>
+        <span class="cov8" title="1">resultLength := xLength
+        if result == nil </span><span class="cov8" title="1">{
+                result = NewBigInt(resultLength, false)
+        }</span> else<span class="cov8" title="1"> {
+                resultLength = result.Length()
+        }</span>
+        <span class="cov8" title="1">i := 0
+        for ; i &lt; numPairs; i++ </span><span class="cov8" title="1">{
+                result.SetDigit(i, x.Digit(i)|y.Digit(i))
+        }</span>
+        <span class="cov8" title="1">for ; i &lt; xLength; i++ </span><span class="cov8" title="1">{
+                result.SetDigit(i, x.Digit(i))
+        }</span>
+        <span class="cov8" title="1">for ; i &lt; resultLength; i++ </span><span class="cov0" title="0">{
+                result.SetDigit(i, 0)
+        }</span>
+        <span class="cov8" title="1">return result</span>
+}
+
+// absoluteXor computes magnitude bitwise XOR (x ^ y).
+// Sourced from JSBI.__absoluteXor (jsbi.ts lines 1384-1410).
+func absoluteXor(x, y, result *BigInt) *BigInt <span class="cov8" title="1">{
+        xLength := x.Length()
+        yLength := y.Length()
+        numPairs := yLength
+        if xLength &lt; yLength </span><span class="cov0" title="0">{
+                numPairs = xLength
+                x, y = y, x
+        }</span>
+        <span class="cov8" title="1">resultLength := xLength
+        if result == nil </span><span class="cov8" title="1">{
+                result = NewBigInt(resultLength, false)
+        }</span> else<span class="cov8" title="1"> {
+                resultLength = result.Length()
+        }</span>
+        <span class="cov8" title="1">i := 0
+        for ; i &lt; numPairs; i++ </span><span class="cov8" title="1">{
+                result.SetDigit(i, x.Digit(i)^y.Digit(i))
+        }</span>
+        <span class="cov8" title="1">for ; i &lt; xLength; i++ </span><span class="cov8" title="1">{
+                result.SetDigit(i, x.Digit(i))
+        }</span>
+        <span class="cov8" title="1">for ; i &lt; resultLength; i++ </span><span class="cov0" title="0">{
+                result.SetDigit(i, 0)
+        }</span>
+        <span class="cov8" title="1">return result</span>
+}
+
+// BitwiseNot returns the bitwise NOT of x (~x).
+// Sourced from JSBI.bitwiseNot (jsbi.ts lines 158-165).
+func BitwiseNot(x *BigInt) *BigInt <span class="cov8" title="1">{
+        if x == nil </span><span class="cov0" title="0">{
+                x = Zero()
+        }</span>
+        <span class="cov8" title="1">if x.Sign() </span><span class="cov8" title="1">{
+                // ~(-x) == ~(~(x-1)) == x-1
+                return absoluteSubOne(x).Trim()
+        }</span>
+        // ~x == -x-1 == -(x+1)
+        <span class="cov8" title="1">return absoluteAddOne(x, true)</span>
+}
+
+// BitwiseAnd returns the bitwise AND of x and y (x &amp; y).
+// Sourced from JSBI.bitwiseAnd (jsbi.ts lines 345-363).
+func BitwiseAnd(x, y *BigInt) *BigInt <span class="cov8" title="1">{
+        if x == nil </span><span class="cov0" title="0">{
+                x = Zero()
+        }</span>
+        <span class="cov8" title="1">if y == nil </span><span class="cov0" title="0">{
+                y = Zero()
+        }</span>
+        <span class="cov8" title="1">if !x.Sign() &amp;&amp; !y.Sign() </span><span class="cov8" title="1">{
+                return absoluteAnd(x, y, nil).Trim()
+        }</span> else<span class="cov8" title="1"> if x.Sign() &amp;&amp; y.Sign() </span><span class="cov8" title="1">{
+                resultLength := maxInt(x.Length(), y.Length()) + 1
+                // (-x) &amp; (-y) == ~(x-1) &amp; ~(y-1) == ~((x-1) | (y-1))
+                // == -(((x-1) | (y-1)) + 1)
+                result := absoluteSubOne(x)
+                if result.Length() &lt; resultLength </span><span class="cov8" title="1">{
+                        resExpanded := NewBigInt(resultLength, false)
+                        for i := 0; i &lt; result.Length(); i++ </span><span class="cov8" title="1">{
+                                resExpanded.SetDigit(i, result.Digit(i))
+                        }</span>
+                        <span class="cov8" title="1">result = resExpanded</span>
+                }
+                <span class="cov8" title="1">y1 := absoluteSubOne(y)
+                result = absoluteOr(result, y1, result)
+                return absoluteAddOne(result, true).Trim()</span>
+        }
+        // Assume x is positive.
+        <span class="cov8" title="1">if x.Sign() </span><span class="cov8" title="1">{
+                x, y = y, x
+        }</span>
+        // x &amp; (-y) == x &amp; ~(y-1) == x &amp;~ (y-1)
+        <span class="cov8" title="1">return absoluteAndNot(x, absoluteSubOne(y), nil).Trim()</span>
+}
+
+// BitwiseOr returns the bitwise OR of x and y (x | y).
+// Sourced from JSBI.bitwiseOr (jsbi.ts lines 386-406).
+func BitwiseOr(x, y *BigInt) *BigInt <span class="cov8" title="1">{
+        if x == nil </span><span class="cov0" title="0">{
+                x = Zero()
+        }</span>
+        <span class="cov8" title="1">if y == nil </span><span class="cov0" title="0">{
+                y = Zero()
+        }</span>
+        <span class="cov8" title="1">resultLength := maxInt(x.Length(), y.Length())
+        if !x.Sign() &amp;&amp; !y.Sign() </span><span class="cov8" title="1">{
+                return absoluteOr(x, y, nil).Trim()
+        }</span> else<span class="cov8" title="1"> if x.Sign() &amp;&amp; y.Sign() </span><span class="cov8" title="1">{
+                // (-x) | (-y) == ~(x-1) | ~(y-1) == ~((x-1) &amp; (y-1))
+                // == -(((x-1) &amp; (y-1)) + 1)
+                result := absoluteSubOne(x)
+                if result.Length() &lt; resultLength </span><span class="cov8" title="1">{
+                        resExpanded := NewBigInt(resultLength, false)
+                        for i := 0; i &lt; result.Length(); i++ </span><span class="cov0" title="0">{
+                                resExpanded.SetDigit(i, result.Digit(i))
+                        }</span>
+                        <span class="cov8" title="1">result = resExpanded</span>
+                }
+                <span class="cov8" title="1">y1 := absoluteSubOne(y)
+                result = absoluteAnd(result, y1, result)
+                return absoluteAddOne(result, true).Trim()</span>
+        }
+        // Assume x is positive.
+        <span class="cov8" title="1">if x.Sign() </span><span class="cov8" title="1">{
+                x, y = y, x
+        }</span>
+        // x | (-y) == x | ~(y-1) == ~((y-1) &amp;~ x) == -(((y-1) ~&amp; x) + 1)
+        <span class="cov8" title="1">result := absoluteSubOne(y)
+        if result.Length() &lt; resultLength </span><span class="cov0" title="0">{
+                resExpanded := NewBigInt(resultLength, false)
+                for i := 0; i &lt; result.Length(); i++ </span><span class="cov0" title="0">{
+                        resExpanded.SetDigit(i, result.Digit(i))
+                }</span>
+                <span class="cov0" title="0">result = resExpanded</span>
+        }
+        <span class="cov8" title="1">result = absoluteAndNot(result, x, result)
+        return absoluteAddOne(result, true).Trim()</span>
+}
+
+// BitwiseXor returns the bitwise XOR of x and y (x ^ y).
+// Sourced from JSBI.bitwiseXor (jsbi.ts lines 365-384).
+func BitwiseXor(x, y *BigInt) *BigInt <span class="cov8" title="1">{
+        if x == nil </span><span class="cov0" title="0">{
+                x = Zero()
+        }</span>
+        <span class="cov8" title="1">if y == nil </span><span class="cov0" title="0">{
+                y = Zero()
+        }</span>
+        <span class="cov8" title="1">if !x.Sign() &amp;&amp; !y.Sign() </span><span class="cov8" title="1">{
+                return absoluteXor(x, y, nil).Trim()
+        }</span> else<span class="cov8" title="1"> if x.Sign() &amp;&amp; y.Sign() </span><span class="cov8" title="1">{
+                // (-x) ^ (-y) == ~(x-1) ^ ~(y-1) == (x-1) ^ (y-1)
+                resultLength := maxInt(x.Length(), y.Length())
+                result := absoluteSubOne(x)
+                if result.Length() &lt; resultLength </span><span class="cov8" title="1">{
+                        resExpanded := NewBigInt(resultLength, false)
+                        for i := 0; i &lt; result.Length(); i++ </span><span class="cov0" title="0">{
+                                resExpanded.SetDigit(i, result.Digit(i))
+                        }</span>
+                        <span class="cov8" title="1">result = resExpanded</span>
+                }
+                <span class="cov8" title="1">y1 := absoluteSubOne(y)
+                return absoluteXor(result, y1, result).Trim()</span>
+        }
+        <span class="cov8" title="1">resultLength := maxInt(x.Length(), y.Length()) + 1
+        // Assume x is positive.
+        if x.Sign() </span><span class="cov8" title="1">{
+                x, y = y, x
+        }</span>
+        // x ^ (-y) == x ^ ~(y-1) == ~(x ^ (y-1)) == -((x ^ (y-1)) + 1)
+        <span class="cov8" title="1">result := absoluteSubOne(y)
+        if result.Length() &lt; resultLength </span><span class="cov8" title="1">{
+                resExpanded := NewBigInt(resultLength, false)
+                for i := 0; i &lt; result.Length(); i++ </span><span class="cov8" title="1">{
+                        resExpanded.SetDigit(i, result.Digit(i))
+                }</span>
+                <span class="cov8" title="1">result = resExpanded</span>
+        }
+        <span class="cov8" title="1">result = absoluteXor(result, x, result)
+        return absoluteAddOne(result, true).Trim()</span>
+}
+
+func maxInt(a, b int) int <span class="cov8" title="1">{
+        if a &gt; b </span><span class="cov8" title="1">{
+                return a
+        }</span>
+        <span class="cov8" title="1">return b</span>
+}
+</pre>
+		
+		<pre class="file" id="file3" style="display: none">package jsbi
+
+import (
+        "math"
+)
+
+// Compare compares x and y and returns:
+//
+//        -1 if x &lt; y
+//         0 if x == y
+//        +1 if x &gt; y
+func Compare(x, y *BigInt) int <span class="cov8" title="1">{
+        if x == nil </span><span class="cov0" title="0">{
+                x = Zero()
+        }</span>
+        <span class="cov8" title="1">if y == nil </span><span class="cov0" title="0">{
+                y = Zero()
+        }</span>
+        <span class="cov8" title="1">xSign := x.Sign()
+        ySign := y.Sign()
+        if xSign != ySign </span><span class="cov8" title="1">{
+                if xSign </span><span class="cov8" title="1">{
+                        return -1
+                }</span>
+                <span class="cov8" title="1">return 1</span>
+        }
+        <span class="cov8" title="1">absResult := absoluteCompare(x, y)
+        if absResult &gt; 0 </span><span class="cov8" title="1">{
+                if xSign </span><span class="cov8" title="1">{
+                        return -1
+                }</span>
+                <span class="cov8" title="1">return 1</span>
+        }
+        <span class="cov8" title="1">if absResult &lt; 0 </span><span class="cov8" title="1">{
+                if xSign </span><span class="cov8" title="1">{
+                        return 1
+                }</span>
+                <span class="cov8" title="1">return -1</span>
+        }
+        <span class="cov8" title="1">return 0</span>
+}
+
+// Equal returns true if x == y.
+func Equal(x, y *BigInt) bool <span class="cov8" title="1">{
+        if x == nil </span><span class="cov0" title="0">{
+                x = Zero()
+        }</span>
+        <span class="cov8" title="1">if y == nil </span><span class="cov0" title="0">{
+                y = Zero()
+        }</span>
+        <span class="cov8" title="1">if x.Sign() != y.Sign() </span><span class="cov8" title="1">{
+                return false
+        }</span>
+        <span class="cov8" title="1">if x.Length() != y.Length() </span><span class="cov8" title="1">{
+                return false
+        }</span>
+        <span class="cov8" title="1">for i := 0; i &lt; x.Length(); i++ </span><span class="cov8" title="1">{
+                if x.Digit(i) != y.Digit(i) </span><span class="cov8" title="1">{
+                        return false
+                }</span>
+        }
+        <span class="cov8" title="1">return true</span>
+}
+
+// NotEqual returns true if x != y.
+func NotEqual(x, y *BigInt) bool <span class="cov8" title="1">{
+        return !Equal(x, y)
+}</span>
+
+// LessThan returns true if x &lt; y.
+func LessThan(x, y *BigInt) bool <span class="cov8" title="1">{
+        return Compare(x, y) &lt; 0
+}</span>
+
+// LessThanOrEqual returns true if x &lt;= y.
+func LessThanOrEqual(x, y *BigInt) bool <span class="cov8" title="1">{
+        return Compare(x, y) &lt;= 0
+}</span>
+
+// GreaterThan returns true if x &gt; y.
+func GreaterThan(x, y *BigInt) bool <span class="cov8" title="1">{
+        return Compare(x, y) &gt; 0
+}</span>
+
+// GreaterThanOrEqual returns true if x &gt;= y.
+func GreaterThanOrEqual(x, y *BigInt) bool <span class="cov8" title="1">{
+        return Compare(x, y) &gt;= 0
+}</span>
+
+// absoluteCompare compares the magnitude of x and y ignoring sign.
+func absoluteCompare(x, y *BigInt) int <span class="cov8" title="1">{
+        diff := x.Length() - y.Length()
+        if diff != 0 </span><span class="cov8" title="1">{
+                return diff
+        }</span>
+        <span class="cov8" title="1">for i := x.Length() - 1; i &gt;= 0; i-- </span><span class="cov8" title="1">{
+                xd := x.Digit(i)
+                yd := y.Digit(i)
+                if xd &gt; yd </span><span class="cov8" title="1">{
+                        return 1
+                }</span>
+                <span class="cov8" title="1">if xd &lt; yd </span><span class="cov8" title="1">{
+                        return -1
+                }</span>
+        }
+        <span class="cov8" title="1">return 0</span>
+}
+
+// CompareToFloat64 compares a BigInt x with a float64 y without precision loss.
+// Returns (cmp, isNaN). If isNaN is true, y is NaN and no ordering exists.
+// Sourced line-for-line from JSBI.__compareToDouble (jsbi.ts lines 1051-1140).
+func CompareToFloat64(x *BigInt, y float64) (cmp int, isNaN bool) <span class="cov8" title="1">{
+        if x == nil </span><span class="cov0" title="0">{
+                x = Zero()
+        }</span>
+        <span class="cov8" title="1">if math.IsNaN(y) </span><span class="cov8" title="1">{
+                return 0, true
+        }</span>
+        <span class="cov8" title="1">if math.IsInf(y, 1) </span><span class="cov8" title="1">{
+                return -1, false
+        }</span>
+        <span class="cov8" title="1">if math.IsInf(y, -1) </span><span class="cov8" title="1">{
+                return 1, false
+        }</span>
+        <span class="cov8" title="1">xSign := x.Sign()
+        ySign := y &lt; 0
+        if xSign != ySign </span><span class="cov8" title="1">{
+                if xSign </span><span class="cov8" title="1">{
+                        return -1, false
+                }</span>
+                <span class="cov8" title="1">return 1, false</span>
+        }
+        <span class="cov8" title="1">if y == 0 </span><span class="cov8" title="1">{
+                if x.Length() == 0 </span><span class="cov8" title="1">{
+                        return 0, false
+                }</span>
+                <span class="cov0" title="0">if xSign </span><span class="cov0" title="0">{
+                        return -1, false
+                }</span>
+                <span class="cov0" title="0">return 1, false</span>
+        }
+        <span class="cov8" title="1">if x.Length() == 0 </span><span class="cov8" title="1">{
+                if ySign </span><span class="cov0" title="0">{
+                        return 1, false
+                }</span>
+                <span class="cov8" title="1">return -1, false</span>
+        }
+
+        <span class="cov8" title="1">bits := math.Float64bits(y)
+        rawExponent := int((bits &gt;&gt; 52) &amp; 0x7FF)
+        exponent := rawExponent - 0x3FF
+
+        if exponent &lt; 0 </span><span class="cov8" title="1">{
+                if xSign </span><span class="cov8" title="1">{
+                        return -1, false
+                }</span>
+                <span class="cov8" title="1">return 1, false</span>
+        }
+
+        <span class="cov8" title="1">xLength := x.Length()
+        xMsd := x.Digit(xLength - 1)
+        msdLeadingZeros := clz30(xMsd)
+        xBitLength := xLength*30 - msdLeadingZeros
+        yBitLength := exponent + 1
+
+        if xBitLength &lt; yBitLength </span><span class="cov8" title="1">{
+                if xSign </span><span class="cov8" title="1">{
+                        return 1, false
+                }</span>
+                <span class="cov8" title="1">return -1, false</span>
+        }
+        <span class="cov8" title="1">if xBitLength &gt; yBitLength </span><span class="cov8" title="1">{
+                if xSign </span><span class="cov8" title="1">{
+                        return -1, false
+                }</span>
+                <span class="cov8" title="1">return 1, false</span>
+        }
+
+        // Same sign, same integer bit length. Compare mantissa bit for bit.
+        <span class="cov8" title="1">const kHiddenBit uint32 = 0x00100000
+        mantissaHigh := uint32((bits&gt;&gt;32)&amp;0xFFFFF) | kHiddenBit
+        mantissaLow := uint32(bits &amp; 0xFFFFFFFF)
+
+        const kMantissaHighTopBit = 20
+        msdTopBit := 29 - msdLeadingZeros
+
+        var compareMantissa uint32
+        remainingMantissaBits := 0
+
+        if msdTopBit &lt; kMantissaHighTopBit </span><span class="cov8" title="1">{
+                shift := kMantissaHighTopBit - msdTopBit
+                remainingMantissaBits = shift + 32
+                compareMantissa = mantissaHigh &gt;&gt; shift
+                mantissaHigh = (mantissaHigh &lt;&lt; (32 - shift)) | (mantissaLow &gt;&gt; shift)
+                mantissaLow = mantissaLow &lt;&lt; (32 - shift)
+        }</span> else<span class="cov8" title="1"> if msdTopBit == kMantissaHighTopBit </span><span class="cov0" title="0">{
+                remainingMantissaBits = 32
+                compareMantissa = mantissaHigh
+                mantissaHigh = mantissaLow
+                mantissaLow = 0
+        }</span> else<span class="cov8" title="1"> {
+                shift := msdTopBit - kMantissaHighTopBit
+                remainingMantissaBits = 32 - shift
+                compareMantissa = (mantissaHigh &lt;&lt; shift) | (mantissaLow &gt;&gt; (32 - shift))
+                mantissaHigh = mantissaLow &lt;&lt; shift
+                mantissaLow = 0
+        }</span>
+
+        <span class="cov8" title="1">if xMsd &gt; compareMantissa </span><span class="cov8" title="1">{
+                if xSign </span><span class="cov0" title="0">{
+                        return -1, false
+                }</span>
+                <span class="cov8" title="1">return 1, false</span>
+        }
+        <span class="cov8" title="1">if xMsd &lt; compareMantissa </span><span class="cov8" title="1">{
+                if xSign </span><span class="cov8" title="1">{
+                        return 1, false
+                }</span>
+                <span class="cov0" title="0">return -1, false</span>
+        }
+
+        <span class="cov8" title="1">for digitIndex := xLength - 2; digitIndex &gt;= 0; digitIndex-- </span><span class="cov8" title="1">{
+                if remainingMantissaBits &gt; 0 </span><span class="cov8" title="1">{
+                        remainingMantissaBits -= 30
+                        compareMantissa = mantissaHigh &gt;&gt; 2
+                        mantissaHigh = (mantissaHigh &lt;&lt; 30) | (mantissaLow &gt;&gt; 2)
+                        mantissaLow = mantissaLow &lt;&lt; 30
+                }</span> else<span class="cov0" title="0"> {
+                        compareMantissa = 0
+                }</span>
+                <span class="cov8" title="1">digit := x.Digit(digitIndex)
+                if digit &gt; compareMantissa </span><span class="cov8" title="1">{
+                        if xSign </span><span class="cov0" title="0">{
+                                return -1, false
+                        }</span>
+                        <span class="cov8" title="1">return 1, false</span>
+                }
+                <span class="cov8" title="1">if digit &lt; compareMantissa </span><span class="cov0" title="0">{
+                        if xSign </span><span class="cov0" title="0">{
+                                return 1, false
+                        }</span>
+                        <span class="cov0" title="0">return -1, false</span>
+                }
+        }
+
+        <span class="cov8" title="1">if mantissaHigh != 0 || mantissaLow != 0 </span><span class="cov8" title="1">{
+                if xSign </span><span class="cov0" title="0">{
+                        return 1, false
+                }</span>
+                <span class="cov8" title="1">return -1, false</span>
+        }
+
+        <span class="cov8" title="1">return 0, false</span>
+}
+
+// Float64 Relational Predicates
+
+// EqualToFloat64 returns true if BigInt x is numerically equal to float64 y.
+func EqualToFloat64(x *BigInt, y float64) bool <span class="cov8" title="1">{
+        cmp, isNaN := CompareToFloat64(x, y)
+        return !isNaN &amp;&amp; cmp == 0
+}</span>
+
+// NotEqualToFloat64 returns true if BigInt x is not equal to float64 y.
+func NotEqualToFloat64(x *BigInt, y float64) bool <span class="cov8" title="1">{
+        return !EqualToFloat64(x, y)
+}</span>
+
+// LessThanFloat64 returns true if BigInt x is strictly less than float64 y.
+func LessThanFloat64(x *BigInt, y float64) bool <span class="cov8" title="1">{
+        cmp, isNaN := CompareToFloat64(x, y)
+        return !isNaN &amp;&amp; cmp &lt; 0
+}</span>
+
+// LessThanOrEqualFloat64 returns true if BigInt x is less than or equal to float64 y.
+func LessThanOrEqualFloat64(x *BigInt, y float64) bool <span class="cov8" title="1">{
+        cmp, isNaN := CompareToFloat64(x, y)
+        return !isNaN &amp;&amp; cmp &lt;= 0
+}</span>
+
+// GreaterThanFloat64 returns true if BigInt x is strictly greater than float64 y.
+func GreaterThanFloat64(x *BigInt, y float64) bool <span class="cov8" title="1">{
+        cmp, isNaN := CompareToFloat64(x, y)
+        return !isNaN &amp;&amp; cmp &gt; 0
+}</span>
+
+// GreaterThanOrEqualFloat64 returns true if BigInt x is greater than or equal to float64 y.
+func GreaterThanOrEqualFloat64(x *BigInt, y float64) bool <span class="cov8" title="1">{
+        cmp, isNaN := CompareToFloat64(x, y)
+        return !isNaN &amp;&amp; cmp &gt;= 0
+}</span>
+
+// CompareToInt64 compares a BigInt x with a signed 64-bit integer y.
+func CompareToInt64(x *BigInt, y int64) int <span class="cov0" title="0">{
+        return Compare(x, FromInt64(y))
+}</span>
+
+// Dynamic Comparison Operators (ECMAScript Operators Emulation)
+
+// EQ returns true if x == y (abstract equality).
+func EQ(x, y interface{}) bool <span class="cov8" title="1">{
+        bx, errX := BigIntVal(x)
+        by, errY := BigIntVal(y)
+        if errX == nil &amp;&amp; errY == nil </span><span class="cov0" title="0">{
+                return Equal(bx, by)
+        }</span>
+        <span class="cov8" title="1">if fx, ok := x.(float64); ok &amp;&amp; errY == nil </span><span class="cov0" title="0">{
+                return EqualToFloat64(by, fx)
+        }</span>
+        <span class="cov8" title="1">if fy, ok := y.(float64); ok &amp;&amp; errX == nil </span><span class="cov8" title="1">{
+                return EqualToFloat64(bx, fy)
+        }</span>
+        <span class="cov0" title="0">return false</span>
+}
+
+// NE returns true if x != y.
+func NE(x, y interface{}) bool <span class="cov8" title="1">{
+        return !EQ(x, y)
+}</span>
+
+// LT returns true if x &lt; y.
+func LT(x, y interface{}) bool <span class="cov8" title="1">{
+        bx, errX := BigIntVal(x)
+        by, errY := BigIntVal(y)
+        if errX == nil &amp;&amp; errY == nil </span><span class="cov0" title="0">{
+                return LessThan(bx, by)
+        }</span>
+        <span class="cov8" title="1">if fx, ok := x.(float64); ok &amp;&amp; errY == nil </span><span class="cov0" title="0">{
+                return GreaterThanFloat64(by, fx)
+        }</span>
+        <span class="cov8" title="1">if fy, ok := y.(float64); ok &amp;&amp; errX == nil </span><span class="cov8" title="1">{
+                return LessThanFloat64(bx, fy)
+        }</span>
+        <span class="cov0" title="0">return false</span>
+}
+
+// LE returns true if x &lt;= y.
+func LE(x, y interface{}) bool <span class="cov8" title="1">{
+        bx, errX := BigIntVal(x)
+        by, errY := BigIntVal(y)
+        if errX == nil &amp;&amp; errY == nil </span><span class="cov0" title="0">{
+                return LessThanOrEqual(bx, by)
+        }</span>
+        <span class="cov8" title="1">if fx, ok := x.(float64); ok &amp;&amp; errY == nil </span><span class="cov0" title="0">{
+                return GreaterThanOrEqualFloat64(by, fx)
+        }</span>
+        <span class="cov8" title="1">if fy, ok := y.(float64); ok &amp;&amp; errX == nil </span><span class="cov8" title="1">{
+                return LessThanOrEqualFloat64(bx, fy)
+        }</span>
+        <span class="cov0" title="0">return false</span>
+}
+
+// GT returns true if x &gt; y.
+func GT(x, y interface{}) bool <span class="cov8" title="1">{
+        bx, errX := BigIntVal(x)
+        by, errY := BigIntVal(y)
+        if errX == nil &amp;&amp; errY == nil </span><span class="cov0" title="0">{
+                return GreaterThan(bx, by)
+        }</span>
+        <span class="cov8" title="1">if fx, ok := x.(float64); ok &amp;&amp; errY == nil </span><span class="cov0" title="0">{
+                return LessThanFloat64(by, fx)
+        }</span>
+        <span class="cov8" title="1">if fy, ok := y.(float64); ok &amp;&amp; errX == nil </span><span class="cov8" title="1">{
+                return GreaterThanFloat64(bx, fy)
+        }</span>
+        <span class="cov0" title="0">return false</span>
+}
+
+// GE returns true if x &gt;= y.
+func GE(x, y interface{}) bool <span class="cov8" title="1">{
+        bx, errX := BigIntVal(x)
+        by, errY := BigIntVal(y)
+        if errX == nil &amp;&amp; errY == nil </span><span class="cov0" title="0">{
+                return GreaterThanOrEqual(bx, by)
+        }</span>
+        <span class="cov8" title="1">if fx, ok := x.(float64); ok &amp;&amp; errY == nil </span><span class="cov0" title="0">{
+                return LessThanOrEqualFloat64(by, fx)
+        }</span>
+        <span class="cov8" title="1">if fy, ok := y.(float64); ok &amp;&amp; errX == nil </span><span class="cov8" title="1">{
+                return GreaterThanOrEqualFloat64(bx, fy)
+        }</span>
+        <span class="cov0" title="0">return false</span>
+}
+</pre>
+		
+		<pre class="file" id="file4" style="display: none">package jsbi
+
+import (
+        "math"
+)
+
+// BigIntVal constructs a BigInt from a Go interface{} value (int, float, string, bool, *BigInt).
+func BigIntVal(arg interface{}) (*BigInt, error) <span class="cov8" title="1">{
+        switch v := arg.(type) </span>{
+        case int:<span class="cov8" title="1">
+                return FromInt64(int64(v)), nil</span>
+        case int64:<span class="cov8" title="1">
+                return FromInt64(v), nil</span>
+        case int32:<span class="cov0" title="0">
+                return FromInt64(int64(v)), nil</span>
+        case uint:<span class="cov0" title="0">
+                return FromUint64(uint64(v)), nil</span>
+        case uint64:<span class="cov0" title="0">
+                return FromUint64(v), nil</span>
+        case uint32:<span class="cov0" title="0">
+                return FromUint64(uint64(v)), nil</span>
+        case float64:<span class="cov8" title="1">
+                return FromFloat64(v)</span>
+        case float32:<span class="cov0" title="0">
+                return FromFloat64(float64(v))</span>
+        case string:<span class="cov8" title="1">
+                return FromString(v, 0)</span>
+        case bool:<span class="cov0" title="0">
+                return FromBool(v), nil</span>
+        case *BigInt:<span class="cov8" title="1">
+                if v == nil </span><span class="cov0" title="0">{
+                        return Zero(), nil
+                }</span>
+                <span class="cov8" title="1">return v.Copy(), nil</span>
+        default:<span class="cov8" title="1">
+                return nil, ErrType</span>
+        }
+}
+
+// FromInt64 creates a BigInt from a signed 64-bit integer.
+func FromInt64(v int64) *BigInt <span class="cov8" title="1">{
+        if v == 0 </span><span class="cov8" title="1">{
+                return Zero()
+        }</span>
+        <span class="cov8" title="1">sign := v &lt; 0
+        var u uint64
+        if sign </span><span class="cov8" title="1">{
+                u = uint64(-v)
+        }</span> else<span class="cov8" title="1"> {
+                u = uint64(v)
+        }</span>
+        <span class="cov8" title="1">return fromUint64Internal(u, sign)</span>
+}
+
+// FromUint64 creates a BigInt from an unsigned 64-bit integer.
+func FromUint64(v uint64) *BigInt <span class="cov8" title="1">{
+        if v == 0 </span><span class="cov8" title="1">{
+                return Zero()
+        }</span>
+        <span class="cov8" title="1">return fromUint64Internal(v, false)</span>
+}
+
+func fromUint64Internal(u uint64, sign bool) *BigInt <span class="cov8" title="1">{
+        if u &lt;= kDigitMask </span><span class="cov8" title="1">{
+                return OneDigit(uint32(u), sign)
+        }</span>
+        <span class="cov8" title="1">res := &amp;BigInt{sign: sign}
+        res.SetDigit(0, uint32(u&amp;kDigitMask))
+        res.SetDigit(1, uint32((u&gt;&gt;30)&amp;kDigitMask))
+        if (u &gt;&gt; 60) &gt; 0 </span><span class="cov8" title="1">{
+                res.SetDigit(2, uint32(u&gt;&gt;60))
+        }</span>
+        <span class="cov8" title="1">return res.Trim()</span>
+}
+
+// FromBool creates a BigInt from a boolean value (true -&gt; 1, false -&gt; 0).
+func FromBool(b bool) *BigInt <span class="cov8" title="1">{
+        if b </span><span class="cov8" title="1">{
+                return OneDigit(1, false)
+        }</span>
+        <span class="cov8" title="1">return Zero()</span>
+}
+
+// FromFloat64 converts a float64 into a BigInt, mirroring JSBI.__fromDouble.
+func FromFloat64(value float64) (*BigInt, error) <span class="cov8" title="1">{
+        if value == 0 </span><span class="cov8" title="1">{
+                return Zero(), nil
+        }</span>
+        <span class="cov8" title="1">if math.IsNaN(value) || math.IsInf(value, 0) || math.Floor(value) != value </span><span class="cov8" title="1">{
+                return nil, ErrRange
+        }</span>
+        <span class="cov8" title="1">sign := value &lt; 0
+        bits := math.Float64bits(value)
+        rawExponent := int((bits &gt;&gt; 52) &amp; 0x7FF)
+        exponent := rawExponent - 0x3FF
+        if exponent &lt; 0 </span><span class="cov0" title="0">{
+                return Zero(), nil
+        }</span>
+        <span class="cov8" title="1">digitsNeeded := (exponent / 30) + 1
+        result := &amp;BigInt{
+                sign:   sign,
+                digits: make([]uint32, digitsNeeded),
+        }
+
+        const kHiddenBit uint32 = 0x00100000
+        mantissaHigh := uint32((bits&gt;&gt;32)&amp;0xFFFFF) | kHiddenBit
+        mantissaLow := uint32(bits &amp; 0xFFFFFFFF)
+
+        const kMantissaHighTopBit = 20
+        msdTopBit := exponent % 30
+        remainingMantissaBits := 0
+        var digit uint32
+
+        if msdTopBit &lt; kMantissaHighTopBit </span><span class="cov8" title="1">{
+                shift := kMantissaHighTopBit - msdTopBit
+                remainingMantissaBits = shift + 32
+                digit = mantissaHigh &gt;&gt; shift
+                mantissaHigh = (mantissaHigh &lt;&lt; (32 - shift)) | (mantissaLow &gt;&gt; shift)
+                mantissaLow = mantissaLow &lt;&lt; (32 - shift)
+        }</span> else<span class="cov0" title="0"> if msdTopBit == kMantissaHighTopBit </span><span class="cov0" title="0">{
+                remainingMantissaBits = 32
+                digit = mantissaHigh
+                mantissaHigh = mantissaLow
+                mantissaLow = 0
+        }</span> else<span class="cov0" title="0"> {
+                shift := msdTopBit - kMantissaHighTopBit
+                remainingMantissaBits = 32 - shift
+                digit = (mantissaHigh &lt;&lt; shift) | (mantissaLow &gt;&gt; (32 - shift))
+                mantissaHigh = mantissaLow &lt;&lt; shift
+                mantissaLow = 0
+        }</span>
+
+        <span class="cov8" title="1">result.SetDigit(digitsNeeded-1, digit)
+
+        for digitIndex := digitsNeeded - 2; digitIndex &gt;= 0; digitIndex-- </span><span class="cov8" title="1">{
+                if remainingMantissaBits &gt; 0 </span><span class="cov8" title="1">{
+                        remainingMantissaBits -= 30
+                        digit = mantissaHigh &gt;&gt; 2
+                        mantissaHigh = (mantissaHigh &lt;&lt; 30) | (mantissaLow &gt;&gt; 2)
+                        mantissaLow = mantissaLow &lt;&lt; 30
+                }</span> else<span class="cov0" title="0"> {
+                        digit = 0
+                }</span>
+                <span class="cov8" title="1">result.SetDigit(digitIndex, digit)</span>
+        }
+
+        <span class="cov8" title="1">return result.Trim(), nil</span>
+}
+</pre>
+		
+		<pre class="file" id="file5" style="display: none">package jsbi
+
+// Divide computes the quotient of x and y (truncating toward zero) matching JSBI semantics.
+// References: jsbi/lib/jsbi.ts lines 236-250.
+func Divide(x, y *BigInt) (*BigInt, error) <span class="cov8" title="1">{
+        if y.Length() == 0 </span><span class="cov8" title="1">{
+                return nil, ErrRange
+        }</span>
+        <span class="cov8" title="1">if absoluteCompare(x, y) &lt; 0 </span><span class="cov8" title="1">{
+                return Zero(), nil
+        }</span>
+        <span class="cov8" title="1">resultSign := x.Sign() != y.Sign()
+        divisor := y.UnsignedDigit(0)
+        if y.Length() == 1 &amp;&amp; divisor &lt;= 0x7FFF </span><span class="cov8" title="1">{
+                if divisor == 1 </span><span class="cov8" title="1">{
+                        res := x.Copy()
+                        res.SetSign(resultSign)
+                        return res, nil
+                }</span>
+                <span class="cov8" title="1">quotient := absoluteDivSmall(x, divisor, nil)
+                quotient.SetSign(resultSign)
+                return quotient.Trim(), nil</span>
+        }
+        <span class="cov8" title="1">quotient, _ := absoluteDivLarge(x, y, true, false)
+        quotient.SetSign(resultSign)
+        return quotient.Trim(), nil</span>
+}
+
+// Remainder computes the remainder of x divided by y matching JSBI semantics.
+// References: jsbi/lib/jsbi.ts lines 252-267.
+func Remainder(x, y *BigInt) (*BigInt, error) <span class="cov8" title="1">{
+        if y.Length() == 0 </span><span class="cov8" title="1">{
+                return nil, ErrRange
+        }</span>
+        <span class="cov8" title="1">if absoluteCompare(x, y) &lt; 0 </span><span class="cov8" title="1">{
+                return x.Copy(), nil
+        }</span>
+        <span class="cov8" title="1">divisor := y.UnsignedDigit(0)
+        if y.Length() == 1 &amp;&amp; divisor &lt;= 0x7FFF </span><span class="cov8" title="1">{
+                if divisor == 1 </span><span class="cov8" title="1">{
+                        return Zero(), nil
+                }</span>
+                <span class="cov8" title="1">remainderDigit := absoluteModSmall(x, divisor)
+                if remainderDigit == 0 </span><span class="cov8" title="1">{
+                        return Zero(), nil
+                }</span>
+                <span class="cov8" title="1">return OneDigit(remainderDigit, x.Sign()), nil</span>
+        }
+        <span class="cov8" title="1">_, remainder := absoluteDivLarge(x, y, false, true)
+        remainder.SetSign(x.Sign())
+        return remainder.Trim(), nil</span>
+}
+
+// DivRem computes both the quotient and remainder of x divided by y.
+// Extension to JSBI providing single-pass Algorithm D execution for large divisors.
+func DivRem(x, y *BigInt) (quotient *BigInt, remainder *BigInt, err error) <span class="cov8" title="1">{
+        if y.Length() == 0 </span><span class="cov8" title="1">{
+                return nil, nil, ErrRange
+        }</span>
+        <span class="cov8" title="1">if absoluteCompare(x, y) &lt; 0 </span><span class="cov8" title="1">{
+                return Zero(), x.Copy(), nil
+        }</span>
+        <span class="cov8" title="1">resultSign := x.Sign() != y.Sign()
+        divisor := y.UnsignedDigit(0)
+        if y.Length() == 1 &amp;&amp; divisor &lt;= 0x7FFF </span><span class="cov8" title="1">{
+                if divisor == 1 </span><span class="cov0" title="0">{
+                        q := x.Copy()
+                        q.SetSign(resultSign)
+                        return q, Zero(), nil
+                }</span>
+                <span class="cov8" title="1">q := absoluteDivSmall(x, divisor, nil)
+                q.SetSign(resultSign)
+                q.Trim()
+                remDigit := absoluteModSmall(x, divisor)
+                var r *BigInt
+                if remDigit == 0 </span><span class="cov8" title="1">{
+                        r = Zero()
+                }</span> else<span class="cov8" title="1"> {
+                        r = OneDigit(remDigit, x.Sign())
+                }</span>
+                <span class="cov8" title="1">return q, r, nil</span>
+        }
+        <span class="cov8" title="1">q, r := absoluteDivLarge(x, y, true, true)
+        q.SetSign(resultSign)
+        q.Trim()
+        r.SetSign(x.Sign())
+        r.Trim()
+        return q, r, nil</span>
+}
+
+// absoluteModSmall computes |x| mod divisor for divisor &lt;= 0x7FFF.
+// References: jsbi/lib/jsbi.ts lines 1525-1532.
+func absoluteModSmall(x *BigInt, divisor uint32) uint32 <span class="cov8" title="1">{
+        var remainder uint32 = 0
+        for i := x.Length()*2 - 1; i &gt;= 0; i-- </span><span class="cov8" title="1">{
+                input := (remainder &lt;&lt; 15) | x.halfDigit(i)
+                remainder = input % divisor
+        }</span>
+        <span class="cov8" title="1">return remainder</span>
+}
+
+// absoluteDivSmall divides |x| by a small divisor &lt;= 0x7FFF.
+// References: jsbi/lib/jsbi.ts lines 1509-1523.
+func absoluteDivSmall(x *BigInt, divisor uint32, quotient *BigInt) *BigInt <span class="cov8" title="1">{
+        if quotient == nil </span><span class="cov8" title="1">{
+                quotient = NewBigInt(x.Length(), false)
+        }</span>
+        <span class="cov8" title="1">var remainder uint32 = 0
+        for i := x.Length()*2 - 1; i &gt;= 0; i-- </span><span class="cov8" title="1">{
+                input := (remainder &lt;&lt; 15) | x.halfDigit(i)
+                q := input / divisor
+                remainder = input % divisor
+                quotient.setHalfDigit(i, q)
+        }</span>
+        <span class="cov8" title="1">return quotient</span>
+}
+
+// absoluteDivLarge implements Knuth Algorithm D for division.
+// References: jsbi/lib/jsbi.ts lines 1540-1605.
+func absoluteDivLarge(dividend, divisor *BigInt, wantQuotient, wantRemainder bool) (quotient, remainder *BigInt) <span class="cov8" title="1">{
+        n := divisor.halfDigitLength()
+        n2 := divisor.Length()
+        m := dividend.halfDigitLength() - n
+        var q *BigInt
+        if wantQuotient </span><span class="cov8" title="1">{
+                q = NewBigInt((m+2)&gt;&gt;1, false)
+        }</span>
+        <span class="cov8" title="1">qhatv := NewBigInt((n+2)&gt;&gt;1, false)
+
+        // D1. Normalization
+        shift := clz15(divisor.halfDigit(n - 1))
+        normalizedDivisor := divisor
+        if shift &gt; 0 </span><span class="cov8" title="1">{
+                normalizedDivisor = specialLeftShift(divisor, shift, 0)
+        }</span>
+        <span class="cov8" title="1">u := specialLeftShift(dividend, shift, 1)
+
+        // D2. Loop initialization
+        vn1 := normalizedDivisor.halfDigit(n - 1)
+        var halfDigitBuffer uint32 = 0
+        for j := m; j &gt;= 0; j-- </span><span class="cov8" title="1">{
+                // D3. Trial quotient
+                var qhat uint32 = 0x7FFF
+                ujn := u.halfDigit(j + n)
+                if ujn != vn1 </span><span class="cov8" title="1">{
+                        input := (ujn &lt;&lt; 15) | u.halfDigit(j+n-1)
+                        qhat = input / vn1
+                        rhat := input % vn1
+                        vn2 := normalizedDivisor.halfDigit(n - 2)
+                        ujn2 := u.halfDigit(j + n - 2)
+                        for (qhat * vn2) &gt; ((rhat &lt;&lt; 16) | ujn2) </span><span class="cov8" title="1">{
+                                qhat--
+                                rhat += vn1
+                                if rhat &gt; 0x7FFF </span><span class="cov8" title="1">{
+                                        break</span>
+                                }
+                        }
+                }
+
+                // D4. Multiply &amp; subtract
+                <span class="cov8" title="1">internalMultiplyAdd(normalizedDivisor, qhat, 0, n2, qhatv)
+                c := u.inplaceSub(qhatv, j, n+1)
+                if c != 0 </span><span class="cov8" title="1">{
+                        c = u.inplaceAdd(normalizedDivisor, j, n)
+                        u.setHalfDigit(j+n, (u.halfDigit(j+n)+c)&amp;0x7FFF)
+                        qhat--
+                }</span>
+
+                <span class="cov8" title="1">if wantQuotient </span><span class="cov8" title="1">{
+                        if (j &amp; 1) != 0 </span><span class="cov8" title="1">{
+                                halfDigitBuffer = qhat &lt;&lt; 15
+                        }</span> else<span class="cov8" title="1"> {
+                                q.SetDigit(j&gt;&gt;1, halfDigitBuffer|qhat)
+                        }</span>
+                }
+        }
+
+        <span class="cov8" title="1">if wantRemainder </span><span class="cov8" title="1">{
+                u.inplaceRightShift(shift)
+                remainder = u
+        }</span>
+        <span class="cov8" title="1">if wantQuotient </span><span class="cov8" title="1">{
+                quotient = q
+        }</span>
+        <span class="cov8" title="1">return quotient, remainder</span>
+}
+
+// halfDigitLength returns the number of 15-bit half-digits in x.
+// References: jsbi/lib/jsbi.ts lines 1922-1926.
+func (x *BigInt) halfDigitLength() int <span class="cov8" title="1">{
+        len := x.Length()
+        if len == 0 </span><span class="cov0" title="0">{
+                return 0
+        }</span>
+        <span class="cov8" title="1">if x.Digit(len-1) &lt;= 0x7FFF </span><span class="cov8" title="1">{
+                return len*2 - 1
+        }</span>
+        <span class="cov8" title="1">return len * 2</span>
+}
+
+// halfDigit returns the 15-bit half-digit at index i.
+// References: jsbi/lib/jsbi.ts lines 1927-1929.
+func (x *BigInt) halfDigit(i int) uint32 <span class="cov8" title="1">{
+        if i &lt; 0 || i &gt;= x.Length()*2 </span><span class="cov0" title="0">{
+                return 0
+        }</span>
+        <span class="cov8" title="1">return (x.Digit(i&gt;&gt;1) &gt;&gt; (uint(i&amp;1) * 15)) &amp; 0x7FFF</span>
+}
+
+// setHalfDigit sets the 15-bit half-digit at index i.
+// References: jsbi/lib/jsbi.ts lines 1930-1936.
+func (x *BigInt) setHalfDigit(i int, value uint32) <span class="cov8" title="1">{
+        digitIndex := i &gt;&gt; 1
+        previous := x.Digit(digitIndex)
+        var updated uint32
+        if (i &amp; 1) != 0 </span><span class="cov8" title="1">{
+                updated = (previous &amp; 0x7FFF) | ((value &amp; 0x7FFF) &lt;&lt; 15)
+        }</span> else<span class="cov8" title="1"> {
+                updated = (previous &amp; 0x3FFF8000) | (value &amp; 0x7FFF)
+        }</span>
+        <span class="cov8" title="1">x.SetDigit(digitIndex, updated)</span>
+}
+
+// inplaceAdd adds summand to b starting at half-digit offset startIndex over halfDigits.
+// References: jsbi/lib/jsbi.ts lines 1612-1622.
+func (b *BigInt) inplaceAdd(summand *BigInt, startIndex int, halfDigits int) uint32 <span class="cov8" title="1">{
+        var carry uint32 = 0
+        for i := 0; i &lt; halfDigits; i++ </span><span class="cov8" title="1">{
+                sum := b.halfDigit(startIndex+i) + summand.halfDigit(i) + carry
+                carry = sum &gt;&gt; 15
+                b.setHalfDigit(startIndex+i, sum&amp;0x7FFF)
+        }</span>
+        <span class="cov8" title="1">return carry</span>
+}
+
+// inplaceSub subtracts subtrahend from b starting at half-digit offset startIndex over halfDigits.
+// References: jsbi/lib/jsbi.ts lines 1624-1684.
+func (b *BigInt) inplaceSub(subtrahend *BigInt, startIndex int, halfDigits int) uint32 <span class="cov8" title="1">{
+        fullSteps := (halfDigits - 1) &gt;&gt; 1
+        subLen := (halfDigits + 1) &gt;&gt; 1
+        var borrow uint32 = 0
+        if (startIndex &amp; 1) != 0 </span><span class="cov8" title="1">{
+                startIndex &gt;&gt;= 1
+                current := b.Digit(startIndex)
+                r0 := current &amp; 0x7FFF
+                i := 0
+                for ; i &lt; fullSteps; i++ </span><span class="cov8" title="1">{
+                        sub := subtrahend.Digit(i)
+                        r15 := (current &gt;&gt; 15) - (sub &amp; 0x7FFF) - borrow
+                        borrow = (r15 &gt;&gt; 15) &amp; 1
+                        b.SetDigit(startIndex+i, ((r15 &amp; 0x7FFF) &lt;&lt; 15) | (r0 &amp; 0x7FFF))
+                        current = b.Digit(startIndex + i + 1)
+                        r0 = (current &amp; 0x7FFF) - (sub &gt;&gt; 15) - borrow
+                        borrow = (r0 &gt;&gt; 15) &amp; 1
+                }</span>
+                <span class="cov8" title="1">sub := subtrahend.Digit(i)
+                r15 := (current &gt;&gt; 15) - (sub &amp; 0x7FFF) - borrow
+                borrow = (r15 &gt;&gt; 15) &amp; 1
+                b.SetDigit(startIndex+i, ((r15 &amp; 0x7FFF) &lt;&lt; 15) | (r0 &amp; 0x7FFF))
+                subTop := sub &gt;&gt; 15
+                if (halfDigits &amp; 1) == 0 </span><span class="cov8" title="1">{
+                        current = b.Digit(startIndex + i + 1)
+                        r0 = (current &amp; 0x7FFF) - subTop - borrow
+                        borrow = (r0 &gt;&gt; 15) &amp; 1
+                        b.SetDigit(startIndex+subLen, (current &amp; 0x3FFF8000) | (r0 &amp; 0x7FFF))
+                }</span>
+        } else<span class="cov8" title="1"> {
+                startIndex &gt;&gt;= 1
+                i := 0
+                for ; i &lt; subLen-1; i++ </span><span class="cov8" title="1">{
+                        current := b.Digit(startIndex + i)
+                        sub := subtrahend.Digit(i)
+                        r0 := (current &amp; 0x7FFF) - (sub &amp; 0x7FFF) - borrow
+                        borrow = (r0 &gt;&gt; 15) &amp; 1
+                        r15 := (current &gt;&gt; 15) - (sub &gt;&gt; 15) - borrow
+                        borrow = (r15 &gt;&gt; 15) &amp; 1
+                        b.SetDigit(startIndex+i, ((r15 &amp; 0x7FFF) &lt;&lt; 15) | (r0 &amp; 0x7FFF))
+                }</span>
+                <span class="cov8" title="1">current := b.Digit(startIndex + i)
+                sub := subtrahend.Digit(i)
+                r0 := (current &amp; 0x7FFF) - (sub &amp; 0x7FFF) - borrow
+                borrow = (r0 &gt;&gt; 15) &amp; 1
+                var r15 uint32 = 0
+                if (halfDigits &amp; 1) == 0 </span><span class="cov8" title="1">{
+                        r15 = (current &gt;&gt; 15) - (sub &gt;&gt; 15) - borrow
+                        borrow = (r15 &gt;&gt; 15) &amp; 1
+                }</span>
+                <span class="cov8" title="1">b.SetDigit(startIndex+i, ((r15 &amp; 0x7FFF) &lt;&lt; 15) | (r0 &amp; 0x7FFF))</span>
+        }
+        <span class="cov8" title="1">return borrow</span>
+}
+
+// inplaceRightShift shifts b right in-place by shift bits within 30-bit limbs.
+// References: jsbi/lib/jsbi.ts lines 1686-1696.
+func (b *BigInt) inplaceRightShift(shift int) <span class="cov8" title="1">{
+        if shift == 0 </span><span class="cov8" title="1">{
+                return
+        }</span>
+        <span class="cov8" title="1">carry := b.Digit(0) &gt;&gt; uint(shift)
+        last := b.Length() - 1
+        for i := 0; i &lt; last; i++ </span><span class="cov8" title="1">{
+                d := b.Digit(i + 1)
+                b.SetDigit(i, ((d&lt;&lt;uint(30-shift))&amp;kDigitMask)|carry)
+                carry = d &gt;&gt; uint(shift)
+        }</span>
+        <span class="cov8" title="1">b.SetDigit(last, carry)</span>
+}
+
+// specialLeftShift shifts x left by shift bits within 30-bit limbs, returning a new BigInt.
+// References: jsbi/lib/jsbi.ts lines 1698-1717.
+func specialLeftShift(x *BigInt, shift int, addDigit int) *BigInt <span class="cov8" title="1">{
+        n := x.Length()
+        resultLength := n + addDigit
+        result := NewBigInt(resultLength, false)
+        if shift == 0 </span><span class="cov8" title="1">{
+                for i := 0; i &lt; n; i++ </span><span class="cov8" title="1">{
+                        result.SetDigit(i, x.Digit(i))
+                }</span>
+                <span class="cov8" title="1">if addDigit &gt; 0 </span><span class="cov8" title="1">{
+                        result.SetDigit(n, 0)
+                }</span>
+                <span class="cov8" title="1">return result</span>
+        }
+        <span class="cov8" title="1">var carry uint32 = 0
+        for i := 0; i &lt; n; i++ </span><span class="cov8" title="1">{
+                d := x.Digit(i)
+                result.SetDigit(i, ((d&lt;&lt;uint(shift))&amp;kDigitMask)|carry)
+                carry = d &gt;&gt; uint(30-shift)
+        }</span>
+        <span class="cov8" title="1">if addDigit &gt; 0 </span><span class="cov8" title="1">{
+                result.SetDigit(n, carry)
+        }</span>
+        <span class="cov8" title="1">return result</span>
+}
+
+// clz15 returns the number of leading zeros in a 15-bit half-digit.
+// References: jsbi/lib/jsbi.ts line 1608.
+func clz15(value uint32) int <span class="cov8" title="1">{
+        return clz30(value) - 15
+}</span>
+</pre>
+		
+		<pre class="file" id="file6" style="display: none">package jsbi
+
+var kMaxBitsPerChar = []uint32{
+        0, 0, 32, 51, 64, 75, 83, 90, 96, // 0..8
+        102, 107, 111, 115, 119, 122, 126, 128, // 9..16
+        131, 134, 136, 139, 141, 143, 145, 147, // 17..24
+        149, 151, 153, 154, 156, 158, 159, 160, // 25..32
+        162, 163, 165, 166, // 33..36
+}
+
+const (
+        kBitsPerCharTableShift      = 5
+        kBitsPerCharTableMultiplier = 1 &lt;&lt; kBitsPerCharTableShift
+)
+
+// isWhitespace checks ECMAScript compliant whitespace runes.
+func isWhitespace(c rune) bool <span class="cov8" title="1">{
+        if c &gt;= 0x09 &amp;&amp; c &lt;= 0x0D </span><span class="cov8" title="1">{
+                return true
+        }</span>
+        <span class="cov8" title="1">if c == 0x20 || c == 0xA0 || c == 0x1680 || c == 0xFEFF </span><span class="cov8" title="1">{
+                return true
+        }</span>
+        <span class="cov8" title="1">if c &gt;= 0x2000 &amp;&amp; c &lt;= 0x200A </span><span class="cov0" title="0">{
+                return true
+        }</span>
+        <span class="cov8" title="1">if c == 0x2028 || c == 0x2029 || c == 0x202F || c == 0x205F || c == 0x3000 </span><span class="cov0" title="0">{
+                return true
+        }</span>
+        <span class="cov8" title="1">return false</span>
+}
+
+// FromString parses a string into a BigInt with an optional radix (2 to 36, or 0 for auto-detect).
+func FromString(s string, radix int) (*BigInt, error) <span class="cov8" title="1">{
+        if radix != 0 &amp;&amp; (radix &lt; 2 || radix &gt; 36) </span><span class="cov8" title="1">{
+                return nil, ErrRange
+        }</span>
+        <span class="cov8" title="1">runes := []rune(s)
+        length := len(runes)
+        cursor := 0
+
+        if cursor == length </span><span class="cov0" title="0">{
+                return Zero(), nil
+        }</span>
+
+        // Skip leading whitespace.
+        <span class="cov8" title="1">for cursor &lt; length &amp;&amp; isWhitespace(runes[cursor]) </span><span class="cov8" title="1">{
+                cursor++
+        }</span>
+        <span class="cov8" title="1">if cursor == length </span><span class="cov0" title="0">{
+                return Zero(), nil
+        }</span>
+
+        <span class="cov8" title="1">sign := 0
+        current := runes[cursor]
+
+        // Parse sign prefix.
+        if current == '+' </span><span class="cov8" title="1">{
+                cursor++
+                if cursor == length </span><span class="cov8" title="1">{
+                        return nil, ErrSyntax
+                }</span>
+                <span class="cov8" title="1">current = runes[cursor]
+                sign = 1</span>
+        } else<span class="cov8" title="1"> if current == '-' </span><span class="cov8" title="1">{
+                cursor++
+                if cursor == length </span><span class="cov8" title="1">{
+                        return nil, ErrSyntax
+                }</span>
+                <span class="cov8" title="1">current = runes[cursor]
+                sign = -1</span>
+        }
+
+        // Detect radix if 0.
+        <span class="cov8" title="1">if radix == 0 </span><span class="cov8" title="1">{
+                radix = 10
+                if current == '0' </span><span class="cov8" title="1">{
+                        cursor++
+                        if cursor == length </span><span class="cov8" title="1">{
+                                return Zero(), nil
+                        }</span>
+                        <span class="cov8" title="1">current = runes[cursor]
+                        if current == 'X' || current == 'x' </span><span class="cov8" title="1">{
+                                radix = 16
+                                cursor++
+                                if cursor == length </span><span class="cov8" title="1">{
+                                        return nil, ErrSyntax
+                                }</span>
+                                <span class="cov8" title="1">current = runes[cursor]</span>
+                        } else<span class="cov8" title="1"> if current == 'O' || current == 'o' </span><span class="cov8" title="1">{
+                                radix = 8
+                                cursor++
+                                if cursor == length </span><span class="cov0" title="0">{
+                                        return nil, ErrSyntax
+                                }</span>
+                                <span class="cov8" title="1">current = runes[cursor]</span>
+                        } else<span class="cov8" title="1"> if current == 'B' || current == 'b' </span><span class="cov8" title="1">{
+                                radix = 2
+                                cursor++
+                                if cursor == length </span><span class="cov0" title="0">{
+                                        return nil, ErrSyntax
+                                }</span>
+                                <span class="cov8" title="1">current = runes[cursor]</span>
+                        }
+                }
+        } else<span class="cov8" title="1"> if radix == 16 </span><span class="cov8" title="1">{
+                if current == '0' </span><span class="cov0" title="0">{
+                        cursor++
+                        if cursor == length </span><span class="cov0" title="0">{
+                                return Zero(), nil
+                        }</span>
+                        <span class="cov0" title="0">current = runes[cursor]
+                        if current == 'X' || current == 'x' </span><span class="cov0" title="0">{
+                                cursor++
+                                if cursor == length </span><span class="cov0" title="0">{
+                                        return nil, ErrSyntax
+                                }</span>
+                                <span class="cov0" title="0">current = runes[cursor]</span>
+                        }
+                }
+        }
+
+        <span class="cov8" title="1">if sign != 0 &amp;&amp; radix != 10 </span><span class="cov8" title="1">{
+                return nil, ErrSyntax
+        }</span>
+
+        // Skip leading zeros.
+        <span class="cov8" title="1">for current == '0' </span><span class="cov8" title="1">{
+                cursor++
+                if cursor == length </span><span class="cov8" title="1">{
+                        return Zero(), nil
+                }</span>
+                <span class="cov0" title="0">current = runes[cursor]</span>
+        }
+
+        <span class="cov8" title="1">chars := length - cursor
+        bitsPerChar := kMaxBitsPerChar[radix]
+        roundup := uint32(kBitsPerCharTableMultiplier - 1)
+        if uint32(chars) &gt; ((1 &lt;&lt; 30) / bitsPerChar) </span><span class="cov0" title="0">{
+                return nil, ErrSyntax
+        }</span>
+        <span class="cov8" title="1">bitsMin := (bitsPerChar*uint32(chars) + roundup) &gt;&gt; kBitsPerCharTableShift
+        resultLength := int((bitsMin + 29) / 30)
+        if resultLength &lt; 1 </span><span class="cov0" title="0">{
+                resultLength = 1
+        }</span>
+        <span class="cov8" title="1">result := &amp;BigInt{sign: false, digits: make([]uint32, resultLength)}
+
+        limDigit := uint32(radix)
+        if limDigit &gt; 10 </span><span class="cov8" title="1">{
+                limDigit = 10
+        }</span>
+        <span class="cov8" title="1">var limAlpha uint32
+        if radix &gt; 10 </span><span class="cov8" title="1">{
+                limAlpha = uint32(radix - 10)
+        }</span>
+
+        <span class="cov8" title="1">if (radix &amp; (radix - 1)) == 0 </span><span class="cov8" title="1">{
+                // Power of two radix fast path.
+                bitsPerChar &gt;&gt;= kBitsPerCharTableShift
+                var parts []uint32
+                var partsBits []uint32
+                done := false
+                for !done </span><span class="cov8" title="1">{
+                        var part uint32
+                        var bits uint32
+                        for </span><span class="cov8" title="1">{
+                                var d uint32
+                                c := uint32(current)
+                                if c-48 &lt; limDigit </span><span class="cov8" title="1">{
+                                        d = c - 48
+                                }</span> else<span class="cov8" title="1"> if (c|32)-97 &lt; limAlpha </span><span class="cov8" title="1">{
+                                        d = (c | 32) - 87
+                                }</span> else<span class="cov0" title="0"> {
+                                        done = true
+                                        break</span>
+                                }
+                                <span class="cov8" title="1">bits += bitsPerChar
+                                part = (part &lt;&lt; bitsPerChar) | d
+                                cursor++
+                                if cursor == length </span><span class="cov8" title="1">{
+                                        done = true
+                                        break</span>
+                                }
+                                <span class="cov8" title="1">current = runes[cursor]
+                                if bits+bitsPerChar &gt; 30 </span><span class="cov8" title="1">{
+                                        break</span>
+                                }
+                        }
+                        <span class="cov8" title="1">parts = append(parts, part)
+                        partsBits = append(partsBits, bits)</span>
+                }
+                <span class="cov8" title="1">fillFromParts(result, parts, partsBits)</span>
+        } else<span class="cov8" title="1"> {
+                // Generic radix path.
+                done := false
+                charsSoFar := uint32(0)
+                for !done </span><span class="cov8" title="1">{
+                        var part uint32
+                        multiplier := uint32(1)
+                        for </span><span class="cov8" title="1">{
+                                var d uint32
+                                c := uint32(current)
+                                if c-48 &lt; limDigit </span><span class="cov8" title="1">{
+                                        d = c - 48
+                                }</span> else<span class="cov8" title="1"> if (c|32)-97 &lt; limAlpha </span><span class="cov8" title="1">{
+                                        d = (c | 32) - 87
+                                }</span> else<span class="cov8" title="1"> {
+                                        done = true
+                                        break</span>
+                                }
+                                <span class="cov8" title="1">m := multiplier * uint32(radix)
+                                if m &gt; 0x3FFFFFFF </span><span class="cov8" title="1">{
+                                        break</span>
+                                }
+                                <span class="cov8" title="1">multiplier = m
+                                part = part*uint32(radix) + d
+                                charsSoFar++
+                                cursor++
+                                if cursor == length </span><span class="cov8" title="1">{
+                                        done = true
+                                        break</span>
+                                }
+                                <span class="cov8" title="1">current = runes[cursor]</span>
+                        }
+                        <span class="cov8" title="1">roundup = kBitsPerCharTableMultiplier*30 - 1
+                        digitsSoFar := int(((bitsPerChar*charsSoFar + roundup) &gt;&gt; kBitsPerCharTableShift) / 30)
+                        inplaceMultiplyAdd(result, multiplier, part, digitsSoFar)</span>
+                }
+        }
+
+        <span class="cov8" title="1">if cursor &lt; length </span><span class="cov8" title="1">{
+                if !isWhitespace(current) </span><span class="cov8" title="1">{
+                        return nil, ErrSyntax
+                }</span>
+                <span class="cov8" title="1">for cursor++; cursor &lt; length; cursor++ </span><span class="cov8" title="1">{
+                        if !isWhitespace(runes[cursor]) </span><span class="cov0" title="0">{
+                                return nil, ErrSyntax
+                        }</span>
+                }
+        }
+
+        <span class="cov8" title="1">result.sign = (sign == -1)
+        return result.Trim(), nil</span>
+}
+
+func fillFromParts(result *BigInt, parts []uint32, partsBits []uint32) <span class="cov8" title="1">{
+        digitIndex := 0
+        var digit uint32
+        var bitsInDigit uint32
+        for i := len(parts) - 1; i &gt;= 0; i-- </span><span class="cov8" title="1">{
+                part := parts[i]
+                partBits := partsBits[i]
+                digit |= (part &lt;&lt; bitsInDigit)
+                bitsInDigit += partBits
+                if bitsInDigit == 30 </span><span class="cov8" title="1">{
+                        result.SetDigit(digitIndex, digit)
+                        digitIndex++
+                        bitsInDigit = 0
+                        digit = 0
+                }</span> else<span class="cov8" title="1"> if bitsInDigit &gt; 30 </span><span class="cov8" title="1">{
+                        result.SetDigit(digitIndex, digit&amp;kDigitMask)
+                        digitIndex++
+                        bitsInDigit -= 30
+                        digit = part &gt;&gt; (partBits - bitsInDigit)
+                }</span>
+        }
+        <span class="cov8" title="1">if digit != 0 </span><span class="cov8" title="1">{
+                result.SetDigit(digitIndex, digit)
+                digitIndex++
+        }</span>
+        <span class="cov8" title="1">for digitIndex &lt; len(result.digits) </span><span class="cov8" title="1">{
+                result.SetDigit(digitIndex, 0)
+                digitIndex++
+        }</span>
+}
+
+func inplaceMultiplyAdd(result *BigInt, multiplier uint32, addend uint32, digitsSoFar int) <span class="cov8" title="1">{
+        if multiplier == 1 &amp;&amp; addend == 0 </span><span class="cov0" title="0">{
+                return
+        }</span>
+        <span class="cov8" title="1">var carry uint64 = uint64(addend)
+        for i := 0; i &lt; digitsSoFar || carry != 0; i++ </span><span class="cov8" title="1">{
+                var product uint64 = uint64(result.Digit(i))*uint64(multiplier) + carry
+                result.SetDigit(i, uint32(product&amp;uint64(kDigitMask)))
+                carry = product &gt;&gt; 30
+        }</span>
+}
+</pre>
+		
+		<pre class="file" id="file7" style="display: none">package jsbi
+
+// Multiply calculates the product of two BigInt instances matching JSBI semantics.
+// References: jsbi/lib/jsbi.ts lines 221-234.
+func Multiply(x, y *BigInt) *BigInt <span class="cov8" title="1">{
+        if x.Length() == 0 </span><span class="cov8" title="1">{
+                return x
+        }</span>
+        <span class="cov8" title="1">if y.Length() == 0 </span><span class="cov8" title="1">{
+                return y
+        }</span>
+        <span class="cov8" title="1">resultLength := x.Length() + y.Length()
+        if x.clzmsd()+y.clzmsd() &gt;= kDigitBits </span><span class="cov8" title="1">{
+                resultLength--
+        }</span>
+        <span class="cov8" title="1">result := NewBigInt(resultLength, x.Sign() != y.Sign())
+        for i := 0; i &lt; x.Length(); i++ </span><span class="cov8" title="1">{
+                multiplyAccumulate(y, x.Digit(i), result, i)
+        }</span>
+        <span class="cov8" title="1">return result.Trim()</span>
+}
+
+// multiplyAccumulate adds (multiplicand * multiplier) into accumulator at accumulatorIndex.
+// References: jsbi/lib/jsbi.ts lines 1425-1456.
+func multiplyAccumulate(multiplicand *BigInt, multiplier uint32, accumulator *BigInt, accumulatorIndex int) <span class="cov8" title="1">{
+        if multiplier == 0 </span><span class="cov8" title="1">{
+                return
+        }</span>
+        <span class="cov8" title="1">m2Low := multiplier &amp; 0x7FFF
+        m2High := multiplier &gt;&gt; 15
+        var carry uint32 = 0
+        var high uint32 = 0
+        for i := 0; i &lt; multiplicand.Length(); i++ </span><span class="cov8" title="1">{
+                acc := accumulator.Digit(accumulatorIndex)
+                m1 := multiplicand.Digit(i)
+                m1Low := m1 &amp; 0x7FFF
+                m1High := m1 &gt;&gt; 15
+                rLow := m1Low * m2Low
+                rMid1 := m1Low * m2High
+                rMid2 := m1High * m2Low
+                rHigh := m1High * m2High
+                acc += high + rLow + carry
+                carry = acc &gt;&gt; kDigitBits
+                acc &amp;= kDigitMask
+                acc += ((rMid1 &amp; 0x7FFF) &lt;&lt; 15) + ((rMid2 &amp; 0x7FFF) &lt;&lt; 15)
+                carry += acc &gt;&gt; kDigitBits
+                high = rHigh + (rMid1 &gt;&gt; 15) + (rMid2 &gt;&gt; 15)
+                accumulator.SetDigit(accumulatorIndex, acc&amp;kDigitMask)
+                accumulatorIndex++
+        }</span>
+        <span class="cov8" title="1">for carry != 0 || high != 0 </span><span class="cov8" title="1">{
+                acc := accumulator.Digit(accumulatorIndex)
+                acc += carry + high
+                high = 0
+                carry = acc &gt;&gt; kDigitBits
+                accumulator.SetDigit(accumulatorIndex, acc&amp;kDigitMask)
+                accumulatorIndex++
+        }</span>
+}
+
+// internalMultiplyAdd multiplies source by factor, adds summand, and stores the result.
+// References: jsbi/lib/jsbi.ts lines 1458-1479.
+func internalMultiplyAdd(source *BigInt, factor uint32, summand uint32, n int, result *BigInt) <span class="cov8" title="1">{
+        carry := summand
+        factorLow := factor &amp; 0x7FFF
+        factorHigh := factor &gt;&gt; 15
+        for i := 0; i &lt; n; i++ </span><span class="cov8" title="1">{
+                d := source.Digit(i)
+                dLow := d &amp; 0x7FFF
+                dHigh := d &gt;&gt; 15
+                rLow := dLow * factorLow
+                rMid1 := dLow * factorHigh
+                rMid2 := dHigh * factorLow
+                rHigh := dHigh * factorHigh
+                acc := rLow + carry
+                carry = acc &gt;&gt; kDigitBits
+                acc &amp;= kDigitMask
+                acc += ((rMid1 &amp; 0x7FFF) &lt;&lt; 15) + ((rMid2 &amp; 0x7FFF) &lt;&lt; 15)
+                carry += acc &gt;&gt; kDigitBits
+                carry += rHigh + (rMid1 &gt;&gt; 15) + (rMid2 &gt;&gt; 15)
+                result.SetDigit(i, acc&amp;kDigitMask)
+        }</span>
+        <span class="cov8" title="1">result.SetDigit(n, carry)</span>
+}
+</pre>
+		
+		<pre class="file" id="file8" style="display: none">package jsbi
+
+// toShiftAmount converts a BigInt shift count into an int bit count.
+// If x has more than 1 digit or exceeds max allowed bits (1 &lt;&lt; 30),
+// it returns -1 as an internal sentinel.
+func toShiftAmount(x *BigInt) int <span class="cov8" title="1">{
+        if x.Length() &gt; 1 </span><span class="cov8" title="1">{
+                return -1
+        }</span>
+        <span class="cov8" title="1">val := x.UnsignedDigit(0)
+        if val &gt; kMaxLengthBits </span><span class="cov0" title="0">{
+                return -1
+        }</span>
+        <span class="cov8" title="1">return int(val)</span>
+}
+
+// rightShiftByMaximum returns canonical -1 if sign is true, else canonical zero.
+func rightShiftByMaximum(sign bool) *BigInt <span class="cov8" title="1">{
+        if sign </span><span class="cov8" title="1">{
+                return OneDigit(1, true)
+        }</span>
+        <span class="cov8" title="1">return Zero()</span>
+}
+
+// leftShiftByAbsolute shifts x left by abs(y) bits.
+// Returns ErrRange if the shift amount exceeds max bit length.
+func leftShiftByAbsolute(x, y *BigInt) (*BigInt, error) <span class="cov8" title="1">{
+        shift := toShiftAmount(y)
+        if shift &lt; 0 </span><span class="cov8" title="1">{
+                return nil, ErrRange
+        }</span>
+        <span class="cov8" title="1">digitShift := shift / 30
+        bitsShift := shift % 30
+        length := x.Length()
+
+        grow := false
+        if bitsShift != 0 &amp;&amp; (x.Digit(length-1)&gt;&gt;uint(30-bitsShift)) != 0 </span><span class="cov8" title="1">{
+                grow = true
+        }</span>
+
+        <span class="cov8" title="1">resultLength := length + digitShift
+        if grow </span><span class="cov8" title="1">{
+                resultLength++
+        }</span>
+
+        <span class="cov8" title="1">result := NewBigInt(resultLength, x.Sign())
+
+        if bitsShift == 0 </span><span class="cov8" title="1">{
+                for i := 0; i &lt; digitShift; i++ </span><span class="cov8" title="1">{
+                        result.SetDigit(i, 0)
+                }</span>
+                <span class="cov8" title="1">for i := digitShift; i &lt; resultLength; i++ </span><span class="cov8" title="1">{
+                        result.SetDigit(i, x.Digit(i-digitShift))
+                }</span>
+        } else<span class="cov8" title="1"> {
+                var carry uint32 = 0
+                for i := 0; i &lt; digitShift; i++ </span><span class="cov8" title="1">{
+                        result.SetDigit(i, 0)
+                }</span>
+                <span class="cov8" title="1">for i := 0; i &lt; length; i++ </span><span class="cov8" title="1">{
+                        d := x.Digit(i)
+                        result.SetDigit(i+digitShift, ((d&lt;&lt;uint(bitsShift))&amp;0x3FFFFFFF)|carry)
+                        carry = d &gt;&gt; uint(30-bitsShift)
+                }</span>
+                <span class="cov8" title="1">if grow </span><span class="cov8" title="1">{
+                        result.SetDigit(length+digitShift, carry)
+                }</span>
+        }
+
+        <span class="cov8" title="1">return result.Trim(), nil</span>
+}
+
+// rightShiftByAbsolute shifts x right by abs(y) bits.
+func rightShiftByAbsolute(x, y *BigInt) *BigInt <span class="cov8" title="1">{
+        length := x.Length()
+        sign := x.Sign()
+        shift := toShiftAmount(y)
+        if shift &lt; 0 </span><span class="cov0" title="0">{
+                return rightShiftByMaximum(sign)
+        }</span>
+        <span class="cov8" title="1">digitShift := shift / 30
+        bitsShift := shift % 30
+        resultLength := length - digitShift
+        if resultLength &lt;= 0 </span><span class="cov8" title="1">{
+                return rightShiftByMaximum(sign)
+        }</span>
+
+        <span class="cov8" title="1">mustRoundDown := false
+        if sign </span><span class="cov8" title="1">{
+                mask := uint32((1 &lt;&lt; uint(bitsShift)) - 1)
+                if (x.Digit(digitShift) &amp; mask) != 0 </span><span class="cov8" title="1">{
+                        mustRoundDown = true
+                }</span> else<span class="cov0" title="0"> {
+                        for i := 0; i &lt; digitShift; i++ </span><span class="cov0" title="0">{
+                                if x.Digit(i) != 0 </span><span class="cov0" title="0">{
+                                        mustRoundDown = true
+                                        break</span>
+                                }
+                        }
+                }
+        }
+
+        <span class="cov8" title="1">if mustRoundDown &amp;&amp; bitsShift == 0 </span><span class="cov0" title="0">{
+                msd := x.Digit(length - 1)
+                roundingCanOverflow := (^msd) == 0
+                if roundingCanOverflow </span><span class="cov0" title="0">{
+                        resultLength++
+                }</span>
+        }
+
+        <span class="cov8" title="1">result := NewBigInt(resultLength, sign)
+
+        if bitsShift == 0 </span><span class="cov0" title="0">{
+                result.SetDigit(resultLength-1, 0)
+                for i := digitShift; i &lt; length; i++ </span><span class="cov0" title="0">{
+                        result.SetDigit(i-digitShift, x.Digit(i))
+                }</span>
+        } else<span class="cov8" title="1"> {
+                carry := x.Digit(digitShift) &gt;&gt; uint(bitsShift)
+                last := length - digitShift - 1
+                for i := 0; i &lt; last; i++ </span><span class="cov8" title="1">{
+                        d := x.Digit(i + digitShift + 1)
+                        result.SetDigit(i, ((d&lt;&lt;uint(30-bitsShift))&amp;0x3FFFFFFF)|carry)
+                        carry = d &gt;&gt; uint(bitsShift)
+                }</span>
+                <span class="cov8" title="1">result.SetDigit(last, carry)</span>
+        }
+
+        <span class="cov8" title="1">if mustRoundDown </span><span class="cov8" title="1">{
+                result = absoluteAddOne(result, true)
+        }</span>
+
+        <span class="cov8" title="1">return result.Trim()</span>
+}
+
+// LeftShift shifts x left by y bits (or right if y is negative).
+func LeftShift(x, y *BigInt) (*BigInt, error) <span class="cov8" title="1">{
+        if y.Length() == 0 || x.Length() == 0 </span><span class="cov8" title="1">{
+                return x.Copy(), nil
+        }</span>
+        <span class="cov8" title="1">if y.Sign() </span><span class="cov8" title="1">{
+                return rightShiftByAbsolute(x, y), nil
+        }</span>
+        <span class="cov8" title="1">return leftShiftByAbsolute(x, y)</span>
+}
+
+// SignedRightShift shifts x right by y bits with sign preservation (floor division toward -inf).
+func SignedRightShift(x, y *BigInt) (*BigInt, error) <span class="cov8" title="1">{
+        if y.Length() == 0 || x.Length() == 0 </span><span class="cov8" title="1">{
+                return x.Copy(), nil
+        }</span>
+        <span class="cov8" title="1">if y.Sign() </span><span class="cov8" title="1">{
+                return leftShiftByAbsolute(x, y)
+        }</span>
+        <span class="cov8" title="1">return rightShiftByAbsolute(x, y), nil</span>
+}
+
+// UnsignedRightShift returns ErrType because BigInts do not support unsigned right shift.
+func UnsignedRightShift(x, y *BigInt) (*BigInt, error) <span class="cov8" title="1">{
+        return nil, ErrType
+}</span>
+</pre>
+		
+		<pre class="file" id="file9" style="display: none">package jsbi
+
+import (
+        "math/bits"
+        "strconv"
+)
+
+// kConversionChars is the output character alphabet for radix conversion.
+// Sourced from JSBI.__kConversionChars (jsbi.ts line 1967).
+const kConversionChars = "0123456789abcdefghijklmnopqrstuvwxyz"
+
+// Exponentiate computes x^y. Sourced from JSBI.exponentiate (jsbi.ts lines 167-219).
+func Exponentiate(x, y *BigInt) (*BigInt, error) <span class="cov8" title="1">{
+        if y.Sign() </span><span class="cov8" title="1">{
+                return nil, ErrRange
+        }</span>
+        <span class="cov8" title="1">if y.Length() == 0 </span><span class="cov8" title="1">{
+                one := NewBigInt(1, false)
+                one.SetDigit(0, 1)
+                return one, nil
+        }</span>
+        <span class="cov8" title="1">if x.Length() == 0 </span><span class="cov8" title="1">{
+                return x.Copy(), nil
+        }</span>
+        // x == 1 or x == -1 special cases
+        <span class="cov8" title="1">if x.Length() == 1 &amp;&amp; x.Digit(0) == 1 </span><span class="cov8" title="1">{
+                if x.Sign() &amp;&amp; (y.Digit(0)&amp;1) == 0 </span><span class="cov0" title="0">{
+                        return UnaryMinus(x), nil
+                }</span>
+                <span class="cov8" title="1">return x.Copy(), nil</span>
+        }
+        // Guard: y must fit in one limb
+        <span class="cov8" title="1">if y.Length() &gt; 1 </span><span class="cov0" title="0">{
+                return nil, ErrRange
+        }</span>
+        <span class="cov8" title="1">expValue := y.Digit(0)
+        if expValue == 1 </span><span class="cov8" title="1">{
+                return x.Copy(), nil
+        }</span>
+        <span class="cov8" title="1">if int(expValue) &gt;= kMaxLengthBits </span><span class="cov0" title="0">{
+                return nil, ErrRange
+        }</span>
+        // Fast path: 2^n
+        <span class="cov8" title="1">if x.Length() == 1 &amp;&amp; x.Digit(0) == 2 </span><span class="cov8" title="1">{
+                neededDigits := 1 + int(expValue)/30
+                sign := x.Sign() &amp;&amp; (expValue&amp;1) != 0
+                result := NewBigInt(neededDigits, sign)
+                msd := uint32(1 &lt;&lt; (expValue % 30))
+                result.SetDigit(neededDigits-1, msd)
+                return result, nil
+        }</span>
+        // General: binary (square-and-multiply) exponentiation
+        <span class="cov8" title="1">var result *BigInt
+        runningSquare := x.Copy()
+        if (expValue &amp; 1) != 0 </span><span class="cov8" title="1">{
+                result = x.Copy()
+        }</span>
+        <span class="cov8" title="1">expValue &gt;&gt;= 1
+        for ; expValue != 0; expValue &gt;&gt;= 1 </span><span class="cov8" title="1">{
+                runningSquare = Multiply(runningSquare, runningSquare)
+                if (expValue &amp; 1) != 0 </span><span class="cov8" title="1">{
+                        if result == nil </span><span class="cov8" title="1">{
+                                result = runningSquare.Copy()
+                        }</span> else<span class="cov8" title="1"> {
+                                result = Multiply(result, runningSquare)
+                        }</span>
+                }
+        }
+        <span class="cov8" title="1">return result, nil</span>
+}
+
+// ToString converts x to its string representation in the given radix.
+// Sourced from JSBI.toString (jsbi.ts lines 67-77).
+func ToString(x *BigInt, radix int) (string, error) <span class="cov8" title="1">{
+        if radix &lt; 2 || radix &gt; 36 </span><span class="cov8" title="1">{
+                return "", ErrRange
+        }</span>
+        <span class="cov8" title="1">if x.Length() == 0 </span><span class="cov8" title="1">{
+                return "0", nil
+        }</span>
+        <span class="cov8" title="1">if (radix &amp; (radix - 1)) == 0 </span><span class="cov8" title="1">{
+                return toStringBasePowerOfTwo(x, radix)
+        }</span>
+        <span class="cov8" title="1">return toStringGeneric(x, radix, false)</span>
+}
+
+// toStringBasePowerOfTwo converts x to string for power-of-two radices.
+// Sourced from JSBI.__toStringBasePowerOfTwo (jsbi.ts lines 916-958).
+func toStringBasePowerOfTwo(x *BigInt, radix int) (string, error) <span class="cov8" title="1">{
+        length := x.Length()
+        bitsPerChar := bits.OnesCount32(uint32(radix - 1)) // popcount(radix-1)
+        charMask := uint32(radix - 1)
+        msd := x.Digit(length - 1)
+        msdLeadingZeros := clz30(msd)
+        bitLength := length*30 - msdLeadingZeros
+        charsRequired := (bitLength + bitsPerChar - 1) / bitsPerChar
+        if x.Sign() </span><span class="cov8" title="1">{
+                charsRequired++
+        }</span>
+        <span class="cov8" title="1">if charsRequired &gt; (1 &lt;&lt; 28) </span><span class="cov0" title="0">{
+                return "", ErrRange
+        }</span>
+        <span class="cov8" title="1">result := make([]byte, charsRequired)
+        pos := charsRequired - 1
+        var digit uint32 = 0
+        availableBits := 0
+
+        for i := 0; i &lt; length-1; i++ </span><span class="cov8" title="1">{
+                newDigit := x.Digit(i)
+                current := (digit | (newDigit &lt;&lt; availableBits)) &amp; charMask
+                result[pos] = kConversionChars[current]
+                pos--
+                consumedBits := bitsPerChar - availableBits
+                digit = newDigit &gt;&gt; consumedBits
+                availableBits = 30 - consumedBits
+                for availableBits &gt;= bitsPerChar </span><span class="cov8" title="1">{
+                        result[pos] = kConversionChars[digit&amp;charMask]
+                        pos--
+                        digit &gt;&gt;= bitsPerChar
+                        availableBits -= bitsPerChar
+                }</span>
+        }
+        // Handle MSD
+        <span class="cov8" title="1">current := (digit | (msd &lt;&lt; availableBits)) &amp; charMask
+        result[pos] = kConversionChars[current]
+        pos--
+        digit = msd &gt;&gt; (bitsPerChar - availableBits)
+        for digit != 0 </span><span class="cov8" title="1">{
+                result[pos] = kConversionChars[digit&amp;charMask]
+                pos--
+                digit &gt;&gt;= bitsPerChar
+        }</span>
+        <span class="cov8" title="1">if x.Sign() </span><span class="cov8" title="1">{
+                result[pos] = '-'
+                pos--
+        }</span>
+        <span class="cov8" title="1">if pos != -1 </span><span class="cov0" title="0">{
+                return "", ErrRange // internal consistency check (mirrors JSBI's assert)
+        }</span>
+        <span class="cov8" title="1">return string(result), nil</span>
+}
+
+// toStringGeneric converts x to string for non-power-of-two radices.
+// Sourced from JSBI.__toStringGeneric (jsbi.ts lines 960-1010).
+func toStringGeneric(x *BigInt, radix int, isRecursiveCall bool) (string, error) <span class="cov8" title="1">{
+        length := x.Length()
+        if length == 0 </span><span class="cov8" title="1">{
+                return "", nil
+        }</span>
+        <span class="cov8" title="1">if length == 1 </span><span class="cov8" title="1">{
+                result := strconv.FormatUint(uint64(x.Digit(0)), radix)
+                if !isRecursiveCall &amp;&amp; x.Sign() </span><span class="cov8" title="1">{
+                        result = "-" + result
+                }</span>
+                <span class="cov8" title="1">return result, nil</span>
+        }
+
+        <span class="cov8" title="1">bitLength := length*30 - clz30(x.Digit(length-1))
+        // kMaxBitsPerChar is uint32; cast to int for arithmetic
+        maxBitsPerChar := int(kMaxBitsPerChar[radix])
+        minBitsPerChar := maxBitsPerChar - 1
+        charsRequired := bitLength * kBitsPerCharTableMultiplier
+        charsRequired += minBitsPerChar - 1
+        charsRequired = charsRequired / minBitsPerChar
+        secondHalfChars := (charsRequired + 1) &gt;&gt; 1
+
+        // Compute conqueror = radix^secondHalfChars
+        radixBig := NewBigInt(1, false)
+        radixBig.SetDigit(0, uint32(radix))
+        expBig := NewBigInt(1, false)
+        expBig.SetDigit(0, uint32(secondHalfChars))
+        conqueror, err := Exponentiate(radixBig, expBig)
+        if err != nil </span><span class="cov0" title="0">{
+                return "", err
+        }</span>
+
+        <span class="cov8" title="1">var quotient *BigInt
+        var secondHalf string
+
+        divisor := conqueror.Digit(0)
+        if conqueror.Length() == 1 &amp;&amp; divisor &lt;= 0x7FFF </span><span class="cov0" title="0">{
+                // Fast half-digit division path
+                quotient = NewBigInt(x.Length(), false)
+                var remainder uint32 = 0
+                for i := x.Length()*2 - 1; i &gt;= 0; i-- </span><span class="cov0" title="0">{
+                        input := (remainder &lt;&lt; 15) | x.halfDigit(i)
+                        quotient.setHalfDigit(i, input/divisor)
+                        remainder = input % divisor
+                }</span>
+                <span class="cov0" title="0">secondHalf = strconv.FormatUint(uint64(remainder), radix)</span>
+        } else<span class="cov8" title="1"> {
+                // Full absoluteDivLarge path
+                divResult, remResult := absoluteDivLarge(x, conqueror, true, true)
+                quotient = divResult
+                rem := remResult.Trim()
+                secondHalf, err = toStringGeneric(rem, radix, true)
+                if err != nil </span><span class="cov0" title="0">{
+                        return "", err
+                }</span>
+        }
+        <span class="cov8" title="1">quotient = quotient.Trim()
+        firstHalf, err := toStringGeneric(quotient, radix, true)
+        if err != nil </span><span class="cov0" title="0">{
+                return "", err
+        }</span>
+        // Pad secondHalf with leading zeros to exactly secondHalfChars
+        <span class="cov8" title="1">for len(secondHalf) &lt; secondHalfChars </span><span class="cov8" title="1">{
+                secondHalf = "0" + secondHalf
+        }</span>
+        <span class="cov8" title="1">if !isRecursiveCall &amp;&amp; x.Sign() </span><span class="cov8" title="1">{
+                firstHalf = "-" + firstHalf
+        }</span>
+        <span class="cov8" title="1">return firstHalf + secondHalf, nil</span>
+}
+</pre>
+		
+		<pre class="file" id="file10" style="display: none">package jsbi
+
+// truncateToNBits truncates x to n bits.
+// Sourced from JSBI.__truncateToNBits (jsbi.ts lines 1860-1874).
+func truncateToNBits(n int, x *BigInt) *BigInt <span class="cov8" title="1">{
+        neededDigits := (n + 29) / 30
+        result := NewBigInt(neededDigits, x.Sign())
+        last := neededDigits - 1
+        for i := 0; i &lt; last; i++ </span><span class="cov8" title="1">{
+                result.SetDigit(i, x.Digit(i))
+        }</span>
+        <span class="cov8" title="1">var msd uint32
+        if last &lt; x.Length() </span><span class="cov8" title="1">{
+                msd = x.Digit(last)
+        }</span>
+        <span class="cov8" title="1">if n%30 != 0 </span><span class="cov8" title="1">{
+                drop := 32 - (n % 30)
+                msd = (msd &lt;&lt; drop) &gt;&gt; drop
+        }</span>
+        <span class="cov8" title="1">result.SetDigit(last, msd)
+        return result.Trim()</span>
+}
+
+// truncateAndSubFromPowerOfTwo simulates two's complement subtraction 2^n - |x|.
+// Sourced from JSBI.__truncateAndSubFromPowerOfTwo (jsbi.ts lines 1876-1907).
+func truncateAndSubFromPowerOfTwo(n int, x *BigInt, resultSign bool) *BigInt <span class="cov8" title="1">{
+        neededDigits := (n + 29) / 30
+        result := NewBigInt(neededDigits, resultSign)
+        i := 0
+        last := neededDigits - 1
+        var borrow uint32 = 0
+        limit := last
+        if x.Length() &lt; limit </span><span class="cov8" title="1">{
+                limit = x.Length()
+        }</span>
+        <span class="cov8" title="1">for ; i &lt; limit; i++ </span><span class="cov8" title="1">{
+                r := 0 - int64(x.Digit(i)) - int64(borrow)
+                borrow = uint32((r &gt;&gt; 30) &amp; 1)
+                result.SetDigit(i, uint32(r)&amp;0x3FFFFFFF)
+        }</span>
+        <span class="cov8" title="1">for ; i &lt; last; i++ </span><span class="cov8" title="1">{
+                result.SetDigit(i, uint32(-int64(borrow)&amp;0x3FFFFFFF))
+        }</span>
+        <span class="cov8" title="1">var msd uint32 = 0
+        if last &lt; x.Length() </span><span class="cov8" title="1">{
+                msd = x.Digit(last)
+        }</span>
+        <span class="cov8" title="1">msdBitsConsumed := n % 30
+        var resultMsd uint32
+        if msdBitsConsumed == 0 </span><span class="cov8" title="1">{
+                rMsd := 0 - int64(msd) - int64(borrow)
+                resultMsd = uint32(rMsd) &amp; 0x3FFFFFFF
+        }</span> else<span class="cov8" title="1"> {
+                drop := 32 - msdBitsConsumed
+                msd = (msd &lt;&lt; drop) &gt;&gt; drop
+                minuendMsd := uint32(1 &lt;&lt; (32 - drop))
+                rMsd := int64(minuendMsd) - int64(msd) - int64(borrow)
+                resultMsd = uint32(rMsd) &amp; (minuendMsd - 1)
+        }</span>
+        <span class="cov8" title="1">result.SetDigit(last, resultMsd)
+        return result.Trim()</span>
+}
+
+// AsIntN wraps x to a signed n-bit integer.
+// Sourced from JSBI.asIntN (jsbi.ts lines 408-437).
+func AsIntN(n int, x *BigInt) (*BigInt, error) <span class="cov8" title="1">{
+        if x == nil || x.Length() == 0 </span><span class="cov8" title="1">{
+                return Zero(), nil
+        }</span>
+        <span class="cov8" title="1">if n &lt; 0 </span><span class="cov8" title="1">{
+                return nil, ErrRange
+        }</span>
+        <span class="cov8" title="1">if n == 0 </span><span class="cov8" title="1">{
+                return Zero(), nil
+        }</span>
+        // If x has less than n bits, return an independent copy directly.
+        <span class="cov8" title="1">if n &gt;= kMaxLengthBits </span><span class="cov0" title="0">{
+                return x.Copy(), nil
+        }</span>
+        <span class="cov8" title="1">neededLength := (n + 29) / 30
+        if x.Length() &lt; neededLength </span><span class="cov8" title="1">{
+                return x.Copy(), nil
+        }</span>
+        <span class="cov8" title="1">topDigit := x.Digit(neededLength - 1)
+        compareDigit := uint32(1 &lt;&lt; ((n - 1) % 30))
+        if x.Length() == neededLength &amp;&amp; topDigit &lt; compareDigit </span><span class="cov8" title="1">{
+                return x.Copy(), nil
+        }</span>
+        <span class="cov8" title="1">hasBit := (topDigit &amp; compareDigit) == compareDigit
+        if !hasBit </span><span class="cov8" title="1">{
+                return truncateToNBits(n, x), nil
+        }</span>
+        <span class="cov8" title="1">if !x.Sign() </span><span class="cov8" title="1">{
+                return truncateAndSubFromPowerOfTwo(n, x, true), nil
+        }</span>
+        <span class="cov8" title="1">if (topDigit &amp; (compareDigit - 1)) == 0 </span><span class="cov8" title="1">{
+                for i := neededLength - 2; i &gt;= 0; i-- </span><span class="cov8" title="1">{
+                        if x.Digit(i) != 0 </span><span class="cov8" title="1">{
+                                return truncateAndSubFromPowerOfTwo(n, x, false), nil
+                        }</span>
+                }
+                <span class="cov8" title="1">if x.Length() == neededLength &amp;&amp; topDigit == compareDigit </span><span class="cov8" title="1">{
+                        return x.Copy(), nil
+                }</span>
+                <span class="cov8" title="1">return truncateToNBits(n, x), nil</span>
+        }
+        <span class="cov8" title="1">return truncateAndSubFromPowerOfTwo(n, x, false), nil</span>
+}
+
+// AsUintN wraps x to an unsigned n-bit integer.
+// Sourced from JSBI.asUintN (jsbi.ts lines 439-466).
+func AsUintN(n int, x *BigInt) (*BigInt, error) <span class="cov8" title="1">{
+        if x == nil || x.Length() == 0 </span><span class="cov8" title="1">{
+                return Zero(), nil
+        }</span>
+        <span class="cov8" title="1">if n &lt; 0 </span><span class="cov8" title="1">{
+                return nil, ErrRange
+        }</span>
+        <span class="cov8" title="1">if n == 0 </span><span class="cov8" title="1">{
+                return Zero(), nil
+        }</span>
+        // If x is negative, simulate two's complement representation.
+        <span class="cov8" title="1">if x.Sign() </span><span class="cov8" title="1">{
+                if (n+29)/30 &gt; kMaxLength </span><span class="cov8" title="1">{
+                        return nil, ErrRange
+                }</span>
+                <span class="cov8" title="1">return truncateAndSubFromPowerOfTwo(n, x, false), nil</span>
+        }
+        // If x is positive and has up to n bits, return an independent copy.
+        <span class="cov8" title="1">if n &gt;= kMaxLengthBits </span><span class="cov0" title="0">{
+                return x.Copy(), nil
+        }</span>
+        <span class="cov8" title="1">neededLength := (n + 29) / 30
+        if x.Length() &lt; neededLength </span><span class="cov8" title="1">{
+                return x.Copy(), nil
+        }</span>
+        <span class="cov8" title="1">bitsInTopDigit := n % 30
+        if x.Length() == neededLength </span><span class="cov8" title="1">{
+                if bitsInTopDigit == 0 </span><span class="cov8" title="1">{
+                        return x.Copy(), nil
+                }</span>
+                <span class="cov8" title="1">topDigit := x.Digit(neededLength - 1)
+                if (topDigit &gt;&gt; bitsInTopDigit) == 0 </span><span class="cov8" title="1">{
+                        return x.Copy(), nil
+                }</span>
+        }
+        <span class="cov8" title="1">return truncateToNBits(n, x), nil</span>
+}
+</pre>
+		
+		</div>
+	</body>
+	<script>
+	(function() {
+		var files = document.getElementById('files');
+		var visible;
+		files.addEventListener('change', onChange, false);
+		function select(part) {
+			if (visible)
+				visible.style.display = 'none';
+			visible = document.getElementById(part);
+			if (!visible)
+				return;
+			files.value = part;
+			visible.style.display = 'block';
+			location.hash = part;
+		}
+		function onChange() {
+			select(files.value);
+			window.scrollTo(0, 0);
+		}
+		if (location.hash != "") {
+			select(location.hash.substr(1));
+		}
+		if (!visible) {
+			select("file0");
+		}
+	})();
+	</script>
+</html>

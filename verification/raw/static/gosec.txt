@@ -1,0 +1,213 @@
+Results:
+
+
+[[97;41mC:\Users\madha\OneDrive\Desktop\port TS-GO\src\add_sub.go:159[0m] - G115 (CWE-190): integer overflow conversion uint32 -> int32 (Confidence: MEDIUM, Severity: HIGH)
+    158: 	for i := 0; i < length; i++ {
+  > 159: 		r := int32(x.Digit(i)) - int32(borrow)
+    160: 		borrow = (uint32(r) >> 30) & 1
+
+Autofix: 
+
+[[97;41mC:\Users\madha\OneDrive\Desktop\port TS-GO\src\add_sub.go:133[0m] - G115 (CWE-190): integer overflow conversion uint32 -> int32 (Confidence: MEDIUM, Severity: HIGH)
+    132: 	for i := 0; i < inputLength; i++ {
+  > 133: 		r := int32(x.Digit(i)) + int32(carry)
+    134: 		carry = uint32(r) >> 30
+
+Autofix: 
+
+[[97;41mC:\Users\madha\OneDrive\Desktop\port TS-GO\src\add_sub.go:119[0m] - G115 (CWE-190): integer overflow conversion uint32 -> int32 (Confidence: MEDIUM, Severity: HIGH)
+    118: 	for ; i < x.Length(); i++ {
+  > 119: 		r := int32(x.Digit(i)) - int32(borrow)
+    120: 		borrow = (uint32(r) >> 30) & 1
+
+Autofix: 
+
+[[97;41mC:\Users\madha\OneDrive\Desktop\port TS-GO\src\add_sub.go:114[0m] - G115 (CWE-190): integer overflow conversion uint32 -> int32 (Confidence: MEDIUM, Severity: HIGH)
+    113: 	for ; i < y.Length(); i++ {
+  > 114: 		r := int32(x.Digit(i)) - int32(y.Digit(i)) - int32(borrow)
+    115: 		borrow = (uint32(r) >> 30) & 1
+
+Autofix: 
+
+[[97;41mC:\Users\madha\OneDrive\Desktop\port TS-GO\src\add_sub.go:114[0m] - G115 (CWE-190): integer overflow conversion uint32 -> int32 (Confidence: MEDIUM, Severity: HIGH)
+    113: 	for ; i < y.Length(); i++ {
+  > 114: 		r := int32(x.Digit(i)) - int32(y.Digit(i)) - int32(borrow)
+    115: 		borrow = (uint32(r) >> 30) & 1
+
+Autofix: 
+
+[[97;41mC:\Users\madha\OneDrive\Desktop\port TS-GO\src\add_sub.go:88[0m] - G115 (CWE-190): integer overflow conversion uint32 -> int32 (Confidence: MEDIUM, Severity: HIGH)
+    87: 	for ; i < x.Length(); i++ {
+  > 88: 		r := int32(x.Digit(i)) + int32(carry)
+    89: 		carry = uint32(r) >> 30
+
+Autofix: 
+
+[[97;41mC:\Users\madha\OneDrive\Desktop\port TS-GO\src\add_sub.go:83[0m] - G115 (CWE-190): integer overflow conversion uint32 -> int32 (Confidence: MEDIUM, Severity: HIGH)
+    82: 	for ; i < y.Length(); i++ {
+  > 83: 		r := int32(x.Digit(i)) + int32(y.Digit(i)) + int32(carry)
+    84: 		carry = uint32(r) >> 30
+
+Autofix: 
+
+[[97;41mC:\Users\madha\OneDrive\Desktop\port TS-GO\src\add_sub.go:83[0m] - G115 (CWE-190): integer overflow conversion uint32 -> int32 (Confidence: MEDIUM, Severity: HIGH)
+    82: 	for ; i < y.Length(); i++ {
+  > 83: 		r := int32(x.Digit(i)) + int32(y.Digit(i)) + int32(carry)
+    84: 		carry = uint32(r) >> 30
+
+Autofix: 
+
+[[97;41mC:\Users\madha\OneDrive\Desktop\port TS-GO\src\truncation.go:58[0m] - G115 (CWE-190): integer overflow conversion int64 -> uint32 (Confidence: MEDIUM, Severity: HIGH)
+    57: 		rMsd := int64(minuendMsd) - int64(msd) - int64(borrow)
+  > 58: 		resultMsd = uint32(rMsd) & (minuendMsd - 1)
+    59: 	}
+
+Autofix: 
+
+[[97;41mC:\Users\madha\OneDrive\Desktop\port TS-GO\src\truncation.go:52[0m] - G115 (CWE-190): integer overflow conversion int64 -> uint32 (Confidence: MEDIUM, Severity: HIGH)
+    51: 		rMsd := 0 - int64(msd) - int64(borrow)
+  > 52: 		resultMsd = uint32(rMsd) & 0x3FFFFFFF
+    53: 	} else {
+
+Autofix: 
+
+[[97;41mC:\Users\madha\OneDrive\Desktop\port TS-GO\src\truncation.go:39[0m] - G115 (CWE-190): integer overflow conversion int64 -> uint32 (Confidence: MEDIUM, Severity: HIGH)
+    38: 		borrow = uint32((r >> 30) & 1)
+  > 39: 		result.SetDigit(i, uint32(r)&0x3FFFFFFF)
+    40: 	}
+
+Autofix: 
+
+[[97;41mC:\Users\madha\OneDrive\Desktop\port TS-GO\src\add_sub.go:161[0m] - G115 (CWE-190): integer overflow conversion int32 -> uint32 (Confidence: MEDIUM, Severity: HIGH)
+    160: 		borrow = (uint32(r) >> 30) & 1
+  > 161: 		result.SetDigit(i, uint32(r)&kDigitMask)
+    162: 	}
+
+Autofix: 
+
+[[97;41mC:\Users\madha\OneDrive\Desktop\port TS-GO\src\add_sub.go:160[0m] - G115 (CWE-190): integer overflow conversion int32 -> uint32 (Confidence: MEDIUM, Severity: HIGH)
+    159: 		r := int32(x.Digit(i)) - int32(borrow)
+  > 160: 		borrow = (uint32(r) >> 30) & 1
+    161: 		result.SetDigit(i, uint32(r)&kDigitMask)
+
+Autofix: 
+
+[[97;41mC:\Users\madha\OneDrive\Desktop\port TS-GO\src\add_sub.go:135[0m] - G115 (CWE-190): integer overflow conversion int32 -> uint32 (Confidence: MEDIUM, Severity: HIGH)
+    134: 		carry = uint32(r) >> 30
+  > 135: 		result.SetDigit(i, uint32(r)&kDigitMask)
+    136: 	}
+
+Autofix: 
+
+[[97;41mC:\Users\madha\OneDrive\Desktop\port TS-GO\src\add_sub.go:134[0m] - G115 (CWE-190): integer overflow conversion int32 -> uint32 (Confidence: MEDIUM, Severity: HIGH)
+    133: 		r := int32(x.Digit(i)) + int32(carry)
+  > 134: 		carry = uint32(r) >> 30
+    135: 		result.SetDigit(i, uint32(r)&kDigitMask)
+
+Autofix: 
+
+[[97;41mC:\Users\madha\OneDrive\Desktop\port TS-GO\src\add_sub.go:121[0m] - G115 (CWE-190): integer overflow conversion int32 -> uint32 (Confidence: MEDIUM, Severity: HIGH)
+    120: 		borrow = (uint32(r) >> 30) & 1
+  > 121: 		result.SetDigit(i, uint32(r)&kDigitMask)
+    122: 	}
+
+Autofix: 
+
+[[97;41mC:\Users\madha\OneDrive\Desktop\port TS-GO\src\add_sub.go:120[0m] - G115 (CWE-190): integer overflow conversion int32 -> uint32 (Confidence: MEDIUM, Severity: HIGH)
+    119: 		r := int32(x.Digit(i)) - int32(borrow)
+  > 120: 		borrow = (uint32(r) >> 30) & 1
+    121: 		result.SetDigit(i, uint32(r)&kDigitMask)
+
+Autofix: 
+
+[[97;41mC:\Users\madha\OneDrive\Desktop\port TS-GO\src\add_sub.go:116[0m] - G115 (CWE-190): integer overflow conversion int32 -> uint32 (Confidence: MEDIUM, Severity: HIGH)
+    115: 		borrow = (uint32(r) >> 30) & 1
+  > 116: 		result.SetDigit(i, uint32(r)&kDigitMask)
+    117: 	}
+
+Autofix: 
+
+[[97;41mC:\Users\madha\OneDrive\Desktop\port TS-GO\src\add_sub.go:115[0m] - G115 (CWE-190): integer overflow conversion int32 -> uint32 (Confidence: MEDIUM, Severity: HIGH)
+    114: 		r := int32(x.Digit(i)) - int32(y.Digit(i)) - int32(borrow)
+  > 115: 		borrow = (uint32(r) >> 30) & 1
+    116: 		result.SetDigit(i, uint32(r)&kDigitMask)
+
+Autofix: 
+
+[[97;41mC:\Users\madha\OneDrive\Desktop\port TS-GO\src\add_sub.go:90[0m] - G115 (CWE-190): integer overflow conversion int32 -> uint32 (Confidence: MEDIUM, Severity: HIGH)
+    89: 		carry = uint32(r) >> 30
+  > 90: 		result.SetDigit(i, uint32(r)&kDigitMask)
+    91: 	}
+
+Autofix: 
+
+[[97;41mC:\Users\madha\OneDrive\Desktop\port TS-GO\src\add_sub.go:89[0m] - G115 (CWE-190): integer overflow conversion int32 -> uint32 (Confidence: MEDIUM, Severity: HIGH)
+    88: 		r := int32(x.Digit(i)) + int32(carry)
+  > 89: 		carry = uint32(r) >> 30
+    90: 		result.SetDigit(i, uint32(r)&kDigitMask)
+
+Autofix: 
+
+[[97;41mC:\Users\madha\OneDrive\Desktop\port TS-GO\src\add_sub.go:85[0m] - G115 (CWE-190): integer overflow conversion int32 -> uint32 (Confidence: MEDIUM, Severity: HIGH)
+    84: 		carry = uint32(r) >> 30
+  > 85: 		result.SetDigit(i, uint32(r)&kDigitMask)
+    86: 	}
+
+Autofix: 
+
+[[97;41mC:\Users\madha\OneDrive\Desktop\port TS-GO\src\add_sub.go:84[0m] - G115 (CWE-190): integer overflow conversion int32 -> uint32 (Confidence: MEDIUM, Severity: HIGH)
+    83: 		r := int32(x.Digit(i)) + int32(y.Digit(i)) + int32(carry)
+  > 84: 		carry = uint32(r) >> 30
+    85: 		result.SetDigit(i, uint32(r)&kDigitMask)
+
+Autofix: 
+
+[[97;41mC:\Users\madha\OneDrive\Desktop\port TS-GO\src\tostring.go:171[0m] - G115 (CWE-190): integer overflow conversion int -> uint32 (Confidence: MEDIUM, Severity: HIGH)
+    170: 	expBig := NewBigInt(1, false)
+  > 171: 	expBig.SetDigit(0, uint32(secondHalfChars))
+    172: 	conqueror, err := Exponentiate(radixBig, expBig)
+
+Autofix: 
+
+[[97;41mC:\Users\madha\OneDrive\Desktop\port TS-GO\src\tostring.go:169[0m] - G115 (CWE-190): integer overflow conversion int -> uint32 (Confidence: MEDIUM, Severity: HIGH)
+    168: 	radixBig := NewBigInt(1, false)
+  > 169: 	radixBig.SetDigit(0, uint32(radix))
+    170: 	expBig := NewBigInt(1, false)
+
+Autofix: 
+
+[[97;41mC:\Users\madha\OneDrive\Desktop\port TS-GO\src\tostring.go:92[0m] - G115 (CWE-190): integer overflow conversion int -> uint32 (Confidence: MEDIUM, Severity: HIGH)
+    91: 	bitsPerChar := bits.OnesCount32(uint32(radix - 1)) // popcount(radix-1)
+  > 92: 	charMask := uint32(radix - 1)
+    93: 	msd := x.Digit(length - 1)
+
+Autofix: 
+
+[[97;41mC:\Users\madha\OneDrive\Desktop\port TS-GO\src\tostring.go:91[0m] - G115 (CWE-190): integer overflow conversion int -> uint32 (Confidence: MEDIUM, Severity: HIGH)
+    90: 	length := x.Length()
+  > 91: 	bitsPerChar := bits.OnesCount32(uint32(radix - 1)) // popcount(radix-1)
+    92: 	charMask := uint32(radix - 1)
+
+Autofix: 
+
+[[97;41mC:\Users\madha\OneDrive\Desktop\port TS-GO\src\fromString.go:142[0m] - G115 (CWE-190): integer overflow conversion int -> uint32 (Confidence: MEDIUM, Severity: HIGH)
+    141: 	}
+  > 142: 	bitsMin := (bitsPerChar*uint32(chars) + roundup) >> kBitsPerCharTableShift
+    143: 	resultLength := int((bitsMin + 29) / 30)
+
+Autofix: 
+
+[[97;41mC:\Users\madha\OneDrive\Desktop\port TS-GO\src\fromString.go:139[0m] - G115 (CWE-190): integer overflow conversion int -> uint32 (Confidence: MEDIUM, Severity: HIGH)
+    138: 	roundup := uint32(kBitsPerCharTableMultiplier - 1)
+  > 139: 	if uint32(chars) > ((1 << 30) / bitsPerChar) {
+    140: 		return nil, ErrSyntax
+
+Autofix: 
+
+[1;36mSummary:[0m
+  Gosec  : dev
+  Files  : 12
+  Lines  : 2332
+  Nosec  : 0
+  Issues : [1;31m29[0m
+

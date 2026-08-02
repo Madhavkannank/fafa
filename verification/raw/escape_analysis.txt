@@ -1,0 +1,1168 @@
+# github.com/Madhavkannank/fafa/src
+src/errors.go:7:24: inlining call to errors.New
+src/errors.go:9:23: inlining call to errors.New
+src/errors.go:11:22: inlining call to errors.New
+src/bigint.go:58:6: can inline (*BigInt).Length
+src/bigint.go:21:6: can inline Zero
+src/bigint.go:108:6: can inline (*BigInt).Copy
+src/bigint.go:110:14: inlining call to Zero
+src/bigint.go:51:6: can inline (*BigInt).SetSign
+src/bigint.go:43:6: can inline (*BigInt).Sign
+src/add_sub.go:6:25: inlining call to (*BigInt).Length
+src/add_sub.go:7:14: inlining call to Zero
+src/add_sub.go:9:18: inlining call to (*BigInt).Copy
+src/add_sub.go:10:24: inlining call to (*BigInt).Sign
+src/add_sub.go:10:16: inlining call to (*BigInt).SetSign
+src/add_sub.go:9:18: inlining call to Zero
+src/bigint.go:118:6: can inline clz30
+src/bigint.go:123:28: inlining call to bits.LeadingZeros32
+src/bigint.go:66:6: can inline (*BigInt).Digit
+src/add_sub.go:167:6: can inline (*BigInt).clzmsd
+src/add_sub.go:168:13: inlining call to (*BigInt).Length
+src/add_sub.go:171:31: inlining call to (*BigInt).Length
+src/add_sub.go:171:22: inlining call to (*BigInt).Digit
+src/add_sub.go:171:14: inlining call to clz30
+src/add_sub.go:171:14: inlining call to bits.LeadingZeros32
+src/bigint.go:26:6: can inline NewBigInt
+src/bigint.go:28:14: inlining call to Zero
+src/bigint.go:79:6: can inline (*BigInt).SetDigit
+src/bigint.go:90:6: can inline (*BigInt).Trim
+src/bigint.go:92:14: inlining call to Zero
+src/add_sub.go:63:13: inlining call to (*BigInt).Length
+src/add_sub.go:63:26: inlining call to (*BigInt).Length
+src/add_sub.go:66:13: inlining call to (*BigInt).Length
+src/add_sub.go:67:14: inlining call to Zero
+src/add_sub.go:69:13: inlining call to (*BigInt).Length
+src/add_sub.go:70:12: inlining call to (*BigInt).Sign
+src/add_sub.go:71:17: inlining call to (*BigInt).Copy
+src/add_sub.go:75:26: inlining call to (*BigInt).Length
+src/add_sub.go:76:13: inlining call to (*BigInt).clzmsd
+src/add_sub.go:76:33: inlining call to (*BigInt).Length
+src/add_sub.go:76:47: inlining call to (*BigInt).Length
+src/add_sub.go:76:61: inlining call to (*BigInt).clzmsd
+src/add_sub.go:79:21: inlining call to NewBigInt
+src/add_sub.go:82:20: inlining call to (*BigInt).Length
+src/add_sub.go:83:21: inlining call to (*BigInt).Digit
+src/add_sub.go:83:41: inlining call to (*BigInt).Digit
+src/add_sub.go:85:18: inlining call to (*BigInt).SetDigit
+src/add_sub.go:87:20: inlining call to (*BigInt).Length
+src/add_sub.go:88:21: inlining call to (*BigInt).Digit
+src/add_sub.go:90:18: inlining call to (*BigInt).SetDigit
+src/add_sub.go:92:22: inlining call to (*BigInt).Length
+src/add_sub.go:93:18: inlining call to (*BigInt).SetDigit
+src/add_sub.go:95:20: inlining call to (*BigInt).Trim
+src/add_sub.go:71:17: inlining call to Zero
+src/add_sub.go:76:13: inlining call to (*BigInt).Length
+src/add_sub.go:76:13: inlining call to (*BigInt).Length
+src/add_sub.go:76:13: inlining call to (*BigInt).Digit
+src/add_sub.go:76:13: inlining call to clz30
+src/add_sub.go:76:61: inlining call to (*BigInt).Length
+src/add_sub.go:76:61: inlining call to (*BigInt).Length
+src/add_sub.go:76:61: inlining call to (*BigInt).Digit
+src/add_sub.go:76:61: inlining call to clz30
+src/add_sub.go:79:21: inlining call to Zero
+src/add_sub.go:95:20: inlining call to Zero
+src/add_sub.go:76:13: inlining call to bits.LeadingZeros32
+src/add_sub.go:76:61: inlining call to bits.LeadingZeros32
+src/comparison.go:92:18: inlining call to (*BigInt).Length
+src/comparison.go:92:31: inlining call to (*BigInt).Length
+src/comparison.go:96:19: inlining call to (*BigInt).Length
+src/comparison.go:97:16: inlining call to (*BigInt).Digit
+src/comparison.go:98:16: inlining call to (*BigInt).Digit
+src/add_sub.go:101:13: inlining call to (*BigInt).Length
+src/add_sub.go:102:14: inlining call to Zero
+src/add_sub.go:104:13: inlining call to (*BigInt).Length
+src/add_sub.go:105:12: inlining call to (*BigInt).Sign
+src/add_sub.go:106:17: inlining call to (*BigInt).Copy
+src/add_sub.go:110:30: inlining call to (*BigInt).Length
+src/add_sub.go:110:21: inlining call to NewBigInt
+src/add_sub.go:113:20: inlining call to (*BigInt).Length
+src/add_sub.go:114:21: inlining call to (*BigInt).Digit
+src/add_sub.go:114:41: inlining call to (*BigInt).Digit
+src/add_sub.go:116:18: inlining call to (*BigInt).SetDigit
+src/add_sub.go:118:20: inlining call to (*BigInt).Length
+src/add_sub.go:119:21: inlining call to (*BigInt).Digit
+src/add_sub.go:121:18: inlining call to (*BigInt).SetDigit
+src/add_sub.go:123:20: inlining call to (*BigInt).Trim
+src/add_sub.go:106:17: inlining call to Zero
+src/add_sub.go:110:21: inlining call to Zero
+src/add_sub.go:123:20: inlining call to Zero
+src/add_sub.go:18:11: inlining call to Zero
+src/add_sub.go:21:11: inlining call to Zero
+src/add_sub.go:23:16: inlining call to (*BigInt).Sign
+src/add_sub.go:24:19: inlining call to (*BigInt).Sign
+src/add_sub.go:41:11: inlining call to Zero
+src/add_sub.go:44:11: inlining call to Zero
+src/add_sub.go:46:16: inlining call to (*BigInt).Sign
+src/add_sub.go:47:19: inlining call to (*BigInt).Sign
+src/add_sub.go:129:25: inlining call to (*BigInt).Length
+src/add_sub.go:130:21: inlining call to NewBigInt
+src/add_sub.go:133:21: inlining call to (*BigInt).Digit
+src/add_sub.go:135:18: inlining call to (*BigInt).SetDigit
+src/add_sub.go:139:24: inlining call to NewBigInt
+src/add_sub.go:141:37: inlining call to (*BigInt).Digit
+src/add_sub.go:141:21: inlining call to (*BigInt).SetDigit
+src/add_sub.go:143:20: inlining call to (*BigInt).SetDigit
+src/add_sub.go:144:23: inlining call to (*BigInt).Trim
+src/add_sub.go:146:20: inlining call to (*BigInt).Trim
+src/add_sub.go:130:21: inlining call to Zero
+src/add_sub.go:139:24: inlining call to Zero
+src/add_sub.go:144:23: inlining call to Zero
+src/add_sub.go:146:20: inlining call to Zero
+src/add_sub.go:152:20: inlining call to (*BigInt).Length
+src/add_sub.go:154:14: inlining call to Zero
+src/add_sub.go:156:21: inlining call to NewBigInt
+src/add_sub.go:159:21: inlining call to (*BigInt).Digit
+src/add_sub.go:161:18: inlining call to (*BigInt).SetDigit
+src/add_sub.go:163:20: inlining call to (*BigInt).Trim
+src/add_sub.go:156:21: inlining call to Zero
+src/add_sub.go:163:20: inlining call to Zero
+src/bigint.go:34:6: can inline OneDigit
+src/bigint.go:37:14: inlining call to Zero
+src/bigint.go:74:6: can inline (*BigInt).UnsignedDigit
+src/bigint.go:75:16: inlining call to (*BigInt).Digit
+src/bitwise.go:6:21: inlining call to (*BigInt).Length
+src/bitwise.go:7:21: inlining call to (*BigInt).Length
+src/bitwise.go:15:21: inlining call to NewBigInt
+src/bitwise.go:17:31: inlining call to (*BigInt).Length
+src/bitwise.go:21:29: inlining call to (*BigInt).Digit
+src/bitwise.go:21:40: inlining call to (*BigInt).Digit
+src/bitwise.go:21:18: inlining call to (*BigInt).SetDigit
+src/bitwise.go:24:18: inlining call to (*BigInt).SetDigit
+src/bitwise.go:15:21: inlining call to Zero
+src/bitwise.go:32:21: inlining call to (*BigInt).Length
+src/bitwise.go:33:21: inlining call to (*BigInt).Length
+src/bitwise.go:40:21: inlining call to NewBigInt
+src/bitwise.go:42:31: inlining call to (*BigInt).Length
+src/bitwise.go:46:29: inlining call to (*BigInt).Digit
+src/bitwise.go:46:41: inlining call to (*BigInt).Digit
+src/bitwise.go:46:18: inlining call to (*BigInt).SetDigit
+src/bitwise.go:49:29: inlining call to (*BigInt).Digit
+src/bitwise.go:49:18: inlining call to (*BigInt).SetDigit
+src/bitwise.go:52:18: inlining call to (*BigInt).SetDigit
+src/bitwise.go:40:21: inlining call to Zero
+src/bitwise.go:60:21: inlining call to (*BigInt).Length
+src/bitwise.go:61:21: inlining call to (*BigInt).Length
+src/bitwise.go:70:21: inlining call to NewBigInt
+src/bitwise.go:72:31: inlining call to (*BigInt).Length
+src/bitwise.go:76:29: inlining call to (*BigInt).Digit
+src/bitwise.go:76:40: inlining call to (*BigInt).Digit
+src/bitwise.go:76:18: inlining call to (*BigInt).SetDigit
+src/bitwise.go:79:29: inlining call to (*BigInt).Digit
+src/bitwise.go:79:18: inlining call to (*BigInt).SetDigit
+src/bitwise.go:82:18: inlining call to (*BigInt).SetDigit
+src/bitwise.go:70:21: inlining call to Zero
+src/bitwise.go:90:21: inlining call to (*BigInt).Length
+src/bitwise.go:91:21: inlining call to (*BigInt).Length
+src/bitwise.go:99:21: inlining call to NewBigInt
+src/bitwise.go:101:31: inlining call to (*BigInt).Length
+src/bitwise.go:105:29: inlining call to (*BigInt).Digit
+src/bitwise.go:105:40: inlining call to (*BigInt).Digit
+src/bitwise.go:105:18: inlining call to (*BigInt).SetDigit
+src/bitwise.go:108:29: inlining call to (*BigInt).Digit
+src/bitwise.go:108:18: inlining call to (*BigInt).SetDigit
+src/bitwise.go:111:18: inlining call to (*BigInt).SetDigit
+src/bitwise.go:99:21: inlining call to Zero
+src/bitwise.go:120:11: inlining call to Zero
+src/bitwise.go:122:11: inlining call to (*BigInt).Sign
+src/bitwise.go:124:32: inlining call to (*BigInt).Trim
+src/bitwise.go:124:32: inlining call to Zero
+src/bitwise.go:252:6: can inline maxInt
+src/bitwise.go:134:11: inlining call to Zero
+src/bitwise.go:137:11: inlining call to Zero
+src/bitwise.go:139:12: inlining call to (*BigInt).Sign
+src/bitwise.go:139:25: inlining call to (*BigInt).Sign
+src/bitwise.go:140:37: inlining call to (*BigInt).Trim
+src/bitwise.go:141:18: inlining call to (*BigInt).Sign
+src/bitwise.go:141:30: inlining call to (*BigInt).Sign
+src/bitwise.go:142:34: inlining call to (*BigInt).Length
+src/bitwise.go:142:46: inlining call to (*BigInt).Length
+src/bitwise.go:142:25: inlining call to maxInt
+src/bitwise.go:146:19: inlining call to (*BigInt).Length
+src/bitwise.go:147:28: inlining call to NewBigInt
+src/bitwise.go:148:33: inlining call to (*BigInt).Length
+src/bitwise.go:149:41: inlining call to (*BigInt).Digit
+src/bitwise.go:149:25: inlining call to (*BigInt).SetDigit
+src/bitwise.go:155:43: inlining call to (*BigInt).Trim
+src/bitwise.go:158:11: inlining call to (*BigInt).Sign
+src/bitwise.go:162:55: inlining call to (*BigInt).Trim
+src/bitwise.go:140:37: inlining call to Zero
+src/bitwise.go:147:28: inlining call to Zero
+src/bitwise.go:155:43: inlining call to Zero
+src/bitwise.go:162:55: inlining call to Zero
+src/bitwise.go:169:11: inlining call to Zero
+src/bitwise.go:172:11: inlining call to Zero
+src/bitwise.go:174:33: inlining call to (*BigInt).Length
+src/bitwise.go:174:45: inlining call to (*BigInt).Length
+src/bitwise.go:174:24: inlining call to maxInt
+src/bitwise.go:175:12: inlining call to (*BigInt).Sign
+src/bitwise.go:175:25: inlining call to (*BigInt).Sign
+src/bitwise.go:176:36: inlining call to (*BigInt).Trim
+src/bitwise.go:177:18: inlining call to (*BigInt).Sign
+src/bitwise.go:177:30: inlining call to (*BigInt).Sign
+src/bitwise.go:181:19: inlining call to (*BigInt).Length
+src/bitwise.go:182:28: inlining call to NewBigInt
+src/bitwise.go:183:33: inlining call to (*BigInt).Length
+src/bitwise.go:184:41: inlining call to (*BigInt).Digit
+src/bitwise.go:184:25: inlining call to (*BigInt).SetDigit
+src/bitwise.go:190:43: inlining call to (*BigInt).Trim
+src/bitwise.go:193:11: inlining call to (*BigInt).Sign
+src/bitwise.go:198:18: inlining call to (*BigInt).Length
+src/bitwise.go:199:27: inlining call to NewBigInt
+src/bitwise.go:200:32: inlining call to (*BigInt).Length
+src/bitwise.go:201:40: inlining call to (*BigInt).Digit
+src/bitwise.go:201:24: inlining call to (*BigInt).SetDigit
+src/bitwise.go:206:42: inlining call to (*BigInt).Trim
+src/bitwise.go:176:36: inlining call to Zero
+src/bitwise.go:182:28: inlining call to Zero
+src/bitwise.go:190:43: inlining call to Zero
+src/bitwise.go:199:27: inlining call to Zero
+src/bitwise.go:206:42: inlining call to Zero
+src/bitwise.go:213:11: inlining call to Zero
+src/bitwise.go:216:11: inlining call to Zero
+src/bitwise.go:218:12: inlining call to (*BigInt).Sign
+src/bitwise.go:218:25: inlining call to (*BigInt).Sign
+src/bitwise.go:219:37: inlining call to (*BigInt).Trim
+src/bitwise.go:220:18: inlining call to (*BigInt).Sign
+src/bitwise.go:220:30: inlining call to (*BigInt).Sign
+src/bitwise.go:222:34: inlining call to (*BigInt).Length
+src/bitwise.go:222:46: inlining call to (*BigInt).Length
+src/bitwise.go:222:25: inlining call to maxInt
+src/bitwise.go:224:19: inlining call to (*BigInt).Length
+src/bitwise.go:225:28: inlining call to NewBigInt
+src/bitwise.go:226:33: inlining call to (*BigInt).Length
+src/bitwise.go:227:41: inlining call to (*BigInt).Digit
+src/bitwise.go:227:25: inlining call to (*BigInt).SetDigit
+src/bitwise.go:232:46: inlining call to (*BigInt).Trim
+src/bitwise.go:234:33: inlining call to (*BigInt).Length
+src/bitwise.go:234:45: inlining call to (*BigInt).Length
+src/bitwise.go:234:24: inlining call to maxInt
+src/bitwise.go:236:11: inlining call to (*BigInt).Sign
+src/bitwise.go:241:18: inlining call to (*BigInt).Length
+src/bitwise.go:242:27: inlining call to NewBigInt
+src/bitwise.go:243:32: inlining call to (*BigInt).Length
+src/bitwise.go:244:40: inlining call to (*BigInt).Digit
+src/bitwise.go:244:24: inlining call to (*BigInt).SetDigit
+src/bitwise.go:249:42: inlining call to (*BigInt).Trim
+src/bitwise.go:219:37: inlining call to Zero
+src/bitwise.go:225:28: inlining call to Zero
+src/bitwise.go:232:46: inlining call to Zero
+src/bitwise.go:242:27: inlining call to Zero
+src/bitwise.go:249:42: inlining call to Zero
+src/comparison.go:14:11: inlining call to Zero
+src/comparison.go:17:11: inlining call to Zero
+src/comparison.go:19:17: inlining call to (*BigInt).Sign
+src/comparison.go:20:17: inlining call to (*BigInt).Sign
+src/comparison.go:46:11: inlining call to Zero
+src/comparison.go:49:11: inlining call to Zero
+src/comparison.go:51:11: inlining call to (*BigInt).Sign
+src/comparison.go:51:23: inlining call to (*BigInt).Sign
+src/comparison.go:54:13: inlining call to (*BigInt).Length
+src/comparison.go:54:27: inlining call to (*BigInt).Length
+src/comparison.go:57:26: inlining call to (*BigInt).Length
+src/comparison.go:58:13: inlining call to (*BigInt).Digit
+src/comparison.go:58:27: inlining call to (*BigInt).Digit
+src/comparison.go:66:6: can inline NotEqual
+src/comparison.go:71:6: can inline LessThan
+src/comparison.go:76:6: can inline LessThanOrEqual
+src/comparison.go:81:6: can inline GreaterThan
+src/comparison.go:86:6: can inline GreaterThanOrEqual
+src/comparison.go:114:11: inlining call to Zero
+src/comparison.go:116:15: inlining call to math.IsNaN
+src/comparison.go:119:15: inlining call to math.IsInf
+src/comparison.go:122:15: inlining call to math.IsInf
+src/comparison.go:125:17: inlining call to (*BigInt).Sign
+src/comparison.go:134:14: inlining call to (*BigInt).Length
+src/comparison.go:142:13: inlining call to (*BigInt).Length
+src/comparison.go:149:26: inlining call to math.Float64bits
+src/comparison.go:160:21: inlining call to (*BigInt).Length
+src/comparison.go:161:17: inlining call to (*BigInt).Digit
+src/comparison.go:162:26: inlining call to clz30
+src/comparison.go:231:19: inlining call to (*BigInt).Digit
+src/comparison.go:162:26: inlining call to bits.LeadingZeros32
+src/comparison.go:259:6: can inline EqualToFloat64
+src/comparison.go:266:24: inlining call to EqualToFloat64
+src/comparison.go:270:6: can inline LessThanFloat64
+src/comparison.go:276:6: can inline LessThanOrEqualFloat64
+src/comparison.go:282:6: can inline GreaterThanFloat64
+src/comparison.go:288:6: can inline GreaterThanOrEqualFloat64
+src/constructors.go:65:18: inlining call to OneDigit
+src/constructors.go:68:14: inlining call to (*BigInt).SetDigit
+src/constructors.go:69:14: inlining call to (*BigInt).SetDigit
+src/constructors.go:71:15: inlining call to (*BigInt).SetDigit
+src/constructors.go:73:17: inlining call to (*BigInt).Trim
+src/constructors.go:65:18: inlining call to Zero
+src/constructors.go:73:17: inlining call to Zero
+src/constructors.go:43:14: inlining call to Zero
+src/constructors.go:56:6: can inline FromUint64
+src/constructors.go:58:14: inlining call to Zero
+src/constructors.go:87:14: inlining call to Zero
+src/constructors.go:89:15: inlining call to math.IsNaN
+src/constructors.go:89:36: inlining call to math.IsInf
+src/constructors.go:93:26: inlining call to math.Float64bits
+src/constructors.go:97:14: inlining call to Zero
+src/constructors.go:133:17: inlining call to (*BigInt).SetDigit
+src/constructors.go:144:18: inlining call to (*BigInt).SetDigit
+src/constructors.go:147:20: inlining call to (*BigInt).Trim
+src/constructors.go:147:20: inlining call to Zero
+src/fromString.go:17:6: can inline isWhitespace
+src/fromString.go:257:19: inlining call to (*BigInt).SetDigit
+src/fromString.go:262:19: inlining call to (*BigInt).SetDigit
+src/fromString.go:269:18: inlining call to (*BigInt).SetDigit
+src/fromString.go:273:18: inlining call to (*BigInt).SetDigit
+src/fromString.go:284:43: inlining call to (*BigInt).Digit
+src/fromString.go:285:18: inlining call to (*BigInt).SetDigit
+src/fromString.go:43:14: inlining call to Zero
+src/fromString.go:47:37: inlining call to isWhitespace
+src/fromString.go:51:14: inlining call to Zero
+src/fromString.go:80:16: inlining call to Zero
+src/fromString.go:110:16: inlining call to Zero
+src/fromString.go:131:15: inlining call to Zero
+src/fromString.go:233:19: inlining call to isWhitespace
+src/fromString.go:237:20: inlining call to isWhitespace
+src/fromString.go:244:20: inlining call to (*BigInt).Trim
+src/fromString.go:244:20: inlining call to Zero
+src/constructors.go:77:6: can inline FromBool
+src/constructors.go:79:18: inlining call to OneDigit
+src/constructors.go:81:13: inlining call to Zero
+src/constructors.go:79:18: inlining call to Zero
+src/constructors.go:17:20: inlining call to FromUint64
+src/constructors.go:19:20: inlining call to FromUint64
+src/constructors.go:21:20: inlining call to FromUint64
+src/constructors.go:29:18: inlining call to FromBool
+src/constructors.go:32:15: inlining call to Zero
+src/constructors.go:34:16: inlining call to (*BigInt).Copy
+src/constructors.go:17:20: inlining call to Zero
+src/constructors.go:19:20: inlining call to Zero
+src/constructors.go:21:20: inlining call to Zero
+src/constructors.go:29:18: inlining call to OneDigit
+src/constructors.go:29:18: inlining call to Zero
+src/constructors.go:34:16: inlining call to Zero
+src/constructors.go:29:18: inlining call to Zero
+src/comparison.go:308:24: inlining call to EqualToFloat64
+src/comparison.go:311:24: inlining call to EqualToFloat64
+src/comparison.go:317:6: can inline NE
+src/comparison.go:326:18: inlining call to LessThan
+src/comparison.go:329:28: inlining call to GreaterThanFloat64
+src/comparison.go:332:25: inlining call to LessThanFloat64
+src/comparison.go:342:25: inlining call to LessThanOrEqual
+src/comparison.go:345:35: inlining call to GreaterThanOrEqualFloat64
+src/comparison.go:348:32: inlining call to LessThanOrEqualFloat64
+src/comparison.go:358:21: inlining call to GreaterThan
+src/comparison.go:361:25: inlining call to LessThanFloat64
+src/comparison.go:364:28: inlining call to GreaterThanFloat64
+src/comparison.go:374:28: inlining call to GreaterThanOrEqual
+src/comparison.go:377:32: inlining call to LessThanOrEqualFloat64
+src/comparison.go:380:35: inlining call to GreaterThanOrEqualFloat64
+src/divide.go:203:6: can inline (*BigInt).halfDigit
+src/divide.go:204:27: inlining call to (*BigInt).Length
+src/divide.go:207:17: inlining call to (*BigInt).Digit
+src/divide.go:214:21: inlining call to (*BigInt).Digit
+src/divide.go:221:12: inlining call to (*BigInt).SetDigit
+src/divide.go:106:32: inlining call to (*BigInt).Length
+src/divide.go:106:23: inlining call to NewBigInt
+src/divide.go:109:19: inlining call to (*BigInt).Length
+src/divide.go:110:43: inlining call to (*BigInt).halfDigit
+src/divide.go:106:23: inlining call to Zero
+src/divide.go:110:43: inlining call to (*BigInt).Length
+src/divide.go:110:43: inlining call to (*BigInt).Digit
+src/divide.go:190:6: can inline (*BigInt).halfDigitLength
+src/divide.go:191:17: inlining call to (*BigInt).Length
+src/divide.go:195:12: inlining call to (*BigInt).Digit
+src/divide.go:338:6: can inline clz15
+src/divide.go:339:14: inlining call to clz30
+src/divide.go:339:14: inlining call to bits.LeadingZeros32
+src/divide.go:312:15: inlining call to (*BigInt).Length
+src/divide.go:314:21: inlining call to NewBigInt
+src/divide.go:317:30: inlining call to (*BigInt).Digit
+src/divide.go:317:19: inlining call to (*BigInt).SetDigit
+src/divide.go:320:19: inlining call to (*BigInt).SetDigit
+src/divide.go:326:15: inlining call to (*BigInt).Digit
+src/divide.go:327:18: inlining call to (*BigInt).SetDigit
+src/divide.go:331:18: inlining call to (*BigInt).SetDigit
+src/divide.go:314:21: inlining call to Zero
+src/multiply.go:68:20: inlining call to (*BigInt).Digit
+src/multiply.go:81:18: inlining call to (*BigInt).SetDigit
+src/multiply.go:83:17: inlining call to (*BigInt).SetDigit
+src/divide.go:244:21: inlining call to (*BigInt).Digit
+src/divide.go:248:27: inlining call to (*BigInt).Digit
+src/divide.go:251:14: inlining call to (*BigInt).SetDigit
+src/divide.go:252:21: inlining call to (*BigInt).Digit
+src/divide.go:256:26: inlining call to (*BigInt).Digit
+src/divide.go:259:13: inlining call to (*BigInt).SetDigit
+src/divide.go:262:21: inlining call to (*BigInt).Digit
+src/divide.go:265:14: inlining call to (*BigInt).SetDigit
+src/divide.go:271:22: inlining call to (*BigInt).Digit
+src/divide.go:272:27: inlining call to (*BigInt).Digit
+src/divide.go:277:14: inlining call to (*BigInt).SetDigit
+src/divide.go:279:21: inlining call to (*BigInt).Digit
+src/divide.go:280:26: inlining call to (*BigInt).Digit
+src/divide.go:288:13: inlining call to (*BigInt).SetDigit
+src/divide.go:229:21: inlining call to (*BigInt).halfDigit
+src/divide.go:229:55: inlining call to (*BigInt).halfDigit
+src/divide.go:229:21: inlining call to (*BigInt).Length
+src/divide.go:229:21: inlining call to (*BigInt).Digit
+src/divide.go:229:55: inlining call to (*BigInt).Length
+src/divide.go:229:55: inlining call to (*BigInt).Digit
+src/divide.go:299:18: inlining call to (*BigInt).Digit
+src/divide.go:300:18: inlining call to (*BigInt).Length
+src/divide.go:302:15: inlining call to (*BigInt).Digit
+src/divide.go:303:13: inlining call to (*BigInt).SetDigit
+src/divide.go:306:12: inlining call to (*BigInt).SetDigit
+src/divide.go:121:30: inlining call to (*BigInt).halfDigitLength
+src/divide.go:122:22: inlining call to (*BigInt).Length
+src/divide.go:123:31: inlining call to (*BigInt).halfDigitLength
+src/divide.go:126:16: inlining call to NewBigInt
+src/divide.go:128:20: inlining call to NewBigInt
+src/divide.go:131:34: inlining call to (*BigInt).halfDigit
+src/divide.go:131:16: inlining call to clz15
+src/divide.go:139:36: inlining call to (*BigInt).halfDigit
+src/divide.go:144:21: inlining call to (*BigInt).halfDigit
+src/divide.go:146:38: inlining call to (*BigInt).halfDigit
+src/divide.go:149:38: inlining call to (*BigInt).halfDigit
+src/divide.go:150:23: inlining call to (*BigInt).halfDigit
+src/divide.go:165:36: inlining call to (*BigInt).halfDigit
+src/divide.go:173:15: inlining call to (*BigInt).SetDigit
+src/divide.go:121:30: inlining call to (*BigInt).Length
+src/divide.go:121:30: inlining call to (*BigInt).Digit
+src/divide.go:123:31: inlining call to (*BigInt).Length
+src/divide.go:123:31: inlining call to (*BigInt).Digit
+src/divide.go:126:16: inlining call to Zero
+src/divide.go:128:20: inlining call to Zero
+src/divide.go:131:34: inlining call to (*BigInt).Length
+src/divide.go:131:34: inlining call to (*BigInt).Digit
+src/divide.go:131:16: inlining call to clz30
+src/divide.go:139:36: inlining call to (*BigInt).Length
+src/divide.go:139:36: inlining call to (*BigInt).Digit
+src/divide.go:144:21: inlining call to (*BigInt).Length
+src/divide.go:144:21: inlining call to (*BigInt).Digit
+src/divide.go:146:38: inlining call to (*BigInt).Length
+src/divide.go:146:38: inlining call to (*BigInt).Digit
+src/divide.go:149:38: inlining call to (*BigInt).Length
+src/divide.go:149:38: inlining call to (*BigInt).Digit
+src/divide.go:150:23: inlining call to (*BigInt).Length
+src/divide.go:150:23: inlining call to (*BigInt).Digit
+src/divide.go:165:36: inlining call to (*BigInt).Length
+src/divide.go:165:36: inlining call to (*BigInt).Digit
+src/divide.go:131:16: inlining call to bits.LeadingZeros32
+src/divide.go:6:13: inlining call to (*BigInt).Length
+src/divide.go:10:14: inlining call to Zero
+src/divide.go:12:22: inlining call to (*BigInt).Sign
+src/divide.go:12:34: inlining call to (*BigInt).Sign
+src/divide.go:13:28: inlining call to (*BigInt).UnsignedDigit
+src/divide.go:14:13: inlining call to (*BigInt).Length
+src/divide.go:16:17: inlining call to (*BigInt).Copy
+src/divide.go:17:15: inlining call to (*BigInt).SetSign
+src/divide.go:21:19: inlining call to (*BigInt).SetSign
+src/divide.go:22:23: inlining call to (*BigInt).Trim
+src/divide.go:25:18: inlining call to (*BigInt).SetSign
+src/divide.go:26:22: inlining call to (*BigInt).Trim
+src/divide.go:13:28: inlining call to (*BigInt).Digit
+src/divide.go:16:17: inlining call to Zero
+src/divide.go:22:23: inlining call to Zero
+src/divide.go:26:22: inlining call to Zero
+src/divide.go:95:19: inlining call to (*BigInt).Length
+src/divide.go:96:43: inlining call to (*BigInt).halfDigit
+src/divide.go:96:43: inlining call to (*BigInt).Length
+src/divide.go:96:43: inlining call to (*BigInt).Digit
+src/divide.go:32:13: inlining call to (*BigInt).Length
+src/divide.go:36:16: inlining call to (*BigInt).Copy
+src/divide.go:38:28: inlining call to (*BigInt).UnsignedDigit
+src/divide.go:39:13: inlining call to (*BigInt).Length
+src/divide.go:41:15: inlining call to Zero
+src/divide.go:45:15: inlining call to Zero
+src/divide.go:47:41: inlining call to (*BigInt).Sign
+src/divide.go:47:18: inlining call to OneDigit
+src/divide.go:50:26: inlining call to (*BigInt).Sign
+src/divide.go:50:19: inlining call to (*BigInt).SetSign
+src/divide.go:51:23: inlining call to (*BigInt).Trim
+src/divide.go:36:16: inlining call to Zero
+src/divide.go:38:28: inlining call to (*BigInt).Digit
+src/divide.go:47:18: inlining call to Zero
+src/divide.go:51:23: inlining call to Zero
+src/divide.go:57:13: inlining call to (*BigInt).Length
+src/divide.go:61:14: inlining call to Zero
+src/divide.go:61:24: inlining call to (*BigInt).Copy
+src/divide.go:63:22: inlining call to (*BigInt).Sign
+src/divide.go:63:34: inlining call to (*BigInt).Sign
+src/divide.go:64:28: inlining call to (*BigInt).UnsignedDigit
+src/divide.go:65:13: inlining call to (*BigInt).Length
+src/divide.go:67:15: inlining call to (*BigInt).Copy
+src/divide.go:68:13: inlining call to (*BigInt).SetSign
+src/divide.go:69:18: inlining call to Zero
+src/divide.go:72:12: inlining call to (*BigInt).SetSign
+src/divide.go:73:9: inlining call to (*BigInt).Trim
+src/divide.go:77:12: inlining call to Zero
+src/divide.go:79:33: inlining call to (*BigInt).Sign
+src/divide.go:79:16: inlining call to OneDigit
+src/divide.go:84:11: inlining call to (*BigInt).SetSign
+src/divide.go:85:8: inlining call to (*BigInt).Trim
+src/divide.go:86:18: inlining call to (*BigInt).Sign
+src/divide.go:86:11: inlining call to (*BigInt).SetSign
+src/divide.go:87:8: inlining call to (*BigInt).Trim
+src/divide.go:61:24: inlining call to Zero
+src/divide.go:64:28: inlining call to (*BigInt).Digit
+src/divide.go:67:15: inlining call to Zero
+src/divide.go:73:9: inlining call to Zero
+src/divide.go:79:16: inlining call to Zero
+src/divide.go:85:8: inlining call to Zero
+src/divide.go:87:8: inlining call to Zero
+src/multiply.go:33:37: inlining call to (*BigInt).Length
+src/multiply.go:34:27: inlining call to (*BigInt).Digit
+src/multiply.go:35:27: inlining call to (*BigInt).Digit
+src/multiply.go:48:23: inlining call to (*BigInt).SetDigit
+src/multiply.go:52:27: inlining call to (*BigInt).Digit
+src/multiply.go:56:23: inlining call to (*BigInt).SetDigit
+src/multiply.go:6:13: inlining call to (*BigInt).Length
+src/multiply.go:9:13: inlining call to (*BigInt).Length
+src/multiply.go:12:26: inlining call to (*BigInt).Length
+src/multiply.go:12:39: inlining call to (*BigInt).Length
+src/multiply.go:13:13: inlining call to (*BigInt).clzmsd
+src/multiply.go:13:24: inlining call to (*BigInt).clzmsd
+src/multiply.go:16:42: inlining call to (*BigInt).Sign
+src/multiply.go:16:54: inlining call to (*BigInt).Sign
+src/multiply.go:16:21: inlining call to NewBigInt
+src/multiply.go:17:26: inlining call to (*BigInt).Length
+src/multiply.go:18:32: inlining call to (*BigInt).Digit
+src/multiply.go:20:20: inlining call to (*BigInt).Trim
+src/multiply.go:13:13: inlining call to (*BigInt).Length
+src/multiply.go:13:13: inlining call to (*BigInt).Length
+src/multiply.go:13:13: inlining call to (*BigInt).Digit
+src/multiply.go:13:13: inlining call to clz30
+src/multiply.go:13:24: inlining call to (*BigInt).Length
+src/multiply.go:13:24: inlining call to (*BigInt).Length
+src/multiply.go:13:24: inlining call to (*BigInt).Digit
+src/multiply.go:13:24: inlining call to clz30
+src/multiply.go:16:21: inlining call to Zero
+src/multiply.go:20:20: inlining call to Zero
+src/multiply.go:13:13: inlining call to bits.LeadingZeros32
+src/multiply.go:13:24: inlining call to bits.LeadingZeros32
+src/shift.go:6:6: can inline toShiftAmount
+src/shift.go:7:13: inlining call to (*BigInt).Length
+src/shift.go:10:24: inlining call to (*BigInt).UnsignedDigit
+src/shift.go:10:24: inlining call to (*BigInt).Digit
+src/shift.go:18:6: can inline rightShiftByMaximum
+src/shift.go:20:18: inlining call to OneDigit
+src/shift.go:22:13: inlining call to Zero
+src/shift.go:20:18: inlining call to Zero
+src/shift.go:28:24: inlining call to toShiftAmount
+src/shift.go:34:20: inlining call to (*BigInt).Length
+src/shift.go:37:31: inlining call to (*BigInt).Digit
+src/shift.go:46:42: inlining call to (*BigInt).Sign
+src/shift.go:46:21: inlining call to NewBigInt
+src/shift.go:50:19: inlining call to (*BigInt).SetDigit
+src/shift.go:53:30: inlining call to (*BigInt).Digit
+src/shift.go:53:19: inlining call to (*BigInt).SetDigit
+src/shift.go:58:19: inlining call to (*BigInt).SetDigit
+src/shift.go:61:16: inlining call to (*BigInt).Digit
+src/shift.go:62:19: inlining call to (*BigInt).SetDigit
+src/shift.go:66:19: inlining call to (*BigInt).SetDigit
+src/shift.go:70:20: inlining call to (*BigInt).Trim
+src/shift.go:28:24: inlining call to (*BigInt).Length
+src/shift.go:28:24: inlining call to (*BigInt).UnsignedDigit
+src/shift.go:46:21: inlining call to Zero
+src/shift.go:70:20: inlining call to Zero
+src/shift.go:28:24: inlining call to (*BigInt).Digit
+src/shift.go:75:20: inlining call to (*BigInt).Length
+src/shift.go:76:16: inlining call to (*BigInt).Sign
+src/shift.go:77:24: inlining call to toShiftAmount
+src/shift.go:79:29: inlining call to rightShiftByMaximum
+src/shift.go:85:29: inlining call to rightShiftByMaximum
+src/shift.go:91:14: inlining call to (*BigInt).Digit
+src/shift.go:95:15: inlining call to (*BigInt).Digit
+src/shift.go:104:17: inlining call to (*BigInt).Digit
+src/shift.go:111:21: inlining call to NewBigInt
+src/shift.go:114:18: inlining call to (*BigInt).SetDigit
+src/shift.go:116:41: inlining call to (*BigInt).Digit
+src/shift.go:116:19: inlining call to (*BigInt).SetDigit
+src/shift.go:119:19: inlining call to (*BigInt).Digit
+src/shift.go:122:16: inlining call to (*BigInt).Digit
+src/shift.go:123:19: inlining call to (*BigInt).SetDigit
+src/shift.go:126:18: inlining call to (*BigInt).SetDigit
+src/shift.go:133:20: inlining call to (*BigInt).Trim
+src/shift.go:77:24: inlining call to (*BigInt).Length
+src/shift.go:77:24: inlining call to (*BigInt).UnsignedDigit
+src/shift.go:79:29: inlining call to OneDigit
+src/shift.go:79:29: inlining call to Zero
+src/shift.go:85:29: inlining call to OneDigit
+src/shift.go:85:29: inlining call to Zero
+src/shift.go:111:21: inlining call to Zero
+src/shift.go:133:20: inlining call to Zero
+src/shift.go:77:24: inlining call to (*BigInt).Digit
+src/shift.go:79:29: inlining call to Zero
+src/shift.go:85:29: inlining call to Zero
+src/shift.go:138:13: inlining call to (*BigInt).Length
+src/shift.go:138:32: inlining call to (*BigInt).Length
+src/shift.go:139:16: inlining call to (*BigInt).Copy
+src/shift.go:141:11: inlining call to (*BigInt).Sign
+src/shift.go:139:16: inlining call to Zero
+src/shift.go:149:13: inlining call to (*BigInt).Length
+src/shift.go:149:32: inlining call to (*BigInt).Length
+src/shift.go:150:16: inlining call to (*BigInt).Copy
+src/shift.go:152:11: inlining call to (*BigInt).Sign
+src/shift.go:150:16: inlining call to Zero
+src/shift.go:159:6: can inline UnsignedRightShift
+src/tostring.go:14:11: inlining call to (*BigInt).Sign
+src/tostring.go:17:13: inlining call to (*BigInt).Length
+src/tostring.go:18:19: inlining call to NewBigInt
+src/tostring.go:19:15: inlining call to (*BigInt).SetDigit
+src/tostring.go:22:13: inlining call to (*BigInt).Length
+src/tostring.go:23:16: inlining call to (*BigInt).Copy
+src/tostring.go:26:13: inlining call to (*BigInt).Length
+src/tostring.go:26:31: inlining call to (*BigInt).Digit
+src/tostring.go:27:12: inlining call to (*BigInt).Sign
+src/tostring.go:27:26: inlining call to (*BigInt).Digit
+src/tostring.go:30:16: inlining call to (*BigInt).Copy
+src/tostring.go:33:13: inlining call to (*BigInt).Length
+src/tostring.go:36:21: inlining call to (*BigInt).Digit
+src/tostring.go:38:16: inlining call to (*BigInt).Copy
+src/tostring.go:44:13: inlining call to (*BigInt).Length
+src/tostring.go:44:31: inlining call to (*BigInt).Digit
+src/tostring.go:46:17: inlining call to (*BigInt).Sign
+src/tostring.go:47:22: inlining call to NewBigInt
+src/tostring.go:49:18: inlining call to (*BigInt).SetDigit
+src/tostring.go:54:25: inlining call to (*BigInt).Copy
+src/tostring.go:56:18: inlining call to (*BigInt).Copy
+src/tostring.go:63:32: inlining call to (*BigInt).Copy
+src/tostring.go:18:19: inlining call to Zero
+src/tostring.go:23:16: inlining call to Zero
+src/tostring.go:30:16: inlining call to Zero
+src/tostring.go:38:16: inlining call to Zero
+src/tostring.go:47:22: inlining call to Zero
+src/tostring.go:54:25: inlining call to Zero
+src/tostring.go:56:18: inlining call to Zero
+src/tostring.go:63:32: inlining call to Zero
+src/tostring.go:90:20: inlining call to (*BigInt).Length
+src/tostring.go:93:16: inlining call to (*BigInt).Digit
+src/tostring.go:94:26: inlining call to clz30
+src/tostring.go:97:11: inlining call to (*BigInt).Sign
+src/tostring.go:109:22: inlining call to (*BigInt).Digit
+src/tostring.go:133:11: inlining call to (*BigInt).Sign
+src/tostring.go:94:26: inlining call to bits.LeadingZeros32
+src/tostring.go:146:20: inlining call to (*BigInt).Length
+src/tostring.go:151:46: inlining call to (*BigInt).Digit
+src/tostring.go:152:32: inlining call to (*BigInt).Sign
+src/tostring.go:158:40: inlining call to (*BigInt).Digit
+src/tostring.go:158:32: inlining call to clz30
+src/tostring.go:168:23: inlining call to NewBigInt
+src/tostring.go:169:19: inlining call to (*BigInt).SetDigit
+src/tostring.go:170:21: inlining call to NewBigInt
+src/tostring.go:171:17: inlining call to (*BigInt).SetDigit
+src/tostring.go:180:28: inlining call to (*BigInt).Digit
+src/tostring.go:181:21: inlining call to (*BigInt).Length
+src/tostring.go:183:32: inlining call to (*BigInt).Length
+src/tostring.go:183:23: inlining call to NewBigInt
+src/tostring.go:185:20: inlining call to (*BigInt).Length
+src/tostring.go:186:44: inlining call to (*BigInt).halfDigit
+src/tostring.go:195:24: inlining call to (*BigInt).Trim
+src/tostring.go:201:26: inlining call to (*BigInt).Trim
+src/tostring.go:210:31: inlining call to (*BigInt).Sign
+src/tostring.go:158:32: inlining call to bits.LeadingZeros32
+src/tostring.go:168:23: inlining call to Zero
+src/tostring.go:170:21: inlining call to Zero
+src/tostring.go:183:23: inlining call to Zero
+src/tostring.go:186:44: inlining call to (*BigInt).Length
+src/tostring.go:186:44: inlining call to (*BigInt).Digit
+src/tostring.go:195:24: inlining call to Zero
+src/tostring.go:201:26: inlining call to Zero
+src/tostring.go:78:13: inlining call to (*BigInt).Length
+src/truncation.go:7:42: inlining call to (*BigInt).Sign
+src/truncation.go:7:21: inlining call to NewBigInt
+src/truncation.go:10:29: inlining call to (*BigInt).Digit
+src/truncation.go:10:18: inlining call to (*BigInt).SetDigit
+src/truncation.go:13:20: inlining call to (*BigInt).Length
+src/truncation.go:14:16: inlining call to (*BigInt).Digit
+src/truncation.go:20:17: inlining call to (*BigInt).SetDigit
+src/truncation.go:21:20: inlining call to (*BigInt).Trim
+src/truncation.go:7:21: inlining call to Zero
+src/truncation.go:21:20: inlining call to Zero
+src/truncation.go:28:21: inlining call to NewBigInt
+src/truncation.go:33:13: inlining call to (*BigInt).Length
+src/truncation.go:34:19: inlining call to (*BigInt).Length
+src/truncation.go:37:25: inlining call to (*BigInt).Digit
+src/truncation.go:39:18: inlining call to (*BigInt).SetDigit
+src/truncation.go:42:18: inlining call to (*BigInt).SetDigit
+src/truncation.go:45:20: inlining call to (*BigInt).Length
+src/truncation.go:46:16: inlining call to (*BigInt).Digit
+src/truncation.go:60:17: inlining call to (*BigInt).SetDigit
+src/truncation.go:61:20: inlining call to (*BigInt).Trim
+src/truncation.go:28:21: inlining call to Zero
+src/truncation.go:61:20: inlining call to Zero
+src/truncation.go:67:25: inlining call to (*BigInt).Length
+src/truncation.go:68:14: inlining call to Zero
+src/truncation.go:74:14: inlining call to Zero
+src/truncation.go:78:16: inlining call to (*BigInt).Copy
+src/truncation.go:81:13: inlining call to (*BigInt).Length
+src/truncation.go:82:16: inlining call to (*BigInt).Copy
+src/truncation.go:84:21: inlining call to (*BigInt).Digit
+src/truncation.go:86:13: inlining call to (*BigInt).Length
+src/truncation.go:87:16: inlining call to (*BigInt).Copy
+src/truncation.go:93:12: inlining call to (*BigInt).Sign
+src/truncation.go:98:14: inlining call to (*BigInt).Digit
+src/truncation.go:102:14: inlining call to (*BigInt).Length
+src/truncation.go:103:17: inlining call to (*BigInt).Copy
+src/truncation.go:78:16: inlining call to Zero
+src/truncation.go:82:16: inlining call to Zero
+src/truncation.go:87:16: inlining call to Zero
+src/truncation.go:103:17: inlining call to Zero
+src/truncation.go:113:25: inlining call to (*BigInt).Length
+src/truncation.go:114:14: inlining call to Zero
+src/truncation.go:120:14: inlining call to Zero
+src/truncation.go:123:11: inlining call to (*BigInt).Sign
+src/truncation.go:131:16: inlining call to (*BigInt).Copy
+src/truncation.go:134:13: inlining call to (*BigInt).Length
+src/truncation.go:135:16: inlining call to (*BigInt).Copy
+src/truncation.go:138:13: inlining call to (*BigInt).Length
+src/truncation.go:140:17: inlining call to (*BigInt).Copy
+src/truncation.go:142:22: inlining call to (*BigInt).Digit
+src/truncation.go:144:17: inlining call to (*BigInt).Copy
+src/truncation.go:131:16: inlining call to Zero
+src/truncation.go:135:16: inlining call to Zero
+src/truncation.go:140:17: inlining call to Zero
+src/truncation.go:144:17: inlining call to Zero
+src/add_sub.go:5:17: x does not escape
+src/add_sub.go:7:14: &BigInt{...} escapes to heap
+src/add_sub.go:9:18: &BigInt{...} escapes to heap
+src/add_sub.go:9:18: make([]uint32, len(x.digits)) escapes to heap
+src/add_sub.go:9:18: &BigInt{...} escapes to heap
+src/add_sub.go:95:20: absoluteAdd ignoring self-assignment in x.digits = x.digits[:newLen]
+src/add_sub.go:62:18: x does not escape
+src/add_sub.go:62:21: y does not escape
+src/add_sub.go:67:14: &BigInt{...} escapes to heap
+src/add_sub.go:71:17: &BigInt{...} escapes to heap
+src/add_sub.go:71:17: make([]uint32, len(x.digits)) escapes to heap
+src/add_sub.go:71:17: &BigInt{...} escapes to heap
+src/add_sub.go:79:21: &BigInt{...} escapes to heap
+src/add_sub.go:79:21: &BigInt{...} escapes to heap
+src/add_sub.go:79:21: make([]uint32, length) escapes to heap
+src/add_sub.go:95:20: &BigInt{...} escapes to heap
+src/comparison.go:91:22: x does not escape
+src/comparison.go:91:25: y does not escape
+src/add_sub.go:123:20: absoluteSub ignoring self-assignment in x.digits = x.digits[:newLen]
+src/add_sub.go:100:18: x does not escape
+src/add_sub.go:100:21: y does not escape
+src/add_sub.go:102:14: &BigInt{...} escapes to heap
+src/add_sub.go:106:17: &BigInt{...} escapes to heap
+src/add_sub.go:106:17: make([]uint32, len(x.digits)) escapes to heap
+src/add_sub.go:106:17: &BigInt{...} escapes to heap
+src/add_sub.go:110:21: &BigInt{...} escapes to heap
+src/add_sub.go:110:21: &BigInt{...} escapes to heap
+src/add_sub.go:110:21: make([]uint32, length) escapes to heap
+src/add_sub.go:123:20: &BigInt{...} escapes to heap
+src/add_sub.go:16:10: x does not escape
+src/add_sub.go:16:13: y does not escape
+src/add_sub.go:18:11: &BigInt{...} does not escape
+src/add_sub.go:21:11: &BigInt{...} does not escape
+src/add_sub.go:39:15: x does not escape
+src/add_sub.go:39:18: y does not escape
+src/add_sub.go:41:11: &BigInt{...} does not escape
+src/add_sub.go:44:11: &BigInt{...} does not escape
+src/add_sub.go:144:23: absoluteAddOne ignoring self-assignment in x.digits = x.digits[:newLen]
+src/add_sub.go:146:20: absoluteAddOne ignoring self-assignment in x.digits = x.digits[:newLen]
+src/add_sub.go:128:21: x does not escape
+src/add_sub.go:130:21: &BigInt{...} escapes to heap
+src/add_sub.go:130:21: &BigInt{...} escapes to heap
+src/add_sub.go:130:21: make([]uint32, length) escapes to heap
+src/add_sub.go:139:24: &BigInt{...} escapes to heap
+src/add_sub.go:139:24: &BigInt{...} escapes to heap
+src/add_sub.go:139:24: make([]uint32, length) escapes to heap
+src/add_sub.go:144:23: &BigInt{...} escapes to heap
+src/add_sub.go:146:20: &BigInt{...} escapes to heap
+src/add_sub.go:163:20: absoluteSubOne ignoring self-assignment in x.digits = x.digits[:newLen]
+src/add_sub.go:151:21: x does not escape
+src/add_sub.go:154:14: &BigInt{...} escapes to heap
+src/add_sub.go:156:21: &BigInt{...} escapes to heap
+src/add_sub.go:156:21: &BigInt{...} escapes to heap
+src/add_sub.go:156:21: make([]uint32, length) escapes to heap
+src/add_sub.go:163:20: &BigInt{...} escapes to heap
+src/add_sub.go:167:7: b does not escape
+src/bigint.go:22:9: &BigInt{...} escapes to heap
+src/bigint.go:28:14: &BigInt{...} escapes to heap
+src/bigint.go:30:9: &BigInt{...} escapes to heap
+src/bigint.go:30:41: make([]uint32, length) escapes to heap
+src/bigint.go:37:14: &BigInt{...} escapes to heap
+src/bigint.go:39:9: &BigInt{...} escapes to heap
+src/bigint.go:39:45: []uint32{...} escapes to heap
+src/bigint.go:43:7: x does not escape
+src/bigint.go:51:7: x does not escape
+src/bigint.go:58:7: x does not escape
+src/bigint.go:66:7: x does not escape
+src/bigint.go:74:7: x does not escape
+src/bigint.go:79:7: leaking param content: x
+src/bigint.go:102:12: (*BigInt).Trim ignoring self-assignment in x.digits = x.digits[:newLen]
+src/bigint.go:90:7: leaking param: x to result ~r0 level=0
+src/bigint.go:92:14: &BigInt{...} escapes to heap
+src/bigint.go:108:7: x does not escape
+src/bigint.go:110:14: &BigInt{...} escapes to heap
+src/bigint.go:112:11: make([]uint32, len(x.digits)) escapes to heap
+src/bigint.go:114:9: &BigInt{...} escapes to heap
+src/bitwise.go:5:18: x does not escape
+src/bitwise.go:5:21: y does not escape
+src/bitwise.go:5:24: leaking param content: result
+src/bitwise.go:5:24: leaking param: result to result ~r0 level=0
+src/bitwise.go:15:21: &BigInt{...} escapes to heap
+src/bitwise.go:15:21: &BigInt{...} escapes to heap
+src/bitwise.go:15:21: make([]uint32, length) escapes to heap
+src/bitwise.go:31:21: x does not escape
+src/bitwise.go:31:24: y does not escape
+src/bitwise.go:31:27: leaking param content: result
+src/bitwise.go:31:27: leaking param: result to result ~r0 level=0
+src/bitwise.go:40:21: &BigInt{...} escapes to heap
+src/bitwise.go:40:21: &BigInt{...} escapes to heap
+src/bitwise.go:40:21: make([]uint32, length) escapes to heap
+src/bitwise.go:59:17: x does not escape
+src/bitwise.go:59:20: y does not escape
+src/bitwise.go:59:23: leaking param content: result
+src/bitwise.go:59:23: leaking param: result to result ~r0 level=0
+src/bitwise.go:70:21: &BigInt{...} escapes to heap
+src/bitwise.go:70:21: &BigInt{...} escapes to heap
+src/bitwise.go:70:21: make([]uint32, length) escapes to heap
+src/bitwise.go:89:18: x does not escape
+src/bitwise.go:89:21: y does not escape
+src/bitwise.go:89:24: leaking param content: result
+src/bitwise.go:89:24: leaking param: result to result ~r0 level=0
+src/bitwise.go:99:21: &BigInt{...} escapes to heap
+src/bitwise.go:99:21: &BigInt{...} escapes to heap
+src/bitwise.go:99:21: make([]uint32, length) escapes to heap
+src/bitwise.go:124:32: BitwiseNot ignoring self-assignment in x.digits = x.digits[:newLen]
+src/bitwise.go:118:17: x does not escape
+src/bitwise.go:120:11: &BigInt{...} does not escape
+src/bitwise.go:124:32: &BigInt{...} escapes to heap
+src/bitwise.go:140:37: BitwiseAnd ignoring self-assignment in x.digits = x.digits[:newLen]
+src/bitwise.go:155:43: BitwiseAnd ignoring self-assignment in x.digits = x.digits[:newLen]
+src/bitwise.go:162:55: BitwiseAnd ignoring self-assignment in x.digits = x.digits[:newLen]
+src/bitwise.go:132:17: x does not escape
+src/bitwise.go:132:20: y does not escape
+src/bitwise.go:134:11: &BigInt{...} does not escape
+src/bitwise.go:137:11: &BigInt{...} does not escape
+src/bitwise.go:140:37: &BigInt{...} escapes to heap
+src/bitwise.go:147:28: &BigInt{...} does not escape
+src/bitwise.go:147:28: &BigInt{...} does not escape
+src/bitwise.go:147:28: make([]uint32, length) escapes to heap
+src/bitwise.go:155:43: &BigInt{...} escapes to heap
+src/bitwise.go:162:55: &BigInt{...} escapes to heap
+src/bitwise.go:176:36: BitwiseOr ignoring self-assignment in x.digits = x.digits[:newLen]
+src/bitwise.go:190:43: BitwiseOr ignoring self-assignment in x.digits = x.digits[:newLen]
+src/bitwise.go:206:42: BitwiseOr ignoring self-assignment in x.digits = x.digits[:newLen]
+src/bitwise.go:167:16: x does not escape
+src/bitwise.go:167:19: y does not escape
+src/bitwise.go:169:11: &BigInt{...} does not escape
+src/bitwise.go:172:11: &BigInt{...} does not escape
+src/bitwise.go:176:36: &BigInt{...} escapes to heap
+src/bitwise.go:182:28: &BigInt{...} does not escape
+src/bitwise.go:182:28: &BigInt{...} does not escape
+src/bitwise.go:182:28: make([]uint32, length) escapes to heap
+src/bitwise.go:190:43: &BigInt{...} escapes to heap
+src/bitwise.go:199:27: &BigInt{...} does not escape
+src/bitwise.go:199:27: &BigInt{...} does not escape
+src/bitwise.go:199:27: make([]uint32, length) escapes to heap
+src/bitwise.go:206:42: &BigInt{...} escapes to heap
+src/bitwise.go:219:37: BitwiseXor ignoring self-assignment in x.digits = x.digits[:newLen]
+src/bitwise.go:232:46: BitwiseXor ignoring self-assignment in x.digits = x.digits[:newLen]
+src/bitwise.go:249:42: BitwiseXor ignoring self-assignment in x.digits = x.digits[:newLen]
+src/bitwise.go:211:17: x does not escape
+src/bitwise.go:211:20: y does not escape
+src/bitwise.go:213:11: &BigInt{...} does not escape
+src/bitwise.go:216:11: &BigInt{...} does not escape
+src/bitwise.go:219:37: &BigInt{...} escapes to heap
+src/bitwise.go:225:28: &BigInt{...} escapes to heap
+src/bitwise.go:225:28: &BigInt{...} escapes to heap
+src/bitwise.go:225:28: make([]uint32, length) escapes to heap
+src/bitwise.go:232:46: &BigInt{...} escapes to heap
+src/bitwise.go:242:27: &BigInt{...} does not escape
+src/bitwise.go:242:27: &BigInt{...} does not escape
+src/bitwise.go:242:27: make([]uint32, length) escapes to heap
+src/bitwise.go:249:42: &BigInt{...} escapes to heap
+src/comparison.go:12:14: x does not escape
+src/comparison.go:12:17: y does not escape
+src/comparison.go:14:11: &BigInt{...} does not escape
+src/comparison.go:17:11: &BigInt{...} does not escape
+src/comparison.go:44:12: x does not escape
+src/comparison.go:44:15: y does not escape
+src/comparison.go:46:11: &BigInt{...} does not escape
+src/comparison.go:49:11: &BigInt{...} does not escape
+src/comparison.go:66:15: x does not escape
+src/comparison.go:66:18: y does not escape
+src/comparison.go:71:15: x does not escape
+src/comparison.go:71:18: y does not escape
+src/comparison.go:76:22: x does not escape
+src/comparison.go:76:25: y does not escape
+src/comparison.go:81:18: x does not escape
+src/comparison.go:81:21: y does not escape
+src/comparison.go:86:25: x does not escape
+src/comparison.go:86:28: y does not escape
+src/comparison.go:112:23: x does not escape
+src/comparison.go:114:11: &BigInt{...} does not escape
+src/comparison.go:259:21: x does not escape
+src/comparison.go:265:24: x does not escape
+src/comparison.go:270:22: x does not escape
+src/comparison.go:276:29: x does not escape
+src/comparison.go:282:25: x does not escape
+src/comparison.go:288:32: x does not escape
+src/constructors.go:73:17: fromUint64Internal ignoring self-assignment in x.digits = x.digits[:newLen]
+src/constructors.go:65:18: &BigInt{...} escapes to heap
+src/constructors.go:65:18: &BigInt{...} escapes to heap
+src/constructors.go:65:18: []uint32{...} escapes to heap
+src/constructors.go:67:9: &BigInt{...} escapes to heap
+src/constructors.go:73:17: &BigInt{...} escapes to heap
+src/constructors.go:43:14: &BigInt{...} escapes to heap
+src/comparison.go:294:21: x does not escape
+src/constructors.go:147:20: FromFloat64 ignoring self-assignment in x.digits = x.digits[:newLen]
+src/constructors.go:87:14: &BigInt{...} escapes to heap
+src/constructors.go:97:14: &BigInt{...} escapes to heap
+src/constructors.go:100:12: &BigInt{...} escapes to heap
+src/constructors.go:102:15: make([]uint32, digitsNeeded) escapes to heap
+src/constructors.go:147:20: &BigInt{...} escapes to heap
+src/fromString.go:247:20: leaking param content: result
+src/fromString.go:247:36: parts does not escape
+src/fromString.go:247:52: partsBits does not escape
+src/fromString.go:278:25: leaking param content: result
+src/fromString.go:244:20: FromString ignoring self-assignment in x.digits = x.digits[:newLen]
+src/fromString.go:34:17: s does not escape
+src/fromString.go:38:18: ([]rune)(s) does not escape
+src/fromString.go:43:14: &BigInt{...} escapes to heap
+src/fromString.go:51:14: &BigInt{...} escapes to heap
+src/fromString.go:80:16: &BigInt{...} escapes to heap
+src/fromString.go:110:16: &BigInt{...} escapes to heap
+src/fromString.go:131:15: &BigInt{...} escapes to heap
+src/fromString.go:147:12: &BigInt{...} escapes to heap
+src/fromString.go:147:45: make([]uint32, resultLength) escapes to heap
+src/fromString.go:244:20: &BigInt{...} escapes to heap
+src/constructors.go:8:16: arg does not escape
+src/constructors.go:17:20: &BigInt{...} escapes to heap
+src/constructors.go:19:20: &BigInt{...} escapes to heap
+src/constructors.go:21:20: &BigInt{...} escapes to heap
+src/constructors.go:29:18: &BigInt{...} escapes to heap
+src/constructors.go:29:18: &BigInt{...} escapes to heap
+src/constructors.go:29:18: []uint32{...} escapes to heap
+src/constructors.go:29:18: &BigInt{...} escapes to heap
+src/constructors.go:32:15: &BigInt{...} escapes to heap
+src/constructors.go:34:16: &BigInt{...} escapes to heap
+src/constructors.go:34:16: make([]uint32, len(x.digits)) escapes to heap
+src/constructors.go:34:16: &BigInt{...} escapes to heap
+src/comparison.go:301:9: x does not escape
+src/comparison.go:301:12: y does not escape
+src/comparison.go:317:9: x does not escape
+src/comparison.go:317:12: y does not escape
+src/comparison.go:322:9: x does not escape
+src/comparison.go:322:12: y does not escape
+src/comparison.go:338:9: x does not escape
+src/comparison.go:338:12: y does not escape
+src/comparison.go:354:9: x does not escape
+src/comparison.go:354:12: y does not escape
+src/comparison.go:370:9: x does not escape
+src/comparison.go:370:12: y does not escape
+src/constructors.go:58:14: &BigInt{...} escapes to heap
+src/constructors.go:79:18: &BigInt{...} escapes to heap
+src/constructors.go:79:18: &BigInt{...} escapes to heap
+src/constructors.go:79:18: []uint32{...} escapes to heap
+src/constructors.go:81:13: &BigInt{...} escapes to heap
+src/divide.go:212:7: leaking param content: x
+src/divide.go:104:23: x does not escape
+src/divide.go:104:50: leaking param content: quotient
+src/divide.go:104:50: leaking param: quotient to result ~r0 level=0
+src/divide.go:106:23: &BigInt{...} escapes to heap
+src/divide.go:106:23: &BigInt{...} escapes to heap
+src/divide.go:106:23: make([]uint32, length) escapes to heap
+src/divide.go:311:23: x does not escape
+src/divide.go:314:21: &BigInt{...} escapes to heap
+src/divide.go:314:21: &BigInt{...} escapes to heap
+src/divide.go:314:21: make([]uint32, length) escapes to heap
+src/multiply.go:63:26: source does not escape
+src/multiply.go:63:80: leaking param content: result
+src/divide.go:238:7: leaking param content: b
+src/divide.go:238:29: subtrahend does not escape
+src/divide.go:226:7: leaking param content: b
+src/divide.go:226:29: summand does not escape
+src/divide.go:295:7: leaking param content: b
+src/divide.go:120:23: dividend does not escape
+src/divide.go:120:33: divisor does not escape
+src/divide.go:126:16: &BigInt{...} escapes to heap
+src/divide.go:126:16: &BigInt{...} escapes to heap
+src/divide.go:126:16: make([]uint32, length) escapes to heap
+src/divide.go:128:20: &BigInt{...} does not escape
+src/divide.go:128:20: &BigInt{...} does not escape
+src/divide.go:128:20: make([]uint32, length) escapes to heap
+src/divide.go:22:23: Divide ignoring self-assignment in x.digits = x.digits[:newLen]
+src/divide.go:26:22: Divide ignoring self-assignment in x.digits = x.digits[:newLen]
+src/divide.go:5:13: x does not escape
+src/divide.go:5:16: y does not escape
+src/divide.go:10:14: &BigInt{...} escapes to heap
+src/divide.go:16:17: &BigInt{...} escapes to heap
+src/divide.go:16:17: make([]uint32, len(x.digits)) escapes to heap
+src/divide.go:16:17: &BigInt{...} escapes to heap
+src/divide.go:22:23: &BigInt{...} escapes to heap
+src/divide.go:26:22: &BigInt{...} escapes to heap
+src/divide.go:93:23: x does not escape
+src/divide.go:51:23: Remainder ignoring self-assignment in x.digits = x.digits[:newLen]
+src/divide.go:31:16: x does not escape
+src/divide.go:31:19: y does not escape
+src/divide.go:36:16: &BigInt{...} escapes to heap
+src/divide.go:36:16: make([]uint32, len(x.digits)) escapes to heap
+src/divide.go:36:16: &BigInt{...} escapes to heap
+src/divide.go:41:15: &BigInt{...} escapes to heap
+src/divide.go:45:15: &BigInt{...} escapes to heap
+src/divide.go:47:18: &BigInt{...} escapes to heap
+src/divide.go:47:18: &BigInt{...} escapes to heap
+src/divide.go:47:18: []uint32{...} escapes to heap
+src/divide.go:51:23: &BigInt{...} escapes to heap
+src/divide.go:73:9: DivRem ignoring self-assignment in x.digits = x.digits[:newLen]
+src/divide.go:85:8: DivRem ignoring self-assignment in x.digits = x.digits[:newLen]
+src/divide.go:87:8: DivRem ignoring self-assignment in x.digits = x.digits[:newLen]
+src/divide.go:56:13: x does not escape
+src/divide.go:56:16: y does not escape
+src/divide.go:61:14: &BigInt{...} escapes to heap
+src/divide.go:61:24: &BigInt{...} escapes to heap
+src/divide.go:61:24: make([]uint32, len(x.digits)) escapes to heap
+src/divide.go:61:24: &BigInt{...} escapes to heap
+src/divide.go:67:15: &BigInt{...} escapes to heap
+src/divide.go:67:15: make([]uint32, len(x.digits)) escapes to heap
+src/divide.go:67:15: &BigInt{...} escapes to heap
+src/divide.go:69:18: &BigInt{...} escapes to heap
+src/divide.go:73:9: &BigInt{...} does not escape
+src/divide.go:77:12: &BigInt{...} escapes to heap
+src/divide.go:79:16: &BigInt{...} escapes to heap
+src/divide.go:79:16: &BigInt{...} escapes to heap
+src/divide.go:79:16: []uint32{...} escapes to heap
+src/divide.go:85:8: &BigInt{...} does not escape
+src/divide.go:87:8: &BigInt{...} does not escape
+src/divide.go:190:7: x does not escape
+src/divide.go:203:7: x does not escape
+src/multiply.go:25:25: multiplicand does not escape
+src/multiply.go:25:66: leaking param content: accumulator
+src/multiply.go:20:20: Multiply ignoring self-assignment in x.digits = x.digits[:newLen]
+src/multiply.go:5:15: leaking param: x to result ~r0 level=0
+src/multiply.go:5:18: leaking param: y to result ~r0 level=0
+src/multiply.go:16:21: &BigInt{...} escapes to heap
+src/multiply.go:16:21: &BigInt{...} escapes to heap
+src/multiply.go:16:21: make([]uint32, length) escapes to heap
+src/multiply.go:20:20: &BigInt{...} escapes to heap
+src/shift.go:6:20: x does not escape
+src/shift.go:20:18: &BigInt{...} escapes to heap
+src/shift.go:20:18: &BigInt{...} escapes to heap
+src/shift.go:20:18: []uint32{...} escapes to heap
+src/shift.go:22:13: &BigInt{...} escapes to heap
+src/shift.go:70:20: leftShiftByAbsolute ignoring self-assignment in x.digits = x.digits[:newLen]
+src/shift.go:27:26: x does not escape
+src/shift.go:27:29: y does not escape
+src/shift.go:46:21: &BigInt{...} escapes to heap
+src/shift.go:46:21: &BigInt{...} escapes to heap
+src/shift.go:46:21: make([]uint32, length) escapes to heap
+src/shift.go:70:20: &BigInt{...} escapes to heap
+src/shift.go:133:20: rightShiftByAbsolute ignoring self-assignment in x.digits = x.digits[:newLen]
+src/shift.go:74:27: x does not escape
+src/shift.go:74:30: y does not escape
+src/shift.go:79:29: &BigInt{...} escapes to heap
+src/shift.go:79:29: &BigInt{...} escapes to heap
+src/shift.go:79:29: []uint32{...} escapes to heap
+src/shift.go:79:29: &BigInt{...} escapes to heap
+src/shift.go:85:29: &BigInt{...} escapes to heap
+src/shift.go:85:29: &BigInt{...} escapes to heap
+src/shift.go:85:29: []uint32{...} escapes to heap
+src/shift.go:85:29: &BigInt{...} escapes to heap
+src/shift.go:111:21: &BigInt{...} escapes to heap
+src/shift.go:111:21: &BigInt{...} escapes to heap
+src/shift.go:111:21: make([]uint32, length) escapes to heap
+src/shift.go:133:20: &BigInt{...} escapes to heap
+src/shift.go:137:16: x does not escape
+src/shift.go:137:19: y does not escape
+src/shift.go:139:16: &BigInt{...} escapes to heap
+src/shift.go:139:16: make([]uint32, len(x.digits)) escapes to heap
+src/shift.go:139:16: &BigInt{...} escapes to heap
+src/shift.go:148:23: x does not escape
+src/shift.go:148:26: y does not escape
+src/shift.go:150:16: &BigInt{...} escapes to heap
+src/shift.go:150:16: make([]uint32, len(x.digits)) escapes to heap
+src/shift.go:150:16: &BigInt{...} escapes to heap
+src/shift.go:159:25: x does not escape
+src/shift.go:159:28: y does not escape
+src/tostring.go:13:19: x does not escape
+src/tostring.go:13:22: y does not escape
+src/tostring.go:18:19: &BigInt{...} escapes to heap
+src/tostring.go:18:19: &BigInt{...} escapes to heap
+src/tostring.go:18:19: make([]uint32, length) escapes to heap
+src/tostring.go:23:16: &BigInt{...} escapes to heap
+src/tostring.go:23:16: make([]uint32, len(x.digits)) escapes to heap
+src/tostring.go:23:16: &BigInt{...} escapes to heap
+src/tostring.go:30:16: &BigInt{...} escapes to heap
+src/tostring.go:30:16: make([]uint32, len(x.digits)) escapes to heap
+src/tostring.go:30:16: &BigInt{...} escapes to heap
+src/tostring.go:38:16: &BigInt{...} escapes to heap
+src/tostring.go:38:16: make([]uint32, len(x.digits)) escapes to heap
+src/tostring.go:38:16: &BigInt{...} escapes to heap
+src/tostring.go:47:22: &BigInt{...} escapes to heap
+src/tostring.go:47:22: &BigInt{...} escapes to heap
+src/tostring.go:47:22: make([]uint32, length) escapes to heap
+src/tostring.go:54:25: &BigInt{...} escapes to heap
+src/tostring.go:54:25: make([]uint32, len(x.digits)) escapes to heap
+src/tostring.go:54:25: &BigInt{...} escapes to heap
+src/tostring.go:56:18: &BigInt{...} escapes to heap
+src/tostring.go:56:18: make([]uint32, len(x.digits)) escapes to heap
+src/tostring.go:56:18: &BigInt{...} escapes to heap
+src/tostring.go:63:32: &BigInt{...} escapes to heap
+src/tostring.go:63:32: make([]uint32, len(x.digits)) escapes to heap
+src/tostring.go:63:32: &BigInt{...} escapes to heap
+src/tostring.go:89:29: x does not escape
+src/tostring.go:103:16: make([]byte, charsRequired) escapes to heap
+src/tostring.go:140:16: string(result) escapes to heap
+src/tostring.go:195:24: toStringGeneric ignoring self-assignment in x.digits = x.digits[:newLen]
+src/tostring.go:201:26: toStringGeneric ignoring self-assignment in x.digits = x.digits[:newLen]
+src/tostring.go:145:22: x does not escape
+src/tostring.go:153:17: "-" + result escapes to heap
+src/tostring.go:168:23: &BigInt{...} does not escape
+src/tostring.go:168:23: &BigInt{...} does not escape
+src/tostring.go:168:23: make([]uint32, length) escapes to heap
+src/tostring.go:170:21: &BigInt{...} does not escape
+src/tostring.go:170:21: &BigInt{...} does not escape
+src/tostring.go:170:21: make([]uint32, length) escapes to heap
+src/tostring.go:183:23: &BigInt{...} does not escape
+src/tostring.go:183:23: &BigInt{...} does not escape
+src/tostring.go:183:23: make([]uint32, length) escapes to heap
+src/tostring.go:195:24: &BigInt{...} does not escape
+src/tostring.go:201:26: &BigInt{...} does not escape
+src/tostring.go:208:20: "0" + secondHalf escapes to heap
+src/tostring.go:211:19: "-" + firstHalf does not escape
+src/tostring.go:213:19: firstHalf + secondHalf escapes to heap
+src/tostring.go:74:15: x does not escape
+src/truncation.go:21:20: truncateToNBits ignoring self-assignment in x.digits = x.digits[:newLen]
+src/truncation.go:5:29: x does not escape
+src/truncation.go:7:21: &BigInt{...} escapes to heap
+src/truncation.go:7:21: &BigInt{...} escapes to heap
+src/truncation.go:7:21: make([]uint32, length) escapes to heap
+src/truncation.go:21:20: &BigInt{...} escapes to heap
+src/truncation.go:61:20: truncateAndSubFromPowerOfTwo ignoring self-assignment in x.digits = x.digits[:newLen]
+src/truncation.go:26:42: x does not escape
+src/truncation.go:28:21: &BigInt{...} escapes to heap
+src/truncation.go:28:21: &BigInt{...} escapes to heap
+src/truncation.go:28:21: make([]uint32, length) escapes to heap
+src/truncation.go:61:20: &BigInt{...} escapes to heap
+src/truncation.go:66:20: x does not escape
+src/truncation.go:68:14: &BigInt{...} escapes to heap
+src/truncation.go:74:14: &BigInt{...} escapes to heap
+src/truncation.go:78:16: &BigInt{...} escapes to heap
+src/truncation.go:78:16: make([]uint32, len(x.digits)) escapes to heap
+src/truncation.go:78:16: &BigInt{...} escapes to heap
+src/truncation.go:82:16: &BigInt{...} escapes to heap
+src/truncation.go:82:16: make([]uint32, len(x.digits)) escapes to heap
+src/truncation.go:82:16: &BigInt{...} escapes to heap
+src/truncation.go:87:16: &BigInt{...} escapes to heap
+src/truncation.go:87:16: make([]uint32, len(x.digits)) escapes to heap
+src/truncation.go:87:16: &BigInt{...} escapes to heap
+src/truncation.go:103:17: &BigInt{...} escapes to heap
+src/truncation.go:103:17: make([]uint32, len(x.digits)) escapes to heap
+src/truncation.go:103:17: &BigInt{...} escapes to heap
+src/truncation.go:112:21: x does not escape
+src/truncation.go:114:14: &BigInt{...} escapes to heap
+src/truncation.go:120:14: &BigInt{...} escapes to heap
+src/truncation.go:131:16: &BigInt{...} escapes to heap
+src/truncation.go:131:16: make([]uint32, len(x.digits)) escapes to heap
+src/truncation.go:131:16: &BigInt{...} escapes to heap
+src/truncation.go:135:16: &BigInt{...} escapes to heap
+src/truncation.go:135:16: make([]uint32, len(x.digits)) escapes to heap
+src/truncation.go:135:16: &BigInt{...} escapes to heap
+src/truncation.go:140:17: &BigInt{...} escapes to heap
+src/truncation.go:140:17: make([]uint32, len(x.digits)) escapes to heap
+src/truncation.go:140:17: &BigInt{...} escapes to heap
+src/truncation.go:144:17: &BigInt{...} escapes to heap
+src/truncation.go:144:17: make([]uint32, len(x.digits)) escapes to heap
+src/truncation.go:144:17: &BigInt{...} escapes to heap

@@ -1,0 +1,495 @@
+{
+  "BenchmarkAdd": {
+    "ns": {
+      "count": 8,
+      "mean": 55.3075,
+      "median": 54.025000000000006,
+      "min": 52.2,
+      "max": 64.91,
+      "stddev": 4.240800968819787,
+      "ci95": 2.9387251402606527
+    },
+    "b": {
+      "count": 8,
+      "mean": 48.0,
+      "median": 48.0,
+      "min": 48.0,
+      "max": 48.0,
+      "stddev": 0.0,
+      "ci95": 0.0
+    },
+    "allocs": {
+      "count": 8,
+      "mean": 2.0,
+      "median": 2.0,
+      "min": 2.0,
+      "max": 2.0,
+      "stddev": 0.0,
+      "ci95": 0.0
+    }
+  },
+  "BenchmarkSubtract": {
+    "ns": {
+      "count": 8,
+      "mean": 48.88875,
+      "median": 47.97,
+      "min": 46.59,
+      "max": 52.7,
+      "stddev": 2.3793422710608794,
+      "ci95": 1.648800073538329
+    },
+    "b": {
+      "count": 8,
+      "mean": 48.0,
+      "median": 48.0,
+      "min": 48.0,
+      "max": 48.0,
+      "stddev": 0.0,
+      "ci95": 0.0
+    },
+    "allocs": {
+      "count": 8,
+      "mean": 2.0,
+      "median": 2.0,
+      "min": 2.0,
+      "max": 2.0,
+      "stddev": 0.0,
+      "ci95": 0.0
+    }
+  },
+  "BenchmarkBitwiseNot": {
+    "ns": {
+      "count": 8,
+      "mean": 38.355,
+      "median": 37.92,
+      "min": 37.48,
+      "max": 41.57,
+      "stddev": 1.346413224618866,
+      "ci95": 0.9330167629791014
+    },
+    "b": {
+      "count": 8,
+      "mean": 48.0,
+      "median": 48.0,
+      "min": 48.0,
+      "max": 48.0,
+      "stddev": 0.0,
+      "ci95": 0.0
+    },
+    "allocs": {
+      "count": 8,
+      "mean": 2.0,
+      "median": 2.0,
+      "min": 2.0,
+      "max": 2.0,
+      "stddev": 0.0,
+      "ci95": 0.0
+    }
+  },
+  "BenchmarkBitwiseAnd": {
+    "ns": {
+      "count": 8,
+      "mean": 77.37625,
+      "median": 76.38,
+      "min": 73.93,
+      "max": 84.93,
+      "stddev": 3.800360650178953,
+      "ci95": 2.633515570962133
+    },
+    "b": {
+      "count": 8,
+      "mean": 96.0,
+      "median": 96.0,
+      "min": 96.0,
+      "max": 96.0,
+      "stddev": 0.0,
+      "ci95": 0.0
+    },
+    "allocs": {
+      "count": 8,
+      "mean": 4.0,
+      "median": 4.0,
+      "min": 4.0,
+      "max": 4.0,
+      "stddev": 0.0,
+      "ci95": 0.0
+    }
+  },
+  "BenchmarkBitwiseOr": {
+    "ns": {
+      "count": 8,
+      "mean": 85.71375,
+      "median": 84.48500000000001,
+      "min": 83.31,
+      "max": 93.91,
+      "stddev": 3.527852189566417,
+      "ci95": 2.444676842140898
+    },
+    "b": {
+      "count": 8,
+      "mean": 96.0,
+      "median": 96.0,
+      "min": 96.0,
+      "max": 96.0,
+      "stddev": 0.0,
+      "ci95": 0.0
+    },
+    "allocs": {
+      "count": 8,
+      "mean": 4.0,
+      "median": 4.0,
+      "min": 4.0,
+      "max": 4.0,
+      "stddev": 0.0,
+      "ci95": 0.0
+    }
+  },
+  "BenchmarkBitwiseXor": {
+    "ns": {
+      "count": 8,
+      "mean": 117.0375,
+      "median": 114.75,
+      "min": 112.9,
+      "max": 132.8,
+      "stddev": 6.605179244891308,
+      "ci95": 4.577155694314977
+    },
+    "b": {
+      "count": 8,
+      "mean": 112.0,
+      "median": 112.0,
+      "min": 112.0,
+      "max": 112.0,
+      "stddev": 0.0,
+      "ci95": 0.0
+    },
+    "allocs": {
+      "count": 8,
+      "mean": 5.0,
+      "median": 5.0,
+      "min": 5.0,
+      "max": 5.0,
+      "stddev": 0.0,
+      "ci95": 0.0
+    }
+  },
+  "BenchmarkComparePure": {
+    "ns": {
+      "count": 8,
+      "mean": 2.74275,
+      "median": 2.7225,
+      "min": 2.67,
+      "max": 2.919,
+      "stddev": 0.07505759693157557,
+      "ci95": 0.05201226105448601
+    },
+    "b": {
+      "count": 8,
+      "mean": 0.0,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "stddev": 0.0,
+      "ci95": 0.0
+    },
+    "allocs": {
+      "count": 8,
+      "mean": 0.0,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "stddev": 0.0,
+      "ci95": 0.0
+    }
+  },
+  "BenchmarkEqualPure": {
+    "ns": {
+      "count": 8,
+      "mean": 5.589625,
+      "median": 5.5525,
+      "min": 5.246,
+      "max": 6.143,
+      "stddev": 0.2844226922331317,
+      "ci95": 0.19709487011335416
+    },
+    "b": {
+      "count": 8,
+      "mean": 0.0,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "stddev": 0.0,
+      "ci95": 0.0
+    },
+    "allocs": {
+      "count": 8,
+      "mean": 0.0,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "stddev": 0.0,
+      "ci95": 0.0
+    }
+  },
+  "BenchmarkDivide": {
+    "ns": {
+      "count": 8,
+      "mean": 309.0625,
+      "median": 304.25,
+      "min": 302.8,
+      "max": 334.4,
+      "stddev": 10.902154112179577,
+      "ci95": 7.554807360217723
+    },
+    "b": {
+      "count": 8,
+      "mean": 192.0,
+      "median": 192.0,
+      "min": 192.0,
+      "max": 192.0,
+      "stddev": 0.0,
+      "ci95": 0.0
+    },
+    "allocs": {
+      "count": 8,
+      "mean": 8.0,
+      "median": 8.0,
+      "min": 8.0,
+      "max": 8.0,
+      "stddev": 0.0,
+      "ci95": 0.0
+    }
+  },
+  "BenchmarkRemainder": {
+    "ns": {
+      "count": 8,
+      "mean": 290.925,
+      "median": 285.9,
+      "min": 282.0,
+      "max": 310.4,
+      "stddev": 11.6314536617619,
+      "ci95": 8.060186164103161
+    },
+    "b": {
+      "count": 8,
+      "mean": 144.0,
+      "median": 144.0,
+      "min": 144.0,
+      "max": 144.0,
+      "stddev": 0.0,
+      "ci95": 0.0
+    },
+    "allocs": {
+      "count": 8,
+      "mean": 6.0,
+      "median": 6.0,
+      "min": 6.0,
+      "max": 6.0,
+      "stddev": 0.0,
+      "ci95": 0.0
+    }
+  },
+  "BenchmarkDivRem": {
+    "ns": {
+      "count": 8,
+      "mean": 333.8,
+      "median": 332.70000000000005,
+      "min": 320.8,
+      "max": 357.6,
+      "stddev": 10.799735446495244,
+      "ci95": 7.483834845852763
+    },
+    "b": {
+      "count": 8,
+      "mean": 192.0,
+      "median": 192.0,
+      "min": 192.0,
+      "max": 192.0,
+      "stddev": 0.0,
+      "ci95": 0.0
+    },
+    "allocs": {
+      "count": 8,
+      "mean": 8.0,
+      "median": 8.0,
+      "min": 8.0,
+      "max": 8.0,
+      "stddev": 0.0,
+      "ci95": 0.0
+    }
+  },
+  "BenchmarkMultiply": {
+    "ns": {
+      "count": 8,
+      "mean": 107.72999999999999,
+      "median": 96.62,
+      "min": 93.75,
+      "max": 177.2,
+      "stddev": 28.4223443287646,
+      "ci95": 19.695679763846687
+    },
+    "b": {
+      "count": 8,
+      "mean": 64.0,
+      "median": 64.0,
+      "min": 64.0,
+      "max": 64.0,
+      "stddev": 0.0,
+      "ci95": 0.0
+    },
+    "allocs": {
+      "count": 8,
+      "mean": 2.0,
+      "median": 2.0,
+      "min": 2.0,
+      "max": 2.0,
+      "stddev": 0.0,
+      "ci95": 0.0
+    }
+  },
+  "BenchmarkToStringHex1Limb": {
+    "ns": {
+      "count": 8,
+      "mean": 28.5,
+      "median": 27.025,
+      "min": 26.36,
+      "max": 36.78,
+      "stddev": 3.5827323970081033,
+      "ci95": 2.48270688563914
+    },
+    "b": {
+      "count": 8,
+      "mean": 16.0,
+      "median": 16.0,
+      "min": 16.0,
+      "max": 16.0,
+      "stddev": 0.0,
+      "ci95": 0.0
+    },
+    "allocs": {
+      "count": 8,
+      "mean": 2.0,
+      "median": 2.0,
+      "min": 2.0,
+      "max": 2.0,
+      "stddev": 0.0,
+      "ci95": 0.0
+    }
+  },
+  "BenchmarkToStringDec1Limb": {
+    "ns": {
+      "count": 8,
+      "mean": 22.6725,
+      "median": 22.595,
+      "min": 22.32,
+      "max": 23.18,
+      "stddev": 0.32323145179355844,
+      "ci95": 0.22398796842687785
+    },
+    "b": {
+      "count": 8,
+      "mean": 16.0,
+      "median": 16.0,
+      "min": 16.0,
+      "max": 16.0,
+      "stddev": 0.0,
+      "ci95": 0.0
+    },
+    "allocs": {
+      "count": 8,
+      "mean": 1.0,
+      "median": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "stddev": 0.0,
+      "ci95": 0.0
+    }
+  },
+  "BenchmarkToStringDec3Limbs": {
+    "ns": {
+      "count": 8,
+      "mean": 1771.625,
+      "median": 1744.0,
+      "min": 1723.0,
+      "max": 1962.0,
+      "stddev": 79.23191546701007,
+      "ci95": 54.90491621885967
+    },
+    "b": {
+      "count": 8,
+      "mean": 1192.0,
+      "median": 1192.0,
+      "min": 1192.0,
+      "max": 1192.0,
+      "stddev": 0.0,
+      "ci95": 0.0
+    },
+    "allocs": {
+      "count": 8,
+      "mean": 71.0,
+      "median": 71.0,
+      "min": 71.0,
+      "max": 71.0,
+      "stddev": 0.0,
+      "ci95": 0.0
+    }
+  },
+  "BenchmarkAsIntN": {
+    "ns": {
+      "count": 8,
+      "mean": 37.0725,
+      "median": 36.985,
+      "min": 36.41,
+      "max": 38.53,
+      "stddev": 0.663814733189917,
+      "ci95": 0.4600001413043264
+    },
+    "b": {
+      "count": 8,
+      "mean": 40.0,
+      "median": 40.0,
+      "min": 40.0,
+      "max": 40.0,
+      "stddev": 0.0,
+      "ci95": 0.0
+    },
+    "allocs": {
+      "count": 8,
+      "mean": 2.0,
+      "median": 2.0,
+      "min": 2.0,
+      "max": 2.0,
+      "stddev": 0.0,
+      "ci95": 0.0
+    }
+  },
+  "BenchmarkAsUintN": {
+    "ns": {
+      "count": 8,
+      "mean": 34.6975,
+      "median": 34.715,
+      "min": 33.51,
+      "max": 36.17,
+      "stddev": 0.8094927865204059,
+      "ci95": 0.5609498818967698
+    },
+    "b": {
+      "count": 8,
+      "mean": 40.0,
+      "median": 40.0,
+      "min": 40.0,
+      "max": 40.0,
+      "stddev": 0.0,
+      "ci95": 0.0
+    },
+    "allocs": {
+      "count": 8,
+      "mean": 2.0,
+      "median": 2.0,
+      "min": 2.0,
+      "max": 2.0,
+      "stddev": 0.0,
+      "ci95": 0.0
+    }
+  }
+}

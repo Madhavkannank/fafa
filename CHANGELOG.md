@@ -2,8 +2,20 @@
 
 All notable changes to the JSBI Go port will be documented in this file.
 
+## [v1.0.0-rc1] - 2026-08-02
+### Added
+- **Final Release Audit & Statistical Campaign Engine**:
+  - Generated Central Metrics Registry in [`verification/METRICS.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/METRICS.md).
+  - Generated Master Verification Campaign index in [`verification/CAMPAIGN.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/CAMPAIGN.md).
+  - Standardized package statement coverage to **88.7%** (`verification/raw/coverage_summary.txt`).
+  - Standardized benchmark figures to 10-iteration `benchstat` statistical analysis (`verification/raw/benchstat_output.txt`).
+  - Added multi-run campaign datasets in `verification/raw/` (`benchmark_campaign.csv`, `coverage_campaign.csv`, `latency_campaign.csv`, `throughput_campaign.csv`, `memory_campaign.csv`).
+  - Added multi-tool static analysis and security audit outputs (`go vet`, `staticcheck`, `golangci-lint`, `govulncheck`, `gosec`).
+  - Verified 100% link resolution and raw artifact traceability across all documentation files.
+
 ## [Unreleased]
 ### Added
+
 - **Cluster 9 — String Formatting (`ToString`) & Exponentiation (`Exponentiate`)**:
   - Implemented `ToString(x *BigInt, radix int) (string, error)` in `src/tostring.go` supporting radices 2–36.
   - Implemented `Exponentiate(x, y *BigInt) (*BigInt, error)` in `src/tostring.go` using binary square-and-multiply algorithm with power-of-two fast paths.

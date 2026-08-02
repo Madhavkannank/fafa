@@ -60,9 +60,6 @@ func main() {
 		default:
 			fmt.Println(ColorRed + "Invalid option. Please select 1-5." + ColorReset)
 		}
-
-		fmt.Println("\n" + ColorYellow + "Press Enter to return to main menu..." + ColorReset)
-		scanner.Scan()
 	}
 }
 

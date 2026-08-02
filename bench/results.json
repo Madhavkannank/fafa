@@ -1,0 +1,188 @@
+{
+  "environment": {
+    "host_os": "Windows 11 Home x64 (Build 22631)",
+    "cpu": "Intel(R) Core(TM) 5 210H (12 logical threads @ 2.20 GHz)",
+    "ram": "16 GB DDR5 Memory",
+    "go_version": "Go 1.22.5",
+    "node_version": "Node.js v18+",
+    "verification_date": "2026-08-02"
+  },
+  "benchmark_campaign": {
+    "runs": 8,
+    "raw_artifact": "verification/raw/benchmark_campaign.csv",
+    "json_artifact": "verification/raw/benchmark_campaign.json",
+    "report": "verification/benchmark_campaign.md"
+  },
+  "coverage": {
+    "statement_coverage_pct": 88.7,
+    "raw_artifact": "verification/raw/coverage_summary.txt",
+    "coverage_profile": "verification/raw/coverage.out",
+    "coverage_html": "verification/raw/coverage.html",
+    "campaign_runs": 8,
+    "campaign_raw_artifact": "verification/raw/coverage_campaign.csv"
+  },
+  "benchmarks": {
+    "benchstat_iterations": 10,
+    "benchstat_raw_artifact": "verification/raw/benchstat_output.txt",
+    "operations": {
+      "ComparePure": {
+        "ns_per_op": 2.723,
+        "variance_pct": 4.0,
+        "bytes_per_op": 0.0,
+        "allocs_per_op": 0.0
+      },
+      "EqualPure": {
+        "ns_per_op": 5.486,
+        "variance_pct": 2.0,
+        "bytes_per_op": 0.0,
+        "allocs_per_op": 0.0
+      },
+      "Add": {
+        "ns_per_op": 55.16,
+        "variance_pct": 2.0,
+        "bytes_per_op": 48.0,
+        "allocs_per_op": 2.0
+      },
+      "Subtract": {
+        "ns_per_op": 46.44,
+        "variance_pct": 1.0,
+        "bytes_per_op": 48.0,
+        "allocs_per_op": 2.0
+      },
+      "Multiply": {
+        "ns_per_op": 94.88,
+        "variance_pct": 2.0,
+        "bytes_per_op": 64.0,
+        "allocs_per_op": 2.0
+      },
+      "Divide": {
+        "ns_per_op": 304.9,
+        "variance_pct": 1.0,
+        "bytes_per_op": 192.0,
+        "allocs_per_op": 8.0
+      },
+      "Remainder": {
+        "ns_per_op": 282.2,
+        "variance_pct": 1.0,
+        "bytes_per_op": 144.0,
+        "allocs_per_op": 6.0
+      },
+      "DivRem": {
+        "ns_per_op": 328.2,
+        "variance_pct": 2.0,
+        "bytes_per_op": 192.0,
+        "allocs_per_op": 8.0
+      },
+      "ToStringDec1Limb": {
+        "ns_per_op": 22.61,
+        "variance_pct": 1.0,
+        "bytes_per_op": 16.0,
+        "allocs_per_op": 1.0
+      },
+      "ToStringHex1Limb": {
+        "ns_per_op": 26.57,
+        "variance_pct": 0.0,
+        "bytes_per_op": 16.0,
+        "allocs_per_op": 2.0
+      },
+      "ToStringDec3Limbs": {
+        "ns_per_op": 1738.0,
+        "variance_pct": 1.0,
+        "bytes_per_op": 1164.0,
+        "allocs_per_op": 71.0
+      },
+      "AsUintN": {
+        "ns_per_op": 34.52,
+        "variance_pct": 1.0,
+        "bytes_per_op": 40.0,
+        "allocs_per_op": 2.0
+      },
+      "AsIntN": {
+        "ns_per_op": 36.62,
+        "variance_pct": 1.0,
+        "bytes_per_op": 40.0,
+        "allocs_per_op": 2.0
+      },
+      "BitwiseNot": {
+        "ns_per_op": 36.62,
+        "variance_pct": 0.0,
+        "bytes_per_op": 48.0,
+        "allocs_per_op": 2.0
+      },
+      "BitwiseAnd": {
+        "ns_per_op": 74.92,
+        "variance_pct": 1.0,
+        "bytes_per_op": 96.0,
+        "allocs_per_op": 4.0
+      },
+      "BitwiseOr": {
+        "ns_per_op": 84.45,
+        "variance_pct": 1.0,
+        "bytes_per_op": 96.0,
+        "allocs_per_op": 4.0
+      },
+      "BitwiseXor": {
+        "ns_per_op": 114.5,
+        "variance_pct": 1.0,
+        "bytes_per_op": 112.0,
+        "allocs_per_op": 5.0
+      }
+    }
+  },
+  "latency": {
+    "runs": 10,
+    "sample_batches_per_run": 5000,
+    "raw_artifact": "verification/raw/latency_campaign.csv",
+    "report": "verification/latency_campaign.md",
+    "p99_tails_ns": {
+      "Compare": 252.61,
+      "Add": 1188.69,
+      "Multiply": 1172.23,
+      "Divide": 6241.14,
+      "ToString_3Limbs": 14399.98
+    }
+  },
+  "throughput": {
+    "runs": 10,
+    "raw_artifact": "verification/raw/throughput_campaign.csv",
+    "report": "verification/throughput_campaign.md",
+    "mean_ops_sec": {
+      "Compare": 115453917.47,
+      "Add": 18315238.65,
+      "Multiply": 16923066.69,
+      "Divide": 2904770.65,
+      "ToString_3Limbs": 535100.44
+    }
+  },
+  "memory": {
+    "runs": 10,
+    "raw_artifact": "verification/raw/memory_campaign.csv",
+    "report": "verification/memory_campaign.md",
+    "baseline_heap_alloc_bytes": 153392.0,
+    "workload_heap_alloc_bytes": 973064.0,
+    "workload_heap_inuse_bytes": 1220608.0,
+    "workload_sys_bytes": 16207872.0,
+    "post_gc_heap_alloc_bytes": 161704.0,
+    "num_gc_collections": 41.0
+  },
+  "fuzzing": {
+    "total_differential_cases": 9696250,
+    "reference_oracle": "Node.js v18+ ESM JSBI oracle (fuzz/harness/oracle.mjs)",
+    "mismatches": 0,
+    "crashes": 0,
+    "panics": 0,
+    "hangs": 0,
+    "equivalence_survival_rate_pct": 100.0,
+    "raw_log": "fuzz/log.txt",
+    "report": "verification/fuzz_campaign.md"
+  },
+  "static_analysis": {
+    "go_vet_issues": 0,
+    "staticcheck_issues": 0,
+    "golangci_lint_issues": 0,
+    "govulncheck_vulnerabilities": 0,
+    "gosec_critical_flaws": 0,
+    "raw_logs": "verification/raw/static/",
+    "report": "verification/static_campaign.md"
+  }
+}

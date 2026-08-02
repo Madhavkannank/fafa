@@ -1,4 +1,16 @@
-track_letter = "C"
+# Port Mortem Metadata File — Hackathon Submission Manifest
+track = "Track C/H — JSBI Go Port"
+repository = "github.com/Madhavkannank/fafa"
+source = "GoogleChromeLabs/jsbi"
 source_url = "https://github.com/GoogleChromeLabs/jsbi"
-kickoff_commit = "5382367c7e3199858d36bb620977e1f90605bcb9"
-kickoff_test_suite_hash = "1309534b7a6d5d89f5340914b244d49eebb8c676d0040eb898570102dd973585"
+kickoff_hash = "5382367c7e3199858d36bb620977e1f90605bcb9"
+language = "Go"
+implementation = "Pure Go static library package jsbi"
+representation = "Sign-magnitude 30-bit digit slice slice ([]uint32) representation"
+completed_clusters = 9
+coverage = 88.7
+fuzz_cases = 9696250
+unsafe = false
+cgo = false
+go_version = "Go 1.22.5"
+verification_date = "2026-08-02"

@@ -97,38 +97,29 @@ Every audited metric below was verified against the corresponding raw artifact s
 ## Repository Layout
 
 ```
-.
-├── Makefile                     # Build, test, bench, fuzz, verify targets
-├── DECISIONS.md                 # 10 architectural decisions in 7-part schema
-├── CHANGELOG.md                 # Change history
-├── README.md                    # Structured technical documentation
-├── src/                         # Pure Go implementation of JSBI BigInt engine
+your-port/
+├── README.md               ← Migration rationale, build instructions & verification index
+├── DECISIONS.md            ← 10 architectural divergence decisions in 7-part schema
+├── CHANGELOG.md            ← One line per meaningful code change
+├── Dockerfile              ← Runnable artifact build & test container manifest
+├── Makefile                ← One-command build, test, bench, fuzz, and verify targets
+├── .port-mortem.toml       ← Track letter, source URL, kickoff hash & submission metadata
+│
+├── src/                    ← Pure Go implementation of JSBI BigInt engine
 ├── tests/
-│   ├── original/                # Unmodified upstream JSBI test files (5/5)
-│   └── port/                    # Go unit, property, stress & verification test suites
+│   ├── original/           ← Unmodified upstream JSBI TypeScript test files (5/5)
+│   └── port/               ← Go unit, property, stress & verification test suites
+│
 ├── fuzz/
-│   ├── harness/                 # Go fuzzer drivers & Node ESM oracle driver
-│   └── log.txt                  # Real fuzzing execution log (9.69M+ cases)
+│   ├── harness/            ← Go fuzzer drivers & Node ESM oracle driver
+│   └── log.txt             ← Real fuzzing log (9,696,250 cases, 0 mismatches)
+│
 ├── bench/
-│   ├── latency/                 # High-resolution percentile latency engine
-│   ├── memory/                  # Runtime MemStats instrumentation tool
-│   └── throughput/              # Operational throughput engine (ops/sec)
-└── verification/
-    ├── METRICS.md               # Central Metrics Registry & Metadata Index
-    ├── CAMPAIGN.md              # Master Verification Campaign Index
-    ├── raw/                     # Raw tool outputs (bench_raw.txt, benchstat_output.txt,
-    │                            # coverage.out, coverage_summary.txt, coverage.html,
-    │                            # cpu.pprof, cpu_top.txt, mem.pprof, mem_top.txt,
-    │                            # escape_analysis.txt, static analysis logs)
-    ├── final_audit.md           # Independent audit report & raw evidence matrix
-    ├── release_audit.md         # Release audit verification report
-    ├── benchmark_report.md      # Statistical benchstat benchmark analysis
-    ├── benchmark_campaign.md    # 8-run benchmark campaign report
-    ├── coverage_campaign.md     # 8-run coverage campaign report
-    ├── latency_campaign.md      # 10-run percentile latency report
-    ├── throughput_campaign.md   # 10-run operational throughput report
-    ├── memory_campaign.md       # 10-run runtime MemStats report
-    ├── test_campaign.md         # 10-run regression suite report
-    ├── static_campaign.md       # Static analysis & vulnerability report
-    └── fuzz_campaign.md         # Differential fuzzing campaign report
+│   ├── methodology.md      ← Measurement methodology & machine specs
+│   └── results.json        ← Machine-readable JSON metrics (p99, throughput, memory, fuzz)
+│
+└── verification/           ← Verification & Audit Campaign artifacts
+    ├── METRICS.md          ← Central Metrics Registry & Metadata Index
+    ├── CAMPAIGN.md         ← Master Verification Campaign Index
+    └── raw/                ← Raw tool outputs (benchstat, coverage, pprof, CSVs, static logs)
 ```

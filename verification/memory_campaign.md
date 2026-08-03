@@ -1,4 +1,4 @@
-# Memory Footprint & MemStats Campaign Report — JSBI Go Port
+# Memory Footprint & MemStats Campaign Report  JSBI Go Port
 
 Campaign: 10 Independent Runtime MemStats Executions across 400,000 mixed operations
 
@@ -16,5 +16,5 @@ Campaign: 10 Independent Runtime MemStats Executions across 400,000 mixed operat
 Runtime heap statistics (`HeapAlloc`, `HeapInuse`, `Sys`) were measured using `runtime.ReadMemStats`; operating-system RSS was not measured due to OS page-cache variance.
 
 ### Raw Artifacts & Traceability
-- CSV Data: [`verification/raw/memory_campaign.csv`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/memory_campaign.csv)
+- CSV Data: [`verification/raw/memory_campaign.csv`](verification/raw/memory_campaign.csv)
 - Measurement Tool: `bench/memory/memory.go`

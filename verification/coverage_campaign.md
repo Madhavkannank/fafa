@@ -23,7 +23,7 @@ Campaign: 8 Independent Statement Coverage Executions
 
 ---
 ### Raw Artifacts & Traceability
-- CSV Data: [`verification/raw/coverage_campaign.csv`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/coverage_campaign.csv)
-- Coverage Profile: [`verification/raw/coverage.out`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/coverage.out)
+- CSV Data: [`verification/raw/coverage_campaign.csv`](verification/raw/coverage_campaign.csv)
+- Coverage Profile: [`verification/raw/coverage.out`](verification/raw/coverage.out)
 - Execution Command: `go test -coverpkg=github.com/Madhavkannank/fafa/src -coverprofile=... ./tests/port/...`
 - Date Generated: 2026-08-02

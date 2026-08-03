@@ -1,4 +1,4 @@
-# Percentile Latency Campaign Report — JSBI Go Port
+# Percentile Latency Campaign Report  JSBI Go Port
 
 Campaign: 10 Independent High-Resolution Percentile Latency Runs (5,000 sample batches/run)
 
@@ -15,5 +15,5 @@ Campaign: 10 Independent High-Resolution Percentile Latency Runs (5,000 sample b
 Windows system clock tick granularity (~15.6ms) causes sub-100ns operation samples to yield 0.00ns median (p50) per-op readings when divided by batch sizes ($500$ to $10,000$ ops/batch). Batch-averaged means and p99 tails reflect true hardware performance.
 
 ### Raw Artifacts & Traceability
-- CSV Data: [`verification/raw/latency_campaign.csv`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/latency_campaign.csv)
+- CSV Data: [`verification/raw/latency_campaign.csv`](verification/raw/latency_campaign.csv)
 - Measurement Tool: `bench/latency/latency.go`

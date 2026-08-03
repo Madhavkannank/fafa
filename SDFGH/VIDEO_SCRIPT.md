@@ -58,9 +58,9 @@
 ---
 
 ### 🧠 PART 4: Architectural Decisions & Cross-Repo Bug Audit (3:45 – 4:30)
-> *"Next, in our repository's [`DECISIONS.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/DECISIONS.md), we documented ten non-trivial architectural decisions following a strict seven-part schema covering context, options, decision rationale, and trade-offs.*
+> *"Next, in our repository's [`DECISIONS.md`](DECISIONS.md), we documented ten non-trivial architectural decisions following a strict seven-part schema covering context, options, decision rationale, and trade-offs.*
 >
-> *"Furthermore, we conducted a cross-repository bug investigation documented in [`SDFGH/BUGS.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/SDFGH/BUGS.md) and indexed in [`Kavinraj696/verified-bugs`](https://github.com/Kavinraj696/verified-bugs), uncovering edge-case behaviors such as negative shift routing panic guards and 30-bit limb sign extension alignment."*
+> *"Furthermore, we conducted a cross-repository bug investigation documented in [`SDFGH/BUGS.md`](SDFGH/BUGS.md) and indexed in [`Kavinraj696/verified-bugs`](https://github.com/Kavinraj696/verified-bugs), uncovering edge-case behaviors such as negative shift routing panic guards and 30-bit limb sign extension alignment."*
 
 ---
 

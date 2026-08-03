@@ -21,27 +21,27 @@ This independent verification audit re-evaluated the entire `github.com/Madhavka
 | **CPU** | Intel(R) Core(TM) 5 210H | System | N/A | 12 logical threads @ 2.20 GHz |
 | **RAM** | 16 GB DDR5 Memory | System | N/A | 16 GB system memory |
 | **Go SDK** | Go 1.22.5 | Executed | N/A | `./go_sdk/go/bin/go.exe` |
-| **10-Run Benchmarks** | `go test -bench -count=10` | Executed | [`verification/raw/bench_raw.txt`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/bench_raw.txt) | **10 runs collected** |
-| **`benchstat` Analysis** | `benchstat` | Executed | [`verification/raw/benchstat_output.txt`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/benchstat_output.txt) | Statistical confidence intervals computed |
-| **Coverage Profile** | `go test -coverprofile` | Executed | [`verification/raw/coverage.out`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/coverage.out) | **88.7% statement coverage** |
-| **Coverage Function Summary** | `go tool cover -func` | Executed | [`verification/raw/coverage_summary.txt`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/coverage_summary.txt) | Function-by-function statement breakdown |
-| **Coverage HTML Report** | `go tool cover -html` | Executed | [`verification/raw/coverage.html`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/coverage.html) | Visual line-by-line coverage HTML |
-| **CPU Profile** | `go test -cpuprofile` | Executed | [`verification/raw/cpu.pprof`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/cpu.pprof) | pprof binary CPU profile |
-| **CPU Hotspot Top List** | `go tool pprof -top` | Executed | [`verification/raw/cpu_top.txt`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/cpu_top.txt) | Top CPU execution functions |
-| **Memory Profile** | `go test -memprofile` | Executed | [`verification/raw/mem.pprof`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/mem.pprof) | pprof binary heap memory profile |
-| **Memory Top Allocations** | `go tool pprof -top` | Executed | [`verification/raw/mem_top.txt`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/mem_top.txt) | Top allocation site functions |
-| **Escape Analysis** | `go build -gcflags="-m"` | Executed | [`verification/raw/escape_analysis.txt`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/escape_analysis.txt) | Compiler inlining & escape analysis |
-| **`go vet`** | `go vet ./src/...` | Executed | [`verification/raw/static/go_vet.txt`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/static/go_vet.txt) | **0 issues found** |
-| **`staticcheck`** | `staticcheck ./src/...` | Executed | [`verification/raw/static/staticcheck.txt`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/static/staticcheck.txt) | **0 issues found** |
-| **`golangci-lint`** | `golangci-lint run` | Executed | [`verification/raw/static/golangci_lint.txt`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/static/golangci_lint.txt) | **0 issues found** |
-| **`govulncheck`** | `govulncheck ./src/...` | Executed | [`verification/raw/static/govulncheck.txt`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/static/govulncheck.txt) | **0 vulnerabilities found** |
-| **`gosec` Security** | `gosec -quiet ./src/...` | Executed | [`verification/raw/static/gosec.txt`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/static/gosec.txt) | 0 high-severity security flaws |
+| **10-Run Benchmarks** | `go test -bench -count=10` | Executed | [`verification/raw/bench_raw.txt`](verification/raw/bench_raw.txt) | **10 runs collected** |
+| **`benchstat` Analysis** | `benchstat` | Executed | [`verification/raw/benchstat_output.txt`](verification/raw/benchstat_output.txt) | Statistical confidence intervals computed |
+| **Coverage Profile** | `go test -coverprofile` | Executed | [`verification/raw/coverage.out`](verification/raw/coverage.out) | **88.7% statement coverage** |
+| **Coverage Function Summary** | `go tool cover -func` | Executed | [`verification/raw/coverage_summary.txt`](verification/raw/coverage_summary.txt) | Function-by-function statement breakdown |
+| **Coverage HTML Report** | `go tool cover -html` | Executed | [`verification/raw/coverage.html`](verification/raw/coverage.html) | Visual line-by-line coverage HTML |
+| **CPU Profile** | `go test -cpuprofile` | Executed | [`verification/raw/cpu.pprof`](verification/raw/cpu.pprof) | pprof binary CPU profile |
+| **CPU Hotspot Top List** | `go tool pprof -top` | Executed | [`verification/raw/cpu_top.txt`](verification/raw/cpu_top.txt) | Top CPU execution functions |
+| **Memory Profile** | `go test -memprofile` | Executed | [`verification/raw/mem.pprof`](verification/raw/mem.pprof) | pprof binary heap memory profile |
+| **Memory Top Allocations** | `go tool pprof -top` | Executed | [`verification/raw/mem_top.txt`](verification/raw/mem_top.txt) | Top allocation site functions |
+| **Escape Analysis** | `go build -gcflags="-m"` | Executed | [`verification/raw/escape_analysis.txt`](verification/raw/escape_analysis.txt) | Compiler inlining & escape analysis |
+| **`go vet`** | `go vet ./src/...` | Executed | [`verification/raw/static/go_vet.txt`](verification/raw/static/go_vet.txt) | **0 issues found** |
+| **`staticcheck`** | `staticcheck ./src/...` | Executed | [`verification/raw/static/staticcheck.txt`](verification/raw/static/staticcheck.txt) | **0 issues found** |
+| **`golangci-lint`** | `golangci-lint run` | Executed | [`verification/raw/static/golangci_lint.txt`](verification/raw/static/golangci_lint.txt) | **0 issues found** |
+| **`govulncheck`** | `govulncheck ./src/...` | Executed | [`verification/raw/static/govulncheck.txt`](verification/raw/static/govulncheck.txt) | **0 vulnerabilities found** |
+| **`gosec` Security** | `gosec -quiet ./src/...` | Executed | [`verification/raw/static/gosec.txt`](verification/raw/static/gosec.txt) | 0 high-severity security flaws |
 
 ---
 
 ## 3. Measured Statistical Benchmarks (`benchstat`)
 
-Data generated from 10 independent test runs saved in [`verification/raw/benchstat_output.txt`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/benchstat_output.txt):
+Data generated from 10 independent test runs saved in [`verification/raw/benchstat_output.txt`](verification/raw/benchstat_output.txt):
 
 | Benchmark Name | Measured Execution Speed | Measured Heap Memory | Measured Allocations | Alloc Variance |
 | :--- | :--- | :--- | :--- | :--- |
@@ -68,8 +68,8 @@ Data generated from 10 independent test runs saved in [`verification/raw/benchst
 ## 4. Statement Coverage Analysis
 
 - **Total Statement Coverage**: **88.7% of statements** across package `github.com/Madhavkannank/fafa/src`.
-- Raw Summary Artifact: [`verification/raw/coverage_summary.txt`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/coverage_summary.txt)
-- Visual HTML Artifact: [`verification/raw/coverage.html`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/coverage.html)
+- Raw Summary Artifact: [`verification/raw/coverage_summary.txt`](verification/raw/coverage_summary.txt)
+- Visual HTML Artifact: [`verification/raw/coverage.html`](verification/raw/coverage.html)
 
 ---
 

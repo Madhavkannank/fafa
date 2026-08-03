@@ -2,13 +2,13 @@
 
 > [!NOTE]
 > **Cross-Repository Bug Audit & Evidence Index**:
-> Verified bug findings and edge-case behavior analyses are documented in [`SDFGH/BUGS.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/SDFGH/BUGS.md) and indexed in [`Kavinraj696/verified-bugs`](https://github.com/Kavinraj696/verified-bugs).
+> Verified bug findings and edge-case behavior analyses are documented in [`SDFGH/BUGS.md`](SDFGH/BUGS.md) and indexed in [`Kavinraj696/verified-bugs`](https://github.com/Kavinraj696/verified-bugs).
 
 - **Upstream Reference**: [`GoogleChromeLabs/jsbi`](https://github.com/GoogleChromeLabs/jsbi) (`5382367c7e3199858d36bb620977e1f90605bcb9`)
 - **Package Path**: `github.com/Madhavkannank/fafa/src`
 - **Go Version**: Go 1.20+ static library (`package jsbi`)
 - **Status**: Functional implementation complete with accompanying verification, benchmarking, fuzzing, and audit artifacts.
-- **License**: [Apache License 2.0](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/LICENSE)
+- **License**: [Apache License 2.0](LICENSE)
 
 ---
 
@@ -18,14 +18,14 @@ The repository includes additional artifacts that correspond to optional evaluat
 
 | Artifact | Evidence |
 | :--- | :--- |
-| **Differential fuzzing** | 9,696,250 differential test cases executed against the Node.js JSBI reference oracle with no observed behavioral mismatches ([`fuzz/log.txt`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/fuzz/log.txt)). |
-| **Memory safety** | No `unsafe` package usage; no CGO dependencies ([`src/`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/src/)). |
-| **Architectural decisions** | [`DECISIONS.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/DECISIONS.md) documents the rationale for implementation choices and intentional divergences. |
-| **Bug investigation** | Cross-repository bug analysis documented in [`SDFGH/BUGS.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/SDFGH/BUGS.md) and cross-referenced in [`verified-bugs`](https://github.com/Kavinraj696/verified-bugs). |
-| **Benchmark evidence** | Statistical benchmark campaigns with raw CSV/JSON datasets and benchstat outputs ([`bench/results.json`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/bench/results.json)). |
-| **Coverage evidence** | Statement coverage reports (88.7% of package statements) and raw coverage profiles included ([`verification/raw/coverage_summary.txt`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/coverage_summary.txt)). |
-| **Static analysis** | `go vet`, `staticcheck`, `golangci-lint`, `govulncheck`, and `gosec` reports included ([`verification/static_campaign.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/static_campaign.md)). |
-| **Reproducibility** | [`Dockerfile`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/Dockerfile), [`Makefile`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/Makefile), and verification pipeline included. |
+| **Differential fuzzing** | 9,696,250 differential test cases executed against the Node.js JSBI reference oracle with no observed behavioral mismatches ([`fuzz/log.txt`](fuzz/log.txt)). |
+| **Memory safety** | No `unsafe` package usage; no CGO dependencies ([`src/`](src/)). |
+| **Architectural decisions** | [`DECISIONS.md`](DECISIONS.md) documents the rationale for implementation choices and intentional divergences. |
+| **Bug investigation** | Cross-repository bug analysis documented in [`SDFGH/BUGS.md`](SDFGH/BUGS.md) and cross-referenced in [`verified-bugs`](https://github.com/Kavinraj696/verified-bugs). |
+| **Benchmark evidence** | Statistical benchmark campaigns with raw CSV/JSON datasets and benchstat outputs ([`bench/results.json`](bench/results.json)). |
+| **Coverage evidence** | Statement coverage reports (88.7% of package statements) and raw coverage profiles included ([`verification/raw/coverage_summary.txt`](verification/raw/coverage_summary.txt)). |
+| **Static analysis** | `go vet`, `staticcheck`, `golangci-lint`, `govulncheck`, and `gosec` reports included ([`verification/static_campaign.md`](verification/static_campaign.md)). |
+| **Reproducibility** | [`Dockerfile`](Dockerfile), [`Makefile`](Makefile), and verification pipeline included. |
 
 ---
 
@@ -64,31 +64,31 @@ make verify
 ---
 
 
-- **Verified Bugs & Edge Cases Audit**: Documented in [`SDFGH/BUGS.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/SDFGH/BUGS.md) and cross-referenced in **[`Kavinraj696/verified-bugs`](https://github.com/Kavinraj696/verified-bugs)** (Bug Hunter Bonus +3).
+- **Verified Bugs & Edge Cases Audit**: Documented in [`SDFGH/BUGS.md`](SDFGH/BUGS.md) and cross-referenced in **[`Kavinraj696/verified-bugs`](https://github.com/Kavinraj696/verified-bugs)** (Bug Hunter Bonus +3).
 
 ## Central Evidence & Artifact Index
 
-For complete execution metadata and raw data traceability, see [`verification/METRICS.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/METRICS.md).
+For complete execution metadata and raw data traceability, see [`verification/METRICS.md`](verification/METRICS.md).
 
 | Evidence Category | Raw Artifact Location | Report Location |
 | :--- | :--- | :--- |
-| **Central Metrics Registry** | [`verification/METRICS.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/METRICS.md) | Authoritative Metadata Index |
-| **Statistical Benchmarks** | [`verification/raw/benchstat_output.txt`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/benchstat_output.txt) | [`verification/benchmark_report.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/benchmark_report.md) |
-| **Benchmark Campaign** | [`verification/raw/benchmark_campaign.csv`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/benchmark_campaign.csv) | [`verification/benchmark_campaign.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/benchmark_campaign.md) |
-| **Statement Coverage** | [`verification/raw/coverage_summary.txt`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/coverage_summary.txt) | [`verification/coverage_campaign.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/coverage_campaign.md) |
-| **Percentile Latency** | [`verification/raw/latency_campaign.csv`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/latency_campaign.csv) | [`verification/latency_campaign.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/latency_campaign.md) |
-| **Operational Throughput** | [`verification/raw/throughput_campaign.csv`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/throughput_campaign.csv) | [`verification/throughput_campaign.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/throughput_campaign.md) |
-| **Runtime Memory Stats** | [`verification/raw/memory_campaign.csv`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/memory_campaign.csv) | [`verification/memory_campaign.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/memory_campaign.md) |
-| **CPU Profile (`pprof`)** | [`verification/raw/cpu_top.txt`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/cpu_top.txt) | [`verification/final_audit.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/final_audit.md) |
-| **Memory Profile (`pprof`)** | [`verification/raw/mem_top.txt`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/mem_top.txt) | [`verification/final_audit.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/final_audit.md) |
-| **Static Code Analysis** | [`verification/raw/static/`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/static/) | [`verification/static_campaign.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/static_campaign.md) |
-| **Differential Fuzzing** | [`fuzz/log.txt`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/fuzz/log.txt) | [`verification/fuzz_campaign.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/fuzz_campaign.md) |
+| **Central Metrics Registry** | [`verification/METRICS.md`](verification/METRICS.md) | Authoritative Metadata Index |
+| **Statistical Benchmarks** | [`verification/raw/benchstat_output.txt`](verification/raw/benchstat_output.txt) | [`verification/benchmark_report.md`](verification/benchmark_report.md) |
+| **Benchmark Campaign** | [`verification/raw/benchmark_campaign.csv`](verification/raw/benchmark_campaign.csv) | [`verification/benchmark_campaign.md`](verification/benchmark_campaign.md) |
+| **Statement Coverage** | [`verification/raw/coverage_summary.txt`](verification/raw/coverage_summary.txt) | [`verification/coverage_campaign.md`](verification/coverage_campaign.md) |
+| **Percentile Latency** | [`verification/raw/latency_campaign.csv`](verification/raw/latency_campaign.csv) | [`verification/latency_campaign.md`](verification/latency_campaign.md) |
+| **Operational Throughput** | [`verification/raw/throughput_campaign.csv`](verification/raw/throughput_campaign.csv) | [`verification/throughput_campaign.md`](verification/throughput_campaign.md) |
+| **Runtime Memory Stats** | [`verification/raw/memory_campaign.csv`](verification/raw/memory_campaign.csv) | [`verification/memory_campaign.md`](verification/memory_campaign.md) |
+| **CPU Profile (`pprof`)** | [`verification/raw/cpu_top.txt`](verification/raw/cpu_top.txt) | [`verification/final_audit.md`](verification/final_audit.md) |
+| **Memory Profile (`pprof`)** | [`verification/raw/mem_top.txt`](verification/raw/mem_top.txt) | [`verification/final_audit.md`](verification/final_audit.md) |
+| **Static Code Analysis** | [`verification/raw/static/`](verification/raw/static/) | [`verification/static_campaign.md`](verification/static_campaign.md) |
+| **Differential Fuzzing** | [`fuzz/log.txt`](fuzz/log.txt) | [`verification/fuzz_campaign.md`](verification/fuzz_campaign.md) |
 
 ---
 
 ## Measured Performance & Verification Summary
 
-Every audited metric below was verified against the corresponding raw artifact saved in [`verification/raw/`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/):
+Every audited metric below was verified against the corresponding raw artifact saved in [`verification/raw/`](verification/raw/):
 
 | Operation | Measured Execution Speed | Measured Heap Memory | Measured Allocations | Evaluation |
 | :--- | :--- | :--- | :--- | :--- |
@@ -115,7 +115,7 @@ Every audited metric below was verified against the corresponding raw artifact s
 > - Statistical benchstat analysis (`benchstat_output.txt`) independently executes `go test -bench=. -benchmem -count=10` containing 10 statistical iterations.
 > - Percentile Latency, Throughput, Memory MemStats, and Regression test campaigns archive 10 runs.
 > 
-> These represent distinct, purpose-built measurement workflows rather than data inconsistencies. See [`verification/METRICS.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/METRICS.md) for full traceability.
+> These represent distinct, purpose-built measurement workflows rather than data inconsistencies. See [`verification/METRICS.md`](verification/METRICS.md) for full traceability.
 
 ---
 
@@ -171,7 +171,7 @@ make demo
 
 ### 2. Customizing the Demo Suite (`demo/main.go`)
 
-The demo CLI is designed to be easily extensible. You can modify or add new test cases in [`demo/main.go`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/demo/main.go):
+The demo CLI is designed to be easily extensible. You can modify or add new test cases in [`demo/main.go`](demo/main.go):
 
 - **Adding Custom Arithmetic Test Cases**:
   Modify `runInteractiveCalculator()` to add custom inputs, new BigInt operations, or change the default test values:

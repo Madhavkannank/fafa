@@ -11,14 +11,14 @@
 
 | Campaign Category | Executions per Run | Total Campaign Runs | Target Report | Raw Data File |
 | :--- | :--- | :--- | :--- | :--- |
-| **Benchmark Campaign** | 17 Benchmarks | 8 Runs | [`benchmark_campaign.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/benchmark_campaign.md) | `benchmark_campaign.csv` / `.json` |
-| **Coverage Campaign** | Full Package | 8 Runs | [`coverage_campaign.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/coverage_campaign.md) | `coverage_campaign.csv` |
-| **Latency Campaign** | 5 Operations | 10 Runs (5,000 batches/run) | [`latency_campaign.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/latency_campaign.md) | `latency_campaign.csv` |
-| **Throughput Campaign** | 5 Operations | 10 Runs | [`throughput_campaign.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/throughput_campaign.md) | `throughput_campaign.csv` |
-| **Memory Campaign** | MemStats | 10 Runs (400,000 ops/run) | [`memory_campaign.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/memory_campaign.md) | `memory_campaign.csv` |
-| **Regression Campaign** | 44 Test Suites | 10 Runs | [`test_campaign.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/test_campaign.md) | `tmp/test_run.log` |
-| **Differential Fuzz Campaign**| 9 Clusters | 9,696,250 Cases | [`fuzz_campaign.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/fuzz_campaign.md) | `fuzz/log.txt` |
-| **Static Analysis Campaign** | 5 Tools | 10 Runs | [`static_campaign.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/static_campaign.md) | `verification/raw/static/` |
+| **Benchmark Campaign** | 17 Benchmarks | 8 Runs | [`benchmark_campaign.md`](verification/benchmark_campaign.md) | `benchmark_campaign.csv` / `.json` |
+| **Coverage Campaign** | Full Package | 8 Runs | [`coverage_campaign.md`](verification/coverage_campaign.md) | `coverage_campaign.csv` |
+| **Latency Campaign** | 5 Operations | 10 Runs (5,000 batches/run) | [`latency_campaign.md`](verification/latency_campaign.md) | `latency_campaign.csv` |
+| **Throughput Campaign** | 5 Operations | 10 Runs | [`throughput_campaign.md`](verification/throughput_campaign.md) | `throughput_campaign.csv` |
+| **Memory Campaign** | MemStats | 10 Runs (400,000 ops/run) | [`memory_campaign.md`](verification/memory_campaign.md) | `memory_campaign.csv` |
+| **Regression Campaign** | 44 Test Suites | 10 Runs | [`test_campaign.md`](verification/test_campaign.md) | `tmp/test_run.log` |
+| **Differential Fuzz Campaign**| 9 Clusters | 9,696,250 Cases | [`fuzz_campaign.md`](verification/fuzz_campaign.md) | `fuzz/log.txt` |
+| **Static Analysis Campaign** | 5 Tools | 10 Runs | [`static_campaign.md`](verification/static_campaign.md) | `verification/raw/static/` |
 
 ---
 ## 2. Total Artifact Inventory

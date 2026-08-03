@@ -12,7 +12,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/Madhavkannank/fafa/src"
+	jsbi "github.com/Madhavkannank/fafa/src"
 )
 
 type TestCaseCluster2 struct {

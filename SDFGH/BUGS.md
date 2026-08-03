@@ -2,7 +2,7 @@
 
 - **Central Bug Proof Repository**: [`Kavinraj696/verified-bugs`](https://github.com/Kavinraj696/verified-bugs)
 - **Target Projects Audited**: All Hackathon Source Repositories across Tracks A through H
-- **Verified JSBI Go Port Integration**: [`SDFGH/BUGS.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/SDFGH/BUGS.md)
+- **Verified JSBI Go Port Integration**: [`SDFGH/BUGS.md`](SDFGH/BUGS.md)
 - **Verification Method**: Multi-language static analysis, differential fuzzing against JavaScript V8 / Node.js ESM reference oracles, and edge-case boundary testing.
 
 ---
@@ -57,5 +57,5 @@ Our central bug audit repository organizes verified bugs across all hackathon tr
 ## 4. Verification Evidence & Traceability
 
 - **Central Bug Proof Repo**: [`https://github.com/Kavinraj696/verified-bugs`](https://github.com/Kavinraj696/verified-bugs)
-- **Local Audit Log**: [`SDFGH/BUGS.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/SDFGH/BUGS.md)
-- **Differential Fuzz Log**: [`fuzz/log.txt`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/fuzz/log.txt) (9,696,250 test cases, 0 mismatches)
+- **Local Audit Log**: [`SDFGH/BUGS.md`](SDFGH/BUGS.md)
+- **Differential Fuzz Log**: [`fuzz/log.txt`](fuzz/log.txt) (9,696,250 test cases, 0 mismatches)

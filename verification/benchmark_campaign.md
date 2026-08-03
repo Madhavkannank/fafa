@@ -24,8 +24,8 @@ Campaign: 8 Independent Benchmark Suite Executions
 
 ---
 ### Raw Artifacts & Traceability
-- CSV Data: [`verification/raw/benchmark_campaign.csv`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/benchmark_campaign.csv)
-- JSON Data: [`verification/raw/benchmark_campaign.json`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/benchmark_campaign.json)
+- CSV Data: [`verification/raw/benchmark_campaign.csv`](verification/raw/benchmark_campaign.csv)
+- JSON Data: [`verification/raw/benchmark_campaign.json`](verification/raw/benchmark_campaign.json)
 - Execution Command: `go test -run '^$' -bench=. -benchmem ./tests/port/...` (8 runs)
 - Date Generated: 2026-08-02
 - Git Commit SHA: `5382367c7e3199858d36bb620977e1f90605bcb9`

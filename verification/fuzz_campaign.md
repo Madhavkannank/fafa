@@ -1,4 +1,4 @@
-# Differential Fuzzing Campaign Report — JSBI Go Port
+# Differential Fuzzing Campaign Report  JSBI Go Port
 
 Campaign: Cumulative Differential Fuzzing Campaign against Live Node.js JSBI Reference Oracle
 
@@ -25,4 +25,4 @@ Campaign: Cumulative Differential Fuzzing Campaign against Live Node.js JSBI Ref
 
 ---
 ### Raw Log Location
-- Fuzzing Execution Log: [`fuzz/log.txt`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/fuzz/log.txt)
+- Fuzzing Execution Log: [`fuzz/log.txt`](fuzz/log.txt)

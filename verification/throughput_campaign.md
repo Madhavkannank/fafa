@@ -1,4 +1,4 @@
-# Operational Throughput Campaign Report — JSBI Go Port
+# Operational Throughput Campaign Report  JSBI Go Port
 
 Campaign: 10 Independent Single-Threaded Throughput Benchmark Runs
 
@@ -12,5 +12,5 @@ Campaign: 10 Independent Single-Threaded Throughput Benchmark Runs
 
 ---
 ### Raw Artifacts & Traceability
-- CSV Data: [`verification/raw/throughput_campaign.csv`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/throughput_campaign.csv)
+- CSV Data: [`verification/raw/throughput_campaign.csv`](verification/raw/throughput_campaign.csv)
 - Measurement Tool: `bench/throughput/throughput.go`

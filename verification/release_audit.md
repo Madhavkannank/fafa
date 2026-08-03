@@ -62,24 +62,24 @@ gosec -quiet ./src/... > verification/raw/static/gosec.txt 2>&1
 
 | Artifact Description | Raw Artifact File Location |
 | :--- | :--- |
-| **10-Run Benchmark Output** | [`verification/raw/bench_raw.txt`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/bench_raw.txt) |
-| **Benchstat Statistical Report** | [`verification/raw/benchstat_output.txt`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/benchstat_output.txt) |
-| **Coverage Profile** | [`verification/raw/coverage.out`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/coverage.out) |
-| **Coverage Function Breakdown** | [`verification/raw/coverage_summary.txt`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/coverage_summary.txt) |
-| **Coverage HTML Report** | [`verification/raw/coverage.html`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/coverage.html) |
-| **CPU Binary Profile** | [`verification/raw/cpu.pprof`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/cpu.pprof) |
-| **CPU Top Functions** | [`verification/raw/cpu_top.txt`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/cpu_top.txt) |
-| **Memory Binary Profile** | [`verification/raw/mem.pprof`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/mem.pprof) |
-| **Memory Top Allocations** | [`verification/raw/mem_top.txt`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/mem_top.txt) |
-| **Escape Analysis Log** | [`verification/raw/escape_analysis.txt`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/escape_analysis.txt) |
-| **Static Analysis Log Directory** | [`verification/raw/static/`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/static/) |
-| **Execution Command Log** | [`verification/verification.log`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/verification.log) |
+| **10-Run Benchmark Output** | [`verification/raw/bench_raw.txt`](verification/raw/bench_raw.txt) |
+| **Benchstat Statistical Report** | [`verification/raw/benchstat_output.txt`](verification/raw/benchstat_output.txt) |
+| **Coverage Profile** | [`verification/raw/coverage.out`](verification/raw/coverage.out) |
+| **Coverage Function Breakdown** | [`verification/raw/coverage_summary.txt`](verification/raw/coverage_summary.txt) |
+| **Coverage HTML Report** | [`verification/raw/coverage.html`](verification/raw/coverage.html) |
+| **CPU Binary Profile** | [`verification/raw/cpu.pprof`](verification/raw/cpu.pprof) |
+| **CPU Top Functions** | [`verification/raw/cpu_top.txt`](verification/raw/cpu_top.txt) |
+| **Memory Binary Profile** | [`verification/raw/mem.pprof`](verification/raw/mem.pprof) |
+| **Memory Top Allocations** | [`verification/raw/mem_top.txt`](verification/raw/mem_top.txt) |
+| **Escape Analysis Log** | [`verification/raw/escape_analysis.txt`](verification/raw/escape_analysis.txt) |
+| **Static Analysis Log Directory** | [`verification/raw/static/`](verification/raw/static/) |
+| **Execution Command Log** | [`verification/verification.log`](verification/verification.log) |
 
 ---
 
 ## 4. Measured Performance Metrics Summary (`benchstat`)
 
-Data directly from [`verification/raw/benchstat_output.txt`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/benchstat_output.txt):
+Data directly from [`verification/raw/benchstat_output.txt`](verification/raw/benchstat_output.txt):
 
 | Operation Benchmark | Measured Execution Speed | Measured Heap Memory | Measured Allocations |
 | :--- | :--- | :--- | :--- |
@@ -111,7 +111,7 @@ Data directly from [`verification/raw/benchstat_output.txt`](file:///c:/Users/ma
 
 2. **Latency $p50 = 0.00\text{ ns}$ Explanation Audit**:
    - *Cause*: Windows OS system clock tick granularity (~15.6ms) truncates sub-nanosecond fractional remainders when dividing small batch durations.
-   - *Fix*: Added explicit methodological note in [`verification/p99_latency_report.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/p99_latency_report.md).
+   - *Fix*: Added explicit methodological note in [`verification/p99_latency_report.md`](verification/p99_latency_report.md).
 
 3. **Memory Footprint Footnote Standard**:
    - *Fix*: Updated memory reports to state: *"Runtime heap statistics (`HeapAlloc`, `HeapInuse`, `Sys`) were measured using `runtime.ReadMemStats`; operating-system RSS was not measured due to OS page-cache variance."*

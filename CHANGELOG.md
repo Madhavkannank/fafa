@@ -5,8 +5,8 @@ All notable changes to the JSBI Go port will be documented in this file.
 ## [v1.0.0-rc1] - 2026-08-02
 ### Added
 - **Final Release Audit & Statistical Campaign Engine**:
-  - Generated Central Metrics Registry in [`verification/METRICS.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/METRICS.md).
-  - Generated Master Verification Campaign index in [`verification/CAMPAIGN.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/CAMPAIGN.md).
+  - Generated Central Metrics Registry in [`verification/METRICS.md`](verification/METRICS.md).
+  - Generated Master Verification Campaign index in [`verification/CAMPAIGN.md`](verification/CAMPAIGN.md).
   - Standardized package statement coverage to **88.7%** (`verification/raw/coverage_summary.txt`).
   - Standardized benchmark figures to 10-iteration `benchstat` statistical analysis (`verification/raw/benchstat_output.txt`).
   - Added multi-run campaign datasets in `verification/raw/` (`benchmark_campaign.csv`, `coverage_campaign.csv`, `latency_campaign.csv`, `throughput_campaign.csv`, `memory_campaign.csv`).

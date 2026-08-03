@@ -19,7 +19,7 @@
 
 ## 2. Measured Benchmark Results with Statistical Confidence (`benchstat`)
 
-All figures below are generated directly from raw command execution saved in [`verification/raw/bench_raw.txt`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/bench_raw.txt) and analyzed via [`verification/raw/benchstat_output.txt`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/benchstat_output.txt):
+All figures below are generated directly from raw command execution saved in [`verification/raw/bench_raw.txt`](verification/raw/bench_raw.txt) and analyzed via [`verification/raw/benchstat_output.txt`](verification/raw/benchstat_output.txt):
 
 | Benchmark Name | Measured Speed (`sec/op`) | Measured Heap Memory (`B/op`) | Measured Allocations (`allocs/op`) | Memory Variance |
 | :--- | :--- | :--- | :--- | :--- |
@@ -45,5 +45,5 @@ All figures below are generated directly from raw command execution saved in [`v
 
 ## 3. Raw Evidence Artifact Verification
 
-- Raw Benchmark Run Output: [`verification/raw/bench_raw.txt`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/bench_raw.txt)
-- Benchstat Statistical Report: [`verification/raw/benchstat_output.txt`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/benchstat_output.txt)
+- Raw Benchmark Run Output: [`verification/raw/bench_raw.txt`](verification/raw/bench_raw.txt)
+- Benchstat Statistical Report: [`verification/raw/benchstat_output.txt`](verification/raw/benchstat_output.txt)

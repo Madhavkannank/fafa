@@ -9,7 +9,7 @@
 
 ## 1. Executive Performance Summary
 
-The performance campaign expanded the repository's empirical evidence suite beyond standard average allocation benchmarks by designing, implementing, and running dedicated, reproducible measurement tools for **Percentile Latency**, **Runtime Memory Footprint**, **Operational Throughput**, and **Library Initialization Cost**. All figures trace directly to raw tool outputs stored under [`verification/raw/`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/).
+The performance campaign expanded the repository's empirical evidence suite beyond standard average allocation benchmarks by designing, implementing, and running dedicated, reproducible measurement tools for **Percentile Latency**, **Runtime Memory Footprint**, **Operational Throughput**, and **Library Initialization Cost**. All figures trace directly to raw tool outputs stored under [`verification/raw/`](verification/raw/).
 
 ---
 
@@ -17,7 +17,7 @@ The performance campaign expanded the repository's empirical evidence suite beyo
 
 ### A. Speed & Allocation Benchmarks (`benchstat` 10 Runs)
 
-Data directly from [`verification/raw/benchstat_output.txt`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/benchstat_output.txt):
+Data directly from [`verification/raw/benchstat_output.txt`](verification/raw/benchstat_output.txt):
 
 | Operation | Measured Execution Speed | Measured Heap Memory | Measured Allocations | Evaluation |
 | :--- | :--- | :--- | :--- | :--- |
@@ -63,18 +63,18 @@ Data directly from [`verification/raw/benchstat_output.txt`](file:///c:/Users/ma
 
 ## 3. Raw Evidence Artifact Locations
 
-All raw evidence files are committed under [`verification/raw/`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/):
-- [`verification/raw/bench_raw.txt`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/bench_raw.txt)
-- [`verification/raw/benchstat_output.txt`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/benchstat_output.txt)
-- [`verification/raw/coverage.out`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/coverage.out)
-- [`verification/raw/coverage_summary.txt`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/coverage_summary.txt)
-- [`verification/raw/coverage.html`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/coverage.html)
-- [`verification/raw/cpu.pprof`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/cpu.pprof)
-- [`verification/raw/cpu_top.txt`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/cpu_top.txt)
-- [`verification/raw/mem.pprof`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/mem.pprof)
-- [`verification/raw/mem_top.txt`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/mem_top.txt)
-- [`verification/raw/escape_analysis.txt`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/escape_analysis.txt)
-- [`verification/raw/static/`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/static/)
+All raw evidence files are committed under [`verification/raw/`](verification/raw/):
+- [`verification/raw/bench_raw.txt`](verification/raw/bench_raw.txt)
+- [`verification/raw/benchstat_output.txt`](verification/raw/benchstat_output.txt)
+- [`verification/raw/coverage.out`](verification/raw/coverage.out)
+- [`verification/raw/coverage_summary.txt`](verification/raw/coverage_summary.txt)
+- [`verification/raw/coverage.html`](verification/raw/coverage.html)
+- [`verification/raw/cpu.pprof`](verification/raw/cpu.pprof)
+- [`verification/raw/cpu_top.txt`](verification/raw/cpu_top.txt)
+- [`verification/raw/mem.pprof`](verification/raw/mem.pprof)
+- [`verification/raw/mem_top.txt`](verification/raw/mem_top.txt)
+- [`verification/raw/escape_analysis.txt`](verification/raw/escape_analysis.txt)
+- [`verification/raw/static/`](verification/raw/static/)
 
 ---
 

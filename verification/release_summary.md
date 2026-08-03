@@ -35,7 +35,7 @@ All 9 functional clusters have been completed, verified against 44 Go test suite
 
 ## 3. Measured Statistical Benchmarks (`benchstat`)
 
-Data directly from [`verification/raw/benchstat_output.txt`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/benchstat_output.txt):
+Data directly from [`verification/raw/benchstat_output.txt`](verification/raw/benchstat_output.txt):
 
 | Operation | Measured Execution Speed | Measured Heap Memory | Measured Allocations | Evaluation |
 | :--- | :--- | :--- | :--- | :--- |
@@ -56,6 +56,6 @@ No behavioral differences were detected during unit testing, regression testing,
 
 - **Outstanding Defects**: 0 open defects.
 - **Unverified Claims**: 0 unverified claims.
-- **Raw Evidence Location**: [`verification/raw/`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/raw/)
+- **Raw Evidence Location**: [`verification/raw/`](verification/raw/)
 
 **Overall Confidence Level: High (backed by empirical evidence)**

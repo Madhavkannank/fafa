@@ -25,4 +25,4 @@
 
 ## Log Verification
 
-All differential fuzzing runs are logged live to [`fuzz/log.txt`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/fuzz/log.txt). Zero failures or mismatches occurred during any harness run.
+All differential fuzzing runs are logged live to [`fuzz/log.txt`](fuzz/log.txt). Zero failures or mismatches occurred during any harness run.

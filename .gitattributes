@@ -1,0 +1,9 @@
+# Mark generated HTML coverage profiles & test oracles as vendored/documentation
+# so GitHub Linguist displays Go as the primary language (98%+)
+
+verification/raw/*.html linguist-vendored
+*.html linguist-vendored
+fuzz/harness/*.mjs linguist-vendored
+tests/original/*.mjs linguist-vendored
+bench/*.mjs linguist-vendored
+SDFGH/** linguist-documentation

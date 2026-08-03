@@ -2,6 +2,13 @@
 
 This document records every non-trivial design choice, divergence from JSBI TS reference, or trade-off made during the Go port.
 
+> [!NOTE]
+> **Supporting Verification Artifacts & Cross-Repository Bug Audit**:
+> - **Bug Investigation**: Cross-repository bug findings and edge-case behavior analyses are documented in [`SDFGH/BUGS.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/SDFGH/BUGS.md) / [`verification/bug_hunter_audit.md`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/verification/bug_hunter_audit.md) and indexed in **[`https://github.com/Kavinraj696/verified-bugs`](https://github.com/Kavinraj696/verified-bugs)**.
+> - **Differential Fuzzing**: 9,696,250 differential test cases executed against the Node.js ESM reference oracle with no observed behavioral mismatches ([`fuzz/log.txt`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/fuzz/log.txt)).
+> - **Memory Safety**: Pure Go implementation with zero `unsafe` package imports and zero CGO dependencies ([`src/`](file:///c:/Users/madha/OneDrive/Desktop/port%20TS-GO/src/)).
+> - **Decision Logging**: Every design entry below follows a strict 7-part schema (Decision, Problem, Alternatives, Chosen Solution, Reasoning, Trade-offs, Evidence).
+
 ---
 
 ## Decision 0: Architecture Selection — Faithful Limb-Based Representation

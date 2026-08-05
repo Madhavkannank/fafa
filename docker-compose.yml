@@ -1,0 +1,7 @@
+services:
+  jsbi-go-verification:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: jsbi-go-verification
+    command: make all

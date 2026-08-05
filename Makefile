@@ -1,4 +1,7 @@
-.PHONY: build test bench fuzz verify demo clean all
+.PHONY: build test bench fuzz verify demo clean all default
+
+default: all
+
 
 GO ?= go
 TMPDIR ?= $(shell pwd)/tmp
